@@ -19,11 +19,7 @@ wpopv('#your-div-id').addClass('your-class').removeClass('your-class');
 
 ## Functions / Usecase
 
-### addClass()
-___Add Custom Class To A HTML Element___
-```javascript
-wpopv('#your-div-id').addClass('your-class')
-```
+Please refer the documentation inside docs folder [Docs](/docs/readme.md)
 
 
 ---
