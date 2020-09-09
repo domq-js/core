@@ -8,6 +8,23 @@ But its directly linked with VanillaJS instead of adding some middleman code
 ## Why ?
 I was very bored with jquery script and wanted to try something else :see_no_evil:.
 
+## Usage
+```html
+<script src="wpopv-dist.js"></script>
+<div id="your-div-id"> some content here.... </div>
+```
+```javascript
+wpopv('#your-div-id').addClass('your-class').removeClass('your-class');
+```
+
+## Functions / Usecase
+
+### addClass()
+___Add Custom Class To A HTML Element___
+```javascript
+wpopv('#your-div-id').addClass('your-class')
+```
+
 
 ---
 
