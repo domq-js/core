@@ -1,0 +1,28 @@
+{
+  "name": "@wponion/pickledvanilla-js",
+  "description": " PickledVanilla wrapper for Vanilla JS ",
+  "version": "0.0.1",
+  "maintainers": [
+    {
+      "name": "Varun Sridharan",
+      "email": "varunsridharan23@gmail.com",
+      "web": "https://varunsridharan.in"
+    }
+  ],
+  "devDependencies": {
+    "easy-gulp-tasker": "*"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "github.com:wponion/pickledvanilla-js.git"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "MIT",
+      "url": "https://github.com/wponion/pickledvanilla-js/blob/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/wponion/pickledvanilla-JS"
+}
