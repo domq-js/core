@@ -1,13 +1,13 @@
-const version                   = '@VERSION',
-	  wponion_pickledvanilla_js = function( selector ) {
-		  // The wpopv object is actually just the init constructor 'enhanced'
-		  // Need init if wpopv is called (just allow error to be thrown if not included)
-		  return new wponion_pickledvanilla_js.fn.init( selector );
-	  };
-
-wponion_pickledvanilla_js.fn = wponion_pickledvanilla_js.prototype = {
-	wpopv: version,
-	constructor: wponion_pickledvanilla_js,
+let wpopv = function( selector, parent = false ) {
+	// The wpopv object is actually just the init constructor 'enhanced'
+	// Need init if wpopv is called (just allow error to be thrown if not included)
+	return new wpopv.fn.init( selector, parent );
 };
 
-export default wponion_pickledvanilla_js;
+wpopv.fn                = wpopv.prototype = {
+	wpopv: '@VERSION',
+	constructor: wpopv,
+};
+wpopv.fn.init           = require( './init.js' ).default;
+wpopv.fn.init.prototype = wpopv.fn;
+export default wpopv;

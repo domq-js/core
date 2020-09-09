@@ -10,7 +10,7 @@ module.exports = {
 	},
 	config: {
 		webpack_prod: {
-			mode: 'production',
+			mode: 'development',//'production',
 			target: 'web',
 			externals: { jquery: 'jQuery' },
 			output: {

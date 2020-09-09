@@ -1,4 +1,4 @@
 const wpopv = require( './wrap.js' ).default;
-export default ( ( global ) => {
+export default ( function( global ) {
 	global.wpopv = global.$wpopv = wpopv;
 } )( window );

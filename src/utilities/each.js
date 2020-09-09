@@ -5,12 +5,8 @@
  * @return {Object} - returns the wpopv object to allow chaining methods.
  */
 export default function( callback ) {
-	if( this.el.length > 1 ) {
-		for( var i = 0; i < this.el.length; i++ ) {
-			callback( this.el[ i ], i );
-		}
-	} else {
-		callback( this.el[ 0 ], 0 );
+	for( var i = 0; i < this.el.length; i++ ) {
+		callback( this.el[ i ] );
 	}
 	return this;
 }
