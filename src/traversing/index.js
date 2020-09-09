@@ -1,4 +1,4 @@
-const core = require( '../core.js' ).default;
+import core from '../core';
 
 /**
  * Find a selector inside elements.

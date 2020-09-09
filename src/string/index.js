@@ -1,4 +1,4 @@
-const core = require( '../core.js' ).default;
+import core from '../core';
 
 /**
  * Convert a string to camelCase.

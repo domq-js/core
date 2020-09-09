@@ -1,11 +1,18 @@
-const core           = require( '../core.js' ).default,
-	  class_func     = require( './class.js' ).default,
-	  effects        = require( './effects.js' ).default;
-core.fn.css          = require( './css.js' ).default;
-core.fn.addClass     = class_func.addClass;
-core.fn.hasClass     = class_func.hasClass;
-core.fn.toggleClass  = class_func.toggleClass;
-core.fn.removeClass  = class_func.removeClass;
-core.fn.replaceClass = class_func.replaceClass;
-core.fn.show         = effects.show;
-core.fn.hide         = effects.hide;
+import core from '../core';
+import addClass from "./class/addClass";
+import hasClass from "./class/hasClass";
+import toggleClass from "./class/toggleClass";
+import removeClass from "./class/removeClass";
+import replaceClass from "./class/replaceClass";
+import show from "./effects/show";
+import hide from "./effects/hide";
+import css from './css';
+
+core.fn.css          = css;
+core.fn.addClass     = addClass;
+core.fn.hasClass     = hasClass;
+core.fn.toggleClass  = toggleClass;
+core.fn.removeClass  = removeClass;
+core.fn.replaceClass = replaceClass;
+core.fn.show         = show;
+core.fn.hide         = hide;

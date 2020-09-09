@@ -1,4 +1,22 @@
-const core = require( '../core' ).default;
+import core from '../core';
+import arrayLike from "./array/arrayLike";
+import flatten from "./array/flatten";
+import isPlainObject from "./array/isPlainObject";
+import each from "./loops/each";
+
+/**
+ * Resuable Methods
+ * @type {function(...[*]=)}
+ */
+core.fn.each = each;
+
+/**
+ * Static Methods.
+ * @type {function(...[*]=)}
+ */
+core.arrayLike = arrayLike;
+core.flatten       = flatten;
+core.isPlainObject = isPlainObject;
 
 /**
  * Validates if Given Object is a WPOPV

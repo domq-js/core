@@ -16,4 +16,4 @@ export default function( selector, parent = false ) {
 
 	this.el = [].slice.call( this.el );
 	return this;
-};
+}

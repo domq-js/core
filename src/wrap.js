@@ -1,21 +1,10 @@
-const wpopv = require( './core.js' ).default;
+import core from './core';
 
-require( './vars.js' ).default;
-require( './attributes/index.js' ).default;
-require( './traversing/index.js' ).default;
-require( './string/index.js' ).default;
-
-/**
- * Loops & Stuff
- */
-wpopv.fn.each = function( callback ) {
-	for( var i = 0; i < this.el.length; i++ ) {
-		callback( this.el[ i ] );
-	}
-	return this;
-};
-require( './utilities/array.js' ).default;
-require( './utilities/index.js' ).default;
+require( './vars.js' );
+require( './attributes/index.js' );
+require( './traversing/index.js' );
+require( './string/index.js' );
+require( './utilities/index.js' );
 
 
-export default wpopv;
+export default core;

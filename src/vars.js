@@ -1,4 +1,5 @@
-const core                = require( './core.js' ).default;
+import core from './core';
+
 core.window               = window;
 core.document             = window.document;
 core.documentElement      = core.document.documentElement;
@@ -6,9 +7,9 @@ core.isIE                 = core.document.documentMode;
 core.arr                  = [];
 core.class2type           = {};
 core.pnum                 = ( /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/ ).source;
-core.rcheckableType       = '/^(?:checkbox|radio)$/i';
+core.rcheckableType       = ( /^(?:checkbox|radio)$/i );
 core.rsingleTag           = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
-core.rnothtmlwhite        = '/[^\x20\t\r\n\f]+/g';
+core.rnothtmlwhite        = ( /[^\x20\t\r\n\f]+/g );
 core.getProto             = Object.getPrototypeOf;
 core.hasOwn               = core.class2type.hasOwnProperty;
 core.fnToString           = core.hasOwn.toString;
@@ -30,6 +31,7 @@ core.ObjectFunctionString = core.fnToString.call( Object );
 core.flat = function( array ) {
 	return core.arr.flat ? core.arr.flat.call( array ) : core.arr.concat.apply( [], array );
 };
+
 /**
  * Validates if given object is a window object.
  * @param obj
