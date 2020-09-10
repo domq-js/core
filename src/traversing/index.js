@@ -42,9 +42,18 @@ core.fn.parents = function( selector ) {
 	this.each( function( el ) {
 		let elFound = self.parents( selector, el );
 		if( elFound ) {
-			console.log( elFound );
 			found = found.concat( core.flatten( elFound ) );
 		}
 	} );
 	return core( found );
+};
+
+/**
+ * Check the current matched set of elements against a selector, element, or jQuery object and return true if at least one of these elements matches the given arguments
+ * @param selector
+ */
+core.fn.is = function( selector ) {
+	return this._each( function( el ) {
+		return ( el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector || el.webkitMatchesSelector || el.oMatchesSelector ).call( el, selector );
+	} );
 };

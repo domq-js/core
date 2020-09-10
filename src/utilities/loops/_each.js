@@ -9,7 +9,10 @@ export default function( callback_or_object, callback = false ) {
 	let object = ( !callback ) ? this.el : callback_or_object;
 	callback   = ( !callback ) ? callback_or_object : callback;
 	for( var i = 0; i < object.length; i++ ) {
-		callback( object[ i ] );
+		let $response = callback( object[ i ] );
+		if( true === $response || false === $response ) {
+			return $response;
+		}
 	}
 	return this;
 }

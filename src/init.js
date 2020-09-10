@@ -4,7 +4,9 @@ export default function( selector, parent = false ) {
 	if( 'object' === typeof selector ) {
 		this.el = ( selector[ 0 ] && selector[ 0 ] instanceof Element ) ? selector : [ selector ];
 	} else if( typeof selector === 'string' ) {
-		if( typeof parent === 'string' ) {
+		if( selector[ 0 ] === '<' && selector[ selector.length - 1 ] === '>' && selector.length >= 3 ) {
+			this.el = window.wpopv.parseHTML( selector );
+		} else if( typeof parent === 'string' ) {
 			let instance = window.wpopv( parent );
 			return instance.find( selector );
 		} else if( window.wpopv.is_wpopv( parent ) ) {
