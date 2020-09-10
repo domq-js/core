@@ -13,5 +13,7 @@ export default {
 	queryEncodeSpace: /%20/g,
 	queryEncodeCRLF: /\r?\n/g,
 	skippable: /file|reset|submit|button|image/i,
-	checkable: /radio|checkbox/i
+	checkable: /radio|checkbox/i,
+	HTMLCDATA: /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g,
+	scriptType: /^$|^module$|\/(java|ecma)script/i
 };

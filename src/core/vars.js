@@ -60,4 +60,5 @@ vars.eventsHover               = {
 	mouseenter: 'mouseover',
 	mouseleave: 'mouseout'
 };
+vars.scriptAttributes          = [ 'type', 'src', 'nonce', 'noModule' ];
 export default vars;
