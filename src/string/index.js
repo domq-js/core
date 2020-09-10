@@ -1,13 +1,9 @@
-import core from '../core';
+import regex from "../regex";
 
-/**
- * Convert a string to camelCase.
- *
- * @param {string} string The string we want to convert.
- * @return {string} - Returns the string formatted in camelCase.
- */
-core.camelCase = function( string ) {
-	return string.replace( /-([a-z])/g, function( _all, letter ) {
-		return letter.toUpperCase();
-	} );
+const stringHandler     = {};
+
+stringHandler.camelCase = function( str ) {
+	return str.replace( regex.camelCase, ( match, letter ) => letter.toUpperCase() );
 };
+
+export default stringHandler;

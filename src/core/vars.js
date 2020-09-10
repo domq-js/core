@@ -1,0 +1,21 @@
+const vars          = {};
+vars.doc            = document;
+vars.win            = window;
+vars.isArray        = Array.isArray;
+vars.ArrayPrototype = Array.prototype;
+vars.docEle         = vars.doc.documentElement;
+vars.createElement  = vars.doc.createElement.bind( vars.doc );
+vars.div            = vars.createElement( 'div' );
+vars.table          = vars.createElement( 'table' );
+vars.tbody          = vars.createElement( 'tbody' );
+vars.tr             = vars.createElement( 'tr' );
+vars.concat         = vars.ArrayPrototype.concat;
+vars.filter         = vars.ArrayPrototype.filter;
+vars.indexOf        = vars.ArrayPrototype.indexOf;
+vars.map            = vars.ArrayPrototype.map;
+vars.push           = vars.ArrayPrototype.push;
+vars.slice          = vars.ArrayPrototype.slice;
+vars.some           = vars.ArrayPrototype.some;
+vars.splice         = vars.ArrayPrototype.splice;
+
+export default vars;

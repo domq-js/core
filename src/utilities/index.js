@@ -1,51 +1,42 @@
-import core from '../core';
-import arrayLike from "./array/arrayLike";
-import flatten from "./array/flatten";
-import isPlainObject from "./array/isPlainObject";
-import each from "./loops/each";
-import _each from "./loops/_each";
+import vars from "../core/vars";
+import core from "../wrap";
+import typechecking from "../core/typechecking";
+import regex from "../regex";
 
-/**
- * Resuable Methods
- * @type {function(...[*]=)}
- */
-core.fn.each = each;
-core.fn._each = _each;
+const utilities  = {},
+	  containers = {
+		  '*': vars.div,
+		  tr: vars.tbody,
+		  td: vars.tr,
+		  th: vars.tr,
+		  thead: vars.table,
+		  tbody: vars.table,
+		  tfoot: vars.table
+	  };
 
-/**
- * Static Methods.
- * @type {function(...[*]=)}
- */
-core.arrayLike = arrayLike;
-core.flatten       = flatten;
-core.isPlainObject = isPlainObject;
 
-/**
- * Validates if Given Object is a WPOPV
- * @param instance
- * @return {string|(function(*=, *=): "default")}
- */
-core.is_wpopv = function( instance ) {
-	return ( typeof instance !== 'undefined' && typeof instance !== 'string' && instance.wpopv );
+utilities.attempt = function( fn, arg ) {
+	try {
+		return fn( arg );
+	} catch( _a ) {
+		return arg;
+	}
 };
 
-/**
- * Validates if Given Object is a jQuery Instance.
- * @param instance
- * @return {*}
- */
-core.is_jquery = function( instance ) {
-	return ( typeof instance !== 'undefined' && typeof instance !== 'string' && instance.jQuery );
+//@TODO: Create elements inside a document fragment, in order to prevent inline event handlers from firing
+//@TODO: Ensure the created elements have the fragment as their parent instead of null, this also ensures we can deal with detatched nodes more reliably
+utilities.parseHTML = function( html ) {
+	if( !typechecking.isString( html ) ) {
+		return [];
+	}
+
+	if( regex.singleTag.test( html ) ) {
+		return [ vars.createElement( RegExp.$1 ) ];
+	}
+	const fragment      = regex.fragment.test( html ) && RegExp.$1,
+		  container     = containers[ fragment ] || containers[ '*' ];
+	container.innerHTML = html;
+	return core( container.childNodes ).detach().get();
 };
 
-
-/**
- * It can parse Given HTML.
- * @param str
- * @return {HTMLCollection}
- */
-core.parseHTML = function( str ) {
-	var tmp            = document.implementation.createHTMLDocument();
-	tmp.body.innerHTML = str;
-	return tmp.body.children;
-};
+export default utilities;
