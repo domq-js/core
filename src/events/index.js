@@ -1,5 +1,5 @@
 import { isNull, isUndefined, isElement, isDocument, isWindow, isString, isFunction } from "../core/typechecking";
-import { each, getSplitValues, matches } from "../helper";
+import { _each, getSplitValues, matches } from "../helper";
 import vars from "../core/vars";
 import { parseEventName, getEventNameBubbling, removeEvent, hasNamespaces, addEvent } from "./helper";
 import core from "../global-var";
@@ -23,7 +23,7 @@ export function off( eventFullName, selector, callback ) {
 			callback = selector;
 			selector = '';
 		}
-		each( getSplitValues( eventFullName ), ( i, eventFullName ) => {
+		_each( getSplitValues( eventFullName ), ( i, eventFullName ) => {
 			const [ nameOriginal, namespaces ] = parseEventName( eventFullName ),
 				  name                         = getEventNameBubbling( nameOriginal );
 
@@ -66,7 +66,7 @@ export function on( eventFullName, selector, data, callback, _one ) {
 		return this;
 	}
 
-	each( getSplitValues( eventFullName ), ( i, eventFullName ) => {
+	_each( getSplitValues( eventFullName ), ( i, eventFullName ) => {
 		const [ nameOriginal, namespaces ] = parseEventName( eventFullName ),
 			  name                         = getEventNameBubbling( nameOriginal ),
 			  isEventHover                 = ( nameOriginal in vars.eventsHover ),

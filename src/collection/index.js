@@ -1,5 +1,5 @@
 import core from "../global-var";
-import { each as _each, getCompareFunction, unique } from "../helper";
+import { _each, getCompareFunction, unique } from "../helper";
 import vars from "../core/vars";
 import { isUndefined } from "../core/typechecking";
 

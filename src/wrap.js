@@ -2,7 +2,7 @@ import vars from './core/vars';
 import core from './setup';
 import stringHandler from "./string/index";
 import utilities from "./utilities/index";
-import { unique, each as _each, extend } from "./helper";
+import { unique, _each, extend } from "./helper";
 import { attr, removeAttr, prop, removeProp, addClass, hasClass, removeClass, toggleClass } from "./attributes/index";
 import css from './css/index';
 import data from './data/index';

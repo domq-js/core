@@ -3,7 +3,7 @@ import { isElement, isDocument, isFunction, isString, isWpopv } from "./core/typ
 import vars from "./core/vars";
 import regex from "./regex";
 
-export function each( arr, callback, _reverse ) {
+export function _each( arr, callback, _reverse ) {
 	if( _reverse ) {
 		let i = arr.length;
 		while( i-- ) {
@@ -91,3 +91,4 @@ export function pluck( arr, prop, deep, until ) {
 export function unique( arr ) {
 	return arr.length > 1 ? vars.filter.call( arr, ( item, index, self ) => vars.indexOf.call( self, item ) === index ) : arr;
 }
+

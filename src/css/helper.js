@@ -1,7 +1,7 @@
 import regex from "../regex";
 import vars from "../core/vars";
 import { isNumeric, isElement } from "../core/typechecking";
-import { each } from "../helper";
+import { _each } from "../helper";
 import stringHandler from "../string/index";
 
 const prefixedProps = {},
@@ -25,7 +25,7 @@ export function getPrefixedProp( prop, isVariable = isCSSVariable( prop ) ) {
 			  propUC = `${propCC[ 0 ].toUpperCase()}${propCC.slice( 1 )}`,
 			  props  = ( `${propCC} ${vars.vendorsPrefixes.join( `${propUC} ` )}${propUC}` ).split( ' ' );
 
-		each( props, ( i, p ) => {
+		_each( props, ( i, p ) => {
 			if( p in style ) {
 				prefixedProps[ prop ] = p;
 				return false;

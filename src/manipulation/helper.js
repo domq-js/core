@@ -1,7 +1,7 @@
 import regex from "../regex";
 import vars from "../core/vars";
 import core from "../wrap";
-import { each } from "../helper";
+import { _each } from "../helper";
 
 function evalScripts( node, doc ) {
 	const collection = core( node );
@@ -12,7 +12,7 @@ function evalScripts( node, doc ) {
 			// Using `documentElement` for broader browser support
 			const script = vars.celem( 'script' );
 			script.text  = ele.textContent.replace( regex.HTMLCDATA, '' );
-			each( vars.scriptAttributes, ( i, attr ) => {
+			_each( vars.scriptAttributes, ( i, attr ) => {
 				if( ele[ attr ] ) {
 					script[ attr ] = ele[ attr ];
 				}
@@ -37,9 +37,9 @@ function insertElement( anchor, target, left, inside, evaluate ) {
 }
 
 export default function insertSelectors( selectors, anchors, inverse, left, inside, reverseLoop1, reverseLoop2, reverseLoop3 ) {
-	each( selectors, ( si, selector ) => {
-		each( core( selector ), ( ti, target ) => {
-			each( core( anchors ), ( ai, anchor ) => {
+	_each( selectors, ( si, selector ) => {
+		_each( core( selector ), ( ti, target ) => {
+			_each( core( anchors ), ( ai, anchor ) => {
 				const anchorFinal = inverse ? target : anchor,
 					  targetFinal = inverse ? anchor : target,
 					  indexFinal  = inverse ? ti : ai;

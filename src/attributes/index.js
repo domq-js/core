@@ -1,6 +1,6 @@
 import { isString, isElement, isNull, isUndefined } from "../core/typechecking";
 import vars from "../core/vars";
-import { each, getSplitValues } from "../helper";
+import { _each, getSplitValues } from "../helper";
 
 /**
  * Element Attributes
@@ -43,7 +43,7 @@ export function removeAttr( attr ) {
 		if( !isElement( ele ) ) {
 			return;
 		}
-		each( attrs, ( i, a ) => ele.removeAttribute( a ) );
+		_each( attrs, ( i, a ) => ele.removeAttribute( a ) );
 	} );
 }
 
@@ -102,7 +102,7 @@ export function toggleClass( cls, force ) {
 		if( !isElement( ele ) ) {
 			return;
 		}
-		each( classes, ( i, c ) => {
+		_each( classes, ( i, c ) => {
 			if( isForce ) {
 				force ? ele.classList.add( c ) : ele.classList.remove( c );
 			} else {

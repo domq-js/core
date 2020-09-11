@@ -1,4 +1,4 @@
-import { each } from "../helper";
+import { _each } from "../helper";
 import { queryEncode, getValue } from "./helper";
 import { isUndefined, isNull } from "../core/typechecking";
 import regex from "../regex";
@@ -7,7 +7,7 @@ import vars from "../core/vars";
 export function serialize() {
 	let query = '';
 	this.each( ( i, ele ) => {
-		each( ele.elements || [ ele ], ( i, ele ) => {
+		_each( ele.elements || [ ele ], ( i, ele ) => {
 			if( ele.disabled || !ele.name || ele.tagName === 'FIELDSET' || regex.skippable.test( ele.type ) || ( regex.checkable.test( ele.type ) && !ele.checked ) ) {
 				return;
 			}
@@ -15,7 +15,7 @@ export function serialize() {
 			const value = getValue( ele );
 			if( !isUndefined( value ) ) {
 				const values = vars.isArray( value ) ? value : [ value ];
-				each( values, ( i, value ) => {
+				_each( values, ( i, value ) => {
 					query += queryEncode( ele.name, value );
 				} );
 			}
@@ -33,7 +33,7 @@ export function val( value ) {
 		if( isSelect || regex.checkable.test( ele.type ) ) {
 			const eleValue = vars.isArray( value ) ? vars.map.call( value, String ) : ( isNull( value ) ? [] : [ String( value ) ] );
 			if( isSelect ) {
-				each( ele.options, ( i, option ) => {
+				_each( ele.options, ( i, option ) => {
 					option.selected = eleValue.indexOf( option.value ) >= 0;
 				}, true );
 			} else {
