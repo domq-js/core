@@ -1,18 +1,18 @@
 import regex from "../regex";
-import vars from "../core/vars";
+import { scriptAttributes, docEle, celem } from "../core/vars";
 import core from "../wrap";
 import { each } from "../helper";
 
 function evalScripts( node, doc ) {
 	const collection = core( node );
 	collection.filter( 'script' ).add( collection.find( 'script' ) ).each( ( i, ele ) => {
-		if( regex.scriptType.test( ele.type ) && vars.docEle.contains( ele ) ) {
+		if( regex.scriptType.test( ele.type ) && docEle.contains( ele ) ) {
 			// The script type is supported
 			// The element is attached to the DOM
 			// Using `documentElement` for broader browser support
-			const script = vars.celem( 'script' );
+			const script = celem( 'script' );
 			script.text  = ele.textContent.replace( regex.HTMLCDATA, '' );
-			each( vars.scriptAttributes, ( i, attr ) => {
+			each( scriptAttributes, ( i, attr ) => {
 				if( ele[ attr ] ) {
 					script[ attr ] = ele[ attr ];
 				}

@@ -2,7 +2,7 @@ import { each } from "../helper";
 import { queryEncode, getValue } from "./helper";
 import { isUndefined, isNull } from "../core/typechecking";
 import regex from "../regex";
-import vars from "../core/vars";
+import { isArray, map } from "../core/vars";
 
 export function serialize() {
 	let query = '';
@@ -14,7 +14,7 @@ export function serialize() {
 
 			const value = getValue( ele );
 			if( !isUndefined( value ) ) {
-				const values = vars.isArray( value ) ? value : [ value ];
+				const values = isArray( value ) ? value : [ value ];
 				each( values, ( i, value ) => {
 					query += queryEncode( ele.name, value );
 				} );
@@ -31,7 +31,7 @@ export function val( value ) {
 	return this.each( ( i, ele ) => {
 		const isSelect = ele.multiple && ele.options;
 		if( isSelect || regex.checkable.test( ele.type ) ) {
-			const eleValue = vars.isArray( value ) ? vars.map.call( value, String ) : ( isNull( value ) ? [] : [ String( value ) ] );
+			const eleValue = isArray( value ) ? map.call( value, String ) : ( isNull( value ) ? [] : [ String( value ) ] );
 			if( isSelect ) {
 				each( ele.options, ( i, option ) => {
 					option.selected = eleValue.indexOf( option.value ) >= 0;

@@ -1,7 +1,7 @@
 import { isElement, isUndefined } from "../core/typechecking";
 import { computeStyle } from "../css/helper";
 import { getDefaultDisplay, isHidden } from './helper';
-import vars from "../core/vars";
+import { displayProperty } from "../core/vars";
 
 export function hide() {
 	return this.toggle( false );
@@ -20,13 +20,13 @@ export function toggle( force ) {
 		const show = isUndefined( force ) ? isHidden( ele ) : force;
 
 		if( show ) {
-			ele.style.display = ele[ vars.displayProperty ] || '';
+			ele.style.display = ele[ displayProperty ] || '';
 			if( isHidden( ele ) ) {
 				ele.style.display = getDefaultDisplay( ele.tagName );
 			}
 		} else {
-			ele[ vars.displayProperty ] = computeStyle( ele, 'display' );
-			ele.style.display           = 'none';
+			ele[ displayProperty ] = computeStyle( ele, 'display' );
+			ele.style.display      = 'none';
 		}
 	} );
 }

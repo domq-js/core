@@ -1,6 +1,6 @@
-import { getCompareFunction, filtered, unique, pluck, find as _find} from "../helper";
+import { getCompareFunction, filtered, unique, pluck, find as _find } from "../helper";
 import { isString, isElement } from "../core/typechecking";
-import vars from "../core/vars";
+import { some } from "../core/vars";
 import core from "../global-var";
 
 export function children( comparator ) {
@@ -34,7 +34,7 @@ export function has( selector ) {
 
 export function is( comparator ) {
 	const compare = getCompareFunction( comparator );
-	return vars.some.call( this, ( ele, i ) => compare.call( ele, i, ele ) );
+	return some.call( this, ( ele, i ) => compare.call( ele, i, ele ) );
 }
 
 export function next( comparator, _all, _until ) {

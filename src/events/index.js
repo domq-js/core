@@ -1,6 +1,6 @@
 import { isNull, isUndefined, isElement, isDocument, isWindow, isString, isFunction } from "../core/typechecking";
 import { each, getSplitValues, matches } from "../helper";
-import vars from "../core/vars";
+import { doc, eventsFocus, eventsHover, eventsNamespacesSeparator } from "../core/vars";
 import { parseEventName, getEventNameBubbling, removeEvent, hasNamespaces, addEvent } from "./helper";
 import core from "../global-var";
 import regex from "../regex";
@@ -69,8 +69,8 @@ export function on( eventFullName, selector, data, callback, _one ) {
 	each( getSplitValues( eventFullName ), ( i, eventFullName ) => {
 		const [ nameOriginal, namespaces ] = parseEventName( eventFullName ),
 			  name                         = getEventNameBubbling( nameOriginal ),
-			  isEventHover                 = ( nameOriginal in vars.eventsHover ),
-			  isEventFocus                 = ( nameOriginal in vars.eventsFocus );
+			  isEventHover                 = ( nameOriginal in eventsHover ),
+			  isEventFocus                 = ( nameOriginal in eventsFocus );
 
 		if( !name ) {
 			return;
@@ -86,7 +86,7 @@ export function on( eventFullName, selector, data, callback, _one ) {
 					return event.stopImmediatePropagation();
 				}
 
-				if( event.namespace && !hasNamespaces( namespaces, event.namespace.split( vars.eventsNamespacesSeparator ) ) ) {
+				if( event.namespace && !hasNamespaces( namespaces, event.namespace.split( eventsNamespacesSeparator ) ) ) {
 					return;
 				}
 
@@ -153,10 +153,10 @@ export function one( eventFullName, selector, data, callback ) {
 export function ready( callback ) {
 	const cb = () => setTimeout( callback, 0, core );
 
-	if( vars.doc.readyState !== 'loading' ) {
+	if( doc.readyState !== 'loading' ) {
 		cb();
 	} else {
-		vars.doc.addEventListener( 'DOMContentLoaded', cb );
+		doc.addEventListener( 'DOMContentLoaded', cb );
 	}
 	return this;
 }
@@ -171,15 +171,15 @@ export function trigger( event, data ) {
 		}
 
 		const type = regex.eventsMouse.test( name ) ? 'MouseEvents' : 'HTMLEvents';
-		event      = vars.doc.createEvent( type );
+		event      = doc.createEvent( type );
 		event.initEvent( name, true, true );
-		event.namespace = namespaces.join( vars.eventsNamespacesSeparator );
+		event.namespace = namespaces.join( eventsNamespacesSeparator );
 		event.___ot     = nameOriginal;
 
 	}
 
 	event.___td        = data;
-	const isEventFocus = ( event.___ot in vars.eventsFocus );
+	const isEventFocus = ( event.___ot in eventsFocus );
 
 	return this.each( ( i, ele ) => {
 		if( isEventFocus && isFunction( ele[ event.___ot ] ) ) {

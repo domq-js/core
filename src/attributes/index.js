@@ -1,5 +1,5 @@
 import { isString, isElement, isNull, isUndefined } from "../core/typechecking";
-import vars from "../core/vars";
+import { some, propMap } from "../core/vars";
 import { each, getSplitValues } from "../helper";
 
 /**
@@ -56,7 +56,7 @@ export function prop( prop, value ) {
 	}
 
 	if( isString( prop ) ) {
-		prop = vars.propMap[ prop ] || prop;
+		prop = propMap[ prop ] || prop;
 		if( arguments.length < 2 ) {
 			return this[ 0 ] && this[ 0 ][ prop ];
 		}
@@ -72,7 +72,7 @@ export function prop( prop, value ) {
 
 export function removeProp( prop ) {
 	return this.each( ( i, ele ) => {
-		let key    = vars.propMap[ prop ] || prop;
+		let key    = propMap[ prop ] || prop;
 		ele[ key ] = null;
 		delete ele[ key ];
 	} );
@@ -86,7 +86,7 @@ export function addClass( cls ) {
 }
 
 export function hasClass( cls ) {
-	return !!cls && vars.some.call( this, ( ele ) => isElement( ele ) && ele.classList.contains( cls ) );
+	return !!cls && some.call( this, ( ele ) => isElement( ele ) && ele.classList.contains( cls ) );
 }
 
 export function removeClass( cls ) {

@@ -1,6 +1,6 @@
 import core from "./global-var";
 import { isElement, isDocument, isFunction, isString, isWpopv } from "./core/typechecking";
-import vars from "./core/vars";
+import { push, filter, indexOf } from "./core/vars";
 import regex from "./regex";
 
 export function each( arr, callback, _reverse ) {
@@ -72,7 +72,7 @@ export function pluck( arr, prop, deep, until ) {
 		if( isCallback ) {
 			const val = prop( arr[ i ] );
 			if( val.length ) {
-				vars.push.apply( plucked, val );
+				push.apply( plucked, val );
 			}
 		} else {
 			let val = arr[ i ][ prop ];
@@ -89,5 +89,5 @@ export function pluck( arr, prop, deep, until ) {
 }
 
 export function unique( arr ) {
-	return arr.length > 1 ? vars.filter.call( arr, ( item, index, self ) => vars.indexOf.call( self, item ) === index ) : arr;
+	return arr.length > 1 ? filter.call( arr, ( item, index, self ) => indexOf.call( self, item ) === index ) : arr;
 }
