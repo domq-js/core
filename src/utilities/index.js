@@ -1,23 +1,17 @@
-import {
-	div,
-	tbody,
-	tr,
-	celem,
-	table,
-} from "../core/vars";
+import v from "../core/vars";
 import core from "../global-var";
 import { isString } from "../core/typechecking";
 import regex from "../regex";
 
 const utilities  = {},
 	  containers = {
-		  '*': div,
-		  tr: tbody,
-		  td: tr,
-		  th: tr,
-		  thead: table,
-		  tbody: table,
-		  tfoot: table
+		  '*': v.div,
+		  tr: v.tbody,
+		  td: v.tr,
+		  th: v.tr,
+		  thead: v.table,
+		  tbody: v.table,
+		  tfoot: v.table
 	  };
 
 
@@ -37,7 +31,7 @@ utilities.parseHTML = function( html ) {
 	}
 
 	if( regex.singleTag.test( html ) ) {
-		return [ celem( RegExp.$1 ) ];
+		return [ v.celem( RegExp.$1 ) ];
 	}
 	const fragment      = regex.fragment.test( html ) && RegExp.$1,
 		  container     = containers[ fragment ] || containers[ '*' ];

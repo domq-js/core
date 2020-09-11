@@ -1,4 +1,4 @@
-import { ArrayProp, splice } from './core/vars';
+import v from './core/vars';
 import core from './setup';
 import stringHandler from "./string/index";
 import utilities from "./utilities/index";
@@ -58,14 +58,14 @@ const fn = core.fn;
 
 // Ensuring a cash collection is iterable
 if( typeof Symbol === 'function' ) {
-	fn[ Symbol.iterator ] = ArrayProp[ Symbol.iterator ];
+	fn[ Symbol.iterator ] = v.ArrayProp[ Symbol.iterator ];
 }
 
 /**
  * Dynamic Functions.
  */
 fn.length = 0;
-fn.splice = splice;
+fn.splice = v.splice;
 fn.extend = function( plugins ) {
 	return extend( fn, plugins );
 };

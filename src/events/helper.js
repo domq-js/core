@@ -1,4 +1,4 @@
-import { eventsFocus, eventsHover, eventsNamespace, eventsNamespacesSeparator, some } from "../core/vars";
+import v from "../core/vars";
 
 export function removeEvent( ele, name, namespaces, selector, callback ) {
 	const cache = getEventsCache( ele );
@@ -19,21 +19,21 @@ export function removeEvent( ele, name, namespaces, selector, callback ) {
 }
 
 export function parseEventName( eventName ) {
-	const parts = eventName.split( eventsNamespacesSeparator );
+	const parts = eventName.split( v.eventsNamespacesSeparator );
 	return [ parts[ 0 ], parts.slice( 1 ).sort() ];
 	// [name, namespace[]]
 }
 
 export function hasNamespaces( ns1, ns2 ) {
-	return !ns2 || !some.call( ns2, ( ns ) => ns1.indexOf( ns ) < 0 );
+	return !ns2 || !v.some.call( ns2, ( ns ) => ns1.indexOf( ns ) < 0 );
 }
 
 export function getEventsCache( ele ) {
-	return ele[ eventsNamespace ] = ( ele[ eventsNamespace ] || {} );
+	return ele[ v.eventsNamespace ] = ( ele[ v.eventsNamespace ] || {} );
 }
 
 export function getEventNameBubbling( name ) {
-	return eventsHover[ name ] || eventsFocus[ name ] || name;
+	return v.eventsHover[ name ] || v.eventsFocus[ name ] || name;
 }
 
 export function addEvent( ele, name, namespaces, selector, callback ) {

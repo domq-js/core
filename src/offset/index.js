@@ -1,4 +1,4 @@
-import { docEle, win } from "../core/vars";
+import v from "../core/vars";
 import { computeStyleInt, computeStyle } from "../css/helper";
 import { isElement } from "../core/typechecking";
 import core from "../global-var";
@@ -12,8 +12,8 @@ export function offset() {
 
 	const rect = ele.getBoundingClientRect();
 	return {
-		top: rect.top + win.pageYOffset,
-		left: rect.left + win.pageXOffset
+		top: rect.top + v.win.pageYOffset,
+		left: rect.left + v.win.pageXOffset
 	};
 }
 
@@ -23,7 +23,7 @@ export function offsetParent() {
 		while( offsetParent && computeStyle( offsetParent, 'position' ) === 'static' ) {
 			offsetParent = offsetParent.offsetParent;
 		}
-		return offsetParent || docEle;
+		return offsetParent || v.docEle;
 	} );
 }
 

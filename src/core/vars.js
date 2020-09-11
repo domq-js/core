@@ -1,23 +1,24 @@
-export var doc                       = document;
-export var win                       = window;
-export var isArray                   = Array.isArray;
-export var ArrayProp                 = Array.prototype;
-export var docEle                    = doc.documentElement;
-export var celem                     = doc.createElement.bind( doc );
-export var div                       = celem( 'div' );
-export var table                     = celem( 'table' );
-export var tbody                     = celem( 'tbody' );
-export var tr                        = celem( 'tr' );
-export var concat                    = ArrayProp.concat;
-export var filter                    = ArrayProp.filter;
-export var indexOf                   = ArrayProp.indexOf;
-export var map                       = ArrayProp.map;
-export var push                      = ArrayProp.push;
-export var slice                     = ArrayProp.slice;
-export var some                      = ArrayProp.some;
-export var splice                    = ArrayProp.splice;
-export var displayProperty           = '___cd';
-export var propMap                   = {
+const v                     = {  };
+v.doc                       = document;
+v.win                       = window;
+v.isArray                   = Array.isArray;
+v.ArrayProp                 = Array.prototype;
+v.docEle                    = v.doc.documentElement;
+v.celem                     = v.doc.createElement.bind( v.doc );
+v.div                       = v.celem( 'div' );
+v.table                     = v.celem( 'table' );
+v.tbody                     = v.celem( 'tbody' );
+v.tr                        = v.celem( 'tr' );
+v.concat                    = v.ArrayProp.concat;
+v.filter                    = v.ArrayProp.filter;
+v.indexOf                   = v.ArrayProp.indexOf;
+v.map                       = v.ArrayProp.map;
+v.push                      = v.ArrayProp.push;
+v.slice                     = v.ArrayProp.slice;
+v.some                      = v.ArrayProp.some;
+v.splice                    = v.ArrayProp.splice;
+v.displayProperty           = '___cd';
+v.propMap                   = {
 	class: 'className', // General
 	contenteditable: 'contentEditable', // General
 	for: 'htmlFor', // Label
@@ -28,8 +29,8 @@ export var propMap                   = {
 	rowspan: 'rowSpan', // Table
 	usemap: 'useMap' // Image
 };
-export var vendorsPrefixes           = [ 'webkit', 'moz', 'ms' ];
-export var numericProps              = {
+v.vendorsPrefixes           = [ 'webkit', 'moz', 'ms' ];
+v.numericProps              = {
 	animationIterationCount: true,
 	columnCount: true,
 	flexGrow: true,
@@ -49,14 +50,17 @@ export var numericProps              = {
 	widows: true,
 	zIndex: true
 };
-export var eventsNamespace           = '___ce';
-export var eventsNamespacesSeparator = '.';
-export var eventsFocus               = {
+v.eventsNamespace           = '___ce';
+v.eventsNamespacesSeparator = '.';
+v.eventsFocus               = {
 	focus: 'focusin',
 	blur: 'focusout'
 };
-export var eventsHover               = {
+v.eventsHover               = {
 	mouseenter: 'mouseover',
 	mouseleave: 'mouseout'
 };
-export var scriptAttributes          = [ 'type', 'src', 'nonce', 'noModule' ];
+v.scriptAttributes          = [ 'type', 'src', 'nonce', 'noModule' ];
+
+
+export default v;
