@@ -1,9 +1,5 @@
-import filtered from "../core/filtered";
-import unique from "../core/unique";
-import pluck from "../core/pluck";
-import find from "../core/find";
+import { getCompareFunction, filtered, unique, pluck, find } from "../helper";
 import { isString, isElement } from "../core/typechecking";
-import getCompareFunction from "../core/get_compare_function";
 import vars from "../core/vars";
 import core from "../wrap";
 

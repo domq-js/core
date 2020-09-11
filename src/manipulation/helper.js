@@ -1,7 +1,7 @@
 import regex from "../regex";
 import vars from "../core/vars";
 import core from "../wrap";
-import each from "../core/each";
+import { each } from "../helper";
 
 function evalScripts( node, doc ) {
 	const collection = core( node );

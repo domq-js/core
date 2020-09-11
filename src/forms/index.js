@@ -1,4 +1,4 @@
-import each from "../core/each";
+import {each} from "../helper";
 import { queryEncode, getValue } from "./helper";
 import { isUndefined, isNull } from "../core/typechecking";
 import regex from "../regex";

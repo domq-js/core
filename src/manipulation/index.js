@@ -1,5 +1,5 @@
 import insertSelectors from "./helper";
-import filtered from "../core/filtered";
+import { filtered } from "../helper";
 import { isUndefined, isElement } from "../core/typechecking";
 import core from "../wrap";
 

@@ -1,7 +1,5 @@
 import core from "../wrap";
-import unique from "../core/unique";
-import each from "../core/each";
-import getCompareFunction from "../core/get_compare_function";
+import { each, getCompareFunction, unique } from "../helper";
 import vars from "../core/vars";
 import { isUndefined } from "../core/typechecking";
 

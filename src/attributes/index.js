@@ -1,7 +1,6 @@
-import { isString,isElement,isNull,isUndefined } from "../core/typechecking";
+import { isString, isElement, isNull, isUndefined } from "../core/typechecking";
 import vars from "../core/vars";
-import getSplitValues from "../core/get_split_values";
-import each from "../core/each";
+import { each, getSplitValues } from "../helper";
 
 const attr = {};
 
@@ -73,9 +72,9 @@ attr.prop = function( prop, value ) {
 };
 attr.removeProp = function( prop ) {
 	return this.each( ( i, ele ) => {
-		let key = vars.propMap[ prop ] || prop;
-		ele[key] = null;
-		delete ele[key];
+		let key    = vars.propMap[ prop ] || prop;
+		ele[ key ] = null;
+		delete ele[ key ];
 	} );
 };
 

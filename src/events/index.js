@@ -1,8 +1,6 @@
 import { isNull, isUndefined, isElement, isDocument, isWindow, isString, isFunction } from "../core/typechecking";
-import getSplitValues from "../core/get_split_values";
-import each from "../core/each";
+import { each, getSplitValues, matches } from "../helper";
 import vars from "../core/vars";
-import matches from "../core/matches";
 import { parseEventName, getEventNameBubbling, removeEvent, hasNamespaces, addEvent } from "./helper";
 import core from "../wrap";
 import regex from "../regex";

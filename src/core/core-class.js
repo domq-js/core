@@ -1,7 +1,7 @@
 import { isWpopv, isString, isFunction } from './typechecking';
 import vars from './vars';
 import utilities from '../utilities';
-import find from './find';
+import { find } from '../helper';
 import regex from "../regex";
 
 class PickledVanilla {

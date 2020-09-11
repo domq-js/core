@@ -1,7 +1,7 @@
 import regex from "../regex";
 import vars from "../core/vars";
 import { isNumeric, isElement } from "../core/typechecking";
-import each from "../core/each";
+import { each } from "../helper";
 import stringHandler from "../string";
 
 const prefixedProps = {},
