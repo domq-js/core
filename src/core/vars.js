@@ -1,24 +1,23 @@
-const vars                     = {};
-vars.doc                       = document;
-vars.win                       = window;
-vars.isArray                   = Array.isArray;
-vars.ArrayProp                 = Array.prototype;
-vars.docEle                    = vars.doc.documentElement;
-vars.celem                     = vars.doc.createElement.bind( vars.doc );
-vars.div                       = vars.celem( 'div' );
-vars.table                     = vars.celem( 'table' );
-vars.tbody                     = vars.celem( 'tbody' );
-vars.tr                        = vars.celem( 'tr' );
-vars.concat                    = vars.ArrayProp.concat;
-vars.filter                    = vars.ArrayProp.filter;
-vars.indexOf                   = vars.ArrayProp.indexOf;
-vars.map                       = vars.ArrayProp.map;
-vars.push                      = vars.ArrayProp.push;
-vars.slice                     = vars.ArrayProp.slice;
-vars.some                      = vars.ArrayProp.some;
-vars.splice                    = vars.ArrayProp.splice;
-vars.displayProperty           = '___cd';
-vars.propMap                   = {
+export var doc                       = document;
+export var win                       = window;
+export var isArray                   = Array.isArray;
+export var ArrayProp                 = Array.prototype;
+export var docEle                    = doc.documentElement;
+export var celem                     = doc.createElement.bind( doc );
+export var div                       = celem( 'div' );
+export var table                     = celem( 'table' );
+export var tbody                     = celem( 'tbody' );
+export var tr                        = celem( 'tr' );
+export var concat                    = ArrayProp.concat;
+export var filter                    = ArrayProp.filter;
+export var indexOf                   = ArrayProp.indexOf;
+export var map                       = ArrayProp.map;
+export var push                      = ArrayProp.push;
+export var slice                     = ArrayProp.slice;
+export var some                      = ArrayProp.some;
+export var splice                    = ArrayProp.splice;
+export var displayProperty           = '___cd';
+export var propMap                   = {
 	class: 'className', // General
 	contenteditable: 'contentEditable', // General
 	for: 'htmlFor', // Label
@@ -29,8 +28,8 @@ vars.propMap                   = {
 	rowspan: 'rowSpan', // Table
 	usemap: 'useMap' // Image
 };
-vars.vendorsPrefixes           = [ 'webkit', 'moz', 'ms' ];
-vars.numericProps              = {
+export var vendorsPrefixes           = [ 'webkit', 'moz', 'ms' ];
+export var numericProps              = {
 	animationIterationCount: true,
 	columnCount: true,
 	flexGrow: true,
@@ -50,17 +49,14 @@ vars.numericProps              = {
 	widows: true,
 	zIndex: true
 };
-vars.eventsNamespace           = '___ce';
-vars.eventsNamespacesSeparator = '.';
-vars.eventsFocus               = {
+export var eventsNamespace           = '___ce';
+export var eventsNamespacesSeparator = '.';
+export var eventsFocus               = {
 	focus: 'focusin',
 	blur: 'focusout'
 };
-vars.eventsHover               = {
+export var eventsHover               = {
 	mouseenter: 'mouseover',
 	mouseleave: 'mouseout'
 };
-vars.scriptAttributes          = [ 'type', 'src', 'nonce', 'noModule' ];
-export default vars;
-
-
+export var scriptAttributes          = [ 'type', 'src', 'nonce', 'noModule' ];
