@@ -1,6 +1,6 @@
 import regex from "../regex";
 import vars from "../core/vars";
-import typechecking from "../core/typechecking";
+import { isNumeric, isElement } from "../core/typechecking";
 import each from "../core/each";
 import stringHandler from "../string";
 
@@ -12,7 +12,7 @@ export function isCSSVariable( prop ) {
 }
 
 export function getSuffixedValue( prop, value, isVariable = isCSSVariable( prop ) ) {
-	return !isVariable && !vars.numericProps[ prop ] && typechecking.isNumeric( value ) ? `${value}px` : value;
+	return !isVariable && !vars.numericProps[ prop ] && isNumeric( value ) ? `${value}px` : value;
 }
 
 export function getPrefixedProp( prop, isVariable = isCSSVariable( prop ) ) {
@@ -40,7 +40,7 @@ export function computeStyleInt( ele, prop ) {
 }
 
 export function computeStyle( ele, prop, isVariable ) {
-	if( !typechecking.isElement( ele ) ) {
+	if( !isElement( ele ) ) {
 		return;
 	}
 	const style = vars.win.getComputedStyle( ele, null );

@@ -1,4 +1,4 @@
-import typechecking from "../core/typechecking";
+import { isString,isElement,isNull,isUndefined } from "../core/typechecking";
 import vars from "../core/vars";
 import getSplitValues from "../core/get_split_values";
 import each from "../core/each";
@@ -13,22 +13,22 @@ attr.attr = function( attr, value ) {
 		return;
 	}
 
-	if( typechecking.isString( attr ) ) {
+	if( isString( attr ) ) {
 		if( arguments.length < 2 ) {
-			if( !this[ 0 ] || !typechecking.isElement( this[ 0 ] ) ) {
+			if( !this[ 0 ] || !isElement( this[ 0 ] ) ) {
 				return;
 			}
 			const value = this[ 0 ].getAttribute( attr );
-			return typechecking.isNull( value ) ? undefined : value;
+			return isNull( value ) ? undefined : value;
 		}
-		if( typechecking.isUndefined( value ) ) {
+		if( isUndefined( value ) ) {
 			return this;
 		}
-		if( typechecking.isNull( value ) ) {
+		if( isNull( value ) ) {
 			return this.removeAttr( attr );
 		}
 		return this.each( ( i, ele ) => {
-			if( !typechecking.isElement( ele ) ) {
+			if( !isElement( ele ) ) {
 				return;
 			}
 			ele.setAttribute( attr, value );
@@ -42,7 +42,7 @@ attr.attr = function( attr, value ) {
 attr.removeAttr = function( attr ) {
 	const attrs = getSplitValues( attr );
 	return this.each( ( i, ele ) => {
-		if( !typechecking.isElement( ele ) ) {
+		if( !isElement( ele ) ) {
 			return;
 		}
 		each( attrs, ( i, a ) => ele.removeAttribute( a ) );
@@ -57,7 +57,7 @@ attr.prop = function( prop, value ) {
 		return;
 	}
 
-	if( typechecking.isString( prop ) ) {
+	if( isString( prop ) ) {
 		prop = vars.propMap[ prop ] || prop;
 		if( arguments.length < 2 ) {
 			return this[ 0 ] && this[ 0 ][ prop ];
@@ -86,7 +86,7 @@ attr.addClass = function( cls ) {
 	return this.toggleClass( cls, true );
 };
 attr.hasClass    = function( cls ) {
-	return !!cls && vars.some.call( this, ( ele ) => typechecking.isElement( ele ) && ele.classList.contains( cls ) );
+	return !!cls && vars.some.call( this, ( ele ) => isElement( ele ) && ele.classList.contains( cls ) );
 };
 attr.removeClass = function( cls ) {
 	if( arguments.length ) {
@@ -95,9 +95,9 @@ attr.removeClass = function( cls ) {
 	return this.attr( 'class', '' );
 };
 attr.toggleClass = function( cls, force ) {
-	const classes = getSplitValues( cls ), isForce = !typechecking.isUndefined( force );
+	const classes = getSplitValues( cls ), isForce = !isUndefined( force );
 	return this.each( ( i, ele ) => {
-		if( !typechecking.isElement( ele ) ) {
+		if( !isElement( ele ) ) {
 			return;
 		}
 		each( classes, ( i, c ) => {

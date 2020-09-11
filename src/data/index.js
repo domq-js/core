@@ -1,5 +1,5 @@
-import { setData,getData } from "./helper";
-import typechecking from "../core/typechecking";
+import { setData, getData } from "./helper";
+import { isString, isUndefined } from "../core/typechecking";
 
 export default function data( name, value ) {
 	if( !name ) {
@@ -13,11 +13,11 @@ export default function data( name, value ) {
 		return datas;
 	}
 
-	if( typechecking.isString( name ) ) {
+	if( isString( name ) ) {
 		if( arguments.length < 2 ) {
 			return this[ 0 ] && getData( this[ 0 ], name );
 		}
-		if( typechecking.isUndefined( value ) ) {
+		if( isUndefined( value ) ) {
 			return this;
 		}
 		return this.each( ( i, ele ) => {

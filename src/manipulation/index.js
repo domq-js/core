@@ -1,7 +1,8 @@
 import insertSelectors from "./helper";
 import filtered from "../core/filtered";
-import typechecking from "../core/typechecking";
+import { isUndefined, isElement } from "../core/typechecking";
 import core from "../wrap";
+
 export default {
 	after: function() {
 		return insertSelectors( arguments, this, false, false, false, true, true );
@@ -38,12 +39,12 @@ export default {
 			return this[ 0 ] && this[ 0 ].innerHTML;
 		}
 
-		if( typechecking.isUndefined( html ) ) {
+		if( isUndefined( html ) ) {
 			return this;
 		}
 
 		return this.each( ( i, ele ) => {
-			if( !typechecking.isElement( ele ) ) {
+			if( !isElement( ele ) ) {
 				return;
 			}
 			ele.innerHTML = html;
@@ -73,12 +74,12 @@ export default {
 		return this.before( selector ).remove();
 	},
 	text: function( text ) {
-		if( typechecking.isUndefined( text ) ) {
+		if( isUndefined( text ) ) {
 			return this[ 0 ] ? this[ 0 ].textContent : '';
 		}
 
 		return this.each( ( i, ele ) => {
-			if( !typechecking.isElement( ele ) ) {
+			if( !isElement( ele ) ) {
 				return;
 			}
 			ele.textContent = text;

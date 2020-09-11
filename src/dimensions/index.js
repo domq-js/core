@@ -1,4 +1,4 @@
-import typechecking from "../core/typechecking";
+import { isUndefined, isWindow, isDocument, isElement } from "../core/typechecking";
 import { getExtraSpace, getDocumentDimension } from "./helper";
 import { computeStyle, computeStyleInt, getSuffixedValue } from "../css/helper";
 
@@ -18,11 +18,11 @@ const OuterInnerHandler  = function( baseHandler, position, prop, includeMargins
 
 	position = ( 'outer' === position ) ? 1 : 0;
 	let type = ( 'Width' === prop ) ? 1 : 0;
-	if( typechecking.isWindow( baseHandler[ 0 ] ) ) {
+	if( isWindow( baseHandler[ 0 ] ) ) {
 		return position ? baseHandler[ 0 ][ `inner${prop}` ] : baseHandler[ 0 ].document.documentElement[ `client${prop}` ];
 	}
 
-	if( typechecking.isDocument( baseHandler[ 0 ] ) ) {
+	if( isDocument( baseHandler[ 0 ] ) ) {
 		return getDocumentDimension( baseHandler[ 0 ], prop );
 	}
 
@@ -34,15 +34,15 @@ const WidthHeightHandler = function( baseHandler, prop, value ) {
 	let index = ( 'width' === prop ) ? 0 : 1;
 
 	if( !baseHandler[ 0 ] ) {
-		return typechecking.isUndefined( value ) ? undefined : baseHandler;
+		return isUndefined( value ) ? undefined : baseHandler;
 	}
 
 	if( !value ) {
-		if( typechecking.isWindow( baseHandler[ 0 ] ) ) {
+		if( isWindow( baseHandler[ 0 ] ) ) {
 			return baseHandler[ 0 ].document.documentElement[ `client${prop}` ];
 		}
 
-		if( typechecking.isDocument( baseHandler[ 0 ] ) ) {
+		if( isDocument( baseHandler[ 0 ] ) ) {
 			return getDocumentDimension( baseHandler[ 0 ], prop );
 		}
 
@@ -53,7 +53,7 @@ const WidthHeightHandler = function( baseHandler, prop, value ) {
 	const valueNumber = parseInt( value, 10 );
 
 	return baseHandler.each( ( i, ele ) => {
-		if( !typechecking.isElement( ele ) ) {
+		if( !isElement( ele ) ) {
 			return;
 		}
 

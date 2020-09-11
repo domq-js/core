@@ -1,5 +1,5 @@
 import vars from './core/vars';
-import coreClass from './core/core-class';
+import core from './setup';
 import stringHandler from "./string";
 import utilities from "./utilities";
 import each from "./core/each";
@@ -16,10 +16,7 @@ import offset from "./offset";
 import collection from "./collection";
 import traversal from "./traversal";
 
-const fn   = coreClass.prototype,
-	  core = fn.init;
-core.fn    = core.prototype = fn;
-core.guid  = 1;
+const fn = core.fn;
 
 // Ensuring a cash collection is iterable
 if( typeof Symbol === 'function' ) {

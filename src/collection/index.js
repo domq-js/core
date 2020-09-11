@@ -3,7 +3,7 @@ import unique from "../core/unique";
 import each from "../core/each";
 import getCompareFunction from "../core/get_compare_function";
 import vars from "../core/vars";
-import typechecking from "../core/typechecking";
+import { isUndefined } from "../core/typechecking";
 
 const collection = {};
 
@@ -28,7 +28,7 @@ collection.last   = function() {
 	return this.eq( -1 );
 };
 collection.get    = function( index ) {
-	if( typechecking.isUndefined( index ) ) {
+	if( isUndefined( index ) ) {
 		return vars.slice.call( this );
 	}
 	index = Number( index );

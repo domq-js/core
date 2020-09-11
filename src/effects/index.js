@@ -1,5 +1,5 @@
-import typechecking from "../core/typechecking";
-import {computeStyle} from "../css/helper";
+import { isElement, isUndefined } from "../core/typechecking";
+import { computeStyle } from "../css/helper";
 import { getDefaultDisplay, isHidden } from './helper';
 import vars from "../core/vars";
 
@@ -13,11 +13,11 @@ effects.show   = function() {
 };
 effects.toggle = function( force ) {
 	return this.each( ( i, ele ) => {
-		if( !typechecking.isElement( ele ) ) {
+		if( !isElement( ele ) ) {
 			return;
 		}
 
-		const show = typechecking.isUndefined( force ) ? isHidden( ele ) : force;
+		const show = isUndefined( force ) ? isHidden( ele ) : force;
 
 		if( show ) {
 			ele.style.display = ele[ vars.displayProperty ] || '';

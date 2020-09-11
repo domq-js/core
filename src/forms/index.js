@@ -1,6 +1,6 @@
 import each from "../core/each";
 import { queryEncode, getValue } from "./helper";
-import typechecking from "../core/typechecking";
+import { isUndefined, isNull } from "../core/typechecking";
 import regex from "../regex";
 import vars from "../core/vars";
 
@@ -15,8 +15,8 @@ forms.serialize = function() {
 			}
 
 			const value = getValue( ele );
-			if( !typechecking.isUndefined( value ) ) {
-				const values = typechecking.isArray( value ) ? value : [ value ];
+			if( !isUndefined( value ) ) {
+				const values = vars.isArray( value ) ? value : [ value ];
 				each( values, ( i, value ) => {
 					query += queryEncode( ele.name, value );
 				} );
@@ -26,14 +26,14 @@ forms.serialize = function() {
 	return query.slice( 1 );
 };
 
-forms.val       = function val( value ) {
+forms.val = function val( value ) {
 	if( !arguments.length ) {
 		return this[ 0 ] && getValue( this[ 0 ] );
 	}
 	return this.each( ( i, ele ) => {
 		const isSelect = ele.multiple && ele.options;
 		if( isSelect || regex.checkable.test( ele.type ) ) {
-			const eleValue = typechecking.isArray( value ) ? vars.map.call( value, String ) : ( typechecking.isNull( value ) ? [] : [ String( value ) ] );
+			const eleValue = vars.isArray( value ) ? vars.map.call( value, String ) : ( isNull( value ) ? [] : [ String( value ) ] );
 			if( isSelect ) {
 				each( ele.options, ( i, option ) => {
 					option.selected = eleValue.indexOf( option.value ) >= 0;
@@ -42,7 +42,7 @@ forms.val       = function val( value ) {
 				ele.checked = eleValue.indexOf( ele.value ) >= 0;
 			}
 		} else {
-			ele.value = typechecking.isUndefined( value ) || typechecking.isNull( value ) ? '' : value;
+			ele.value = isUndefined( value ) || isNull( value ) ? '' : value;
 		}
 	} );
 };

@@ -1,8 +1,8 @@
-import typechecking from "../core/typechecking";
+import { isString, isElement } from "../core/typechecking";
 import { isCSSVariable, getPrefixedProp, computeStyle, getSuffixedValue } from "./helper";
 
 export default function( prop, value ) {
-	if( typechecking.isString( prop ) ) {
+	if( isString( prop ) ) {
 		const isVariable = isCSSVariable( prop );
 		prop             = getPrefixedProp( prop, isVariable );
 
@@ -17,7 +17,7 @@ export default function( prop, value ) {
 		value = getSuffixedValue( prop, value, isVariable );
 
 		return this.each( ( i, ele ) => {
-			if( !typechecking.isElement( ele ) ) {
+			if( !isElement( ele ) ) {
 				return;
 			}
 

@@ -2,7 +2,7 @@ import filtered from "../core/filtered";
 import unique from "../core/unique";
 import pluck from "../core/pluck";
 import find from "../core/find";
-import typechecking from "../core/typechecking";
+import { isString, isElement } from "../core/typechecking";
 import getCompareFunction from "../core/get_compare_function";
 import vars from "../core/vars";
 import core from "../wrap";
@@ -30,7 +30,7 @@ traversal.find         = function( selector ) {
 	return core( unique( pluck( this, ele => find( selector, ele ) ) ) );
 };
 traversal.has          = function( selector ) {
-	const comparator = typechecking.isString( selector ) ? ( i, ele ) => find( selector, ele ).length : ( i, ele ) => ele.contains( selector );
+	const comparator = isString( selector ) ? ( i, ele ) => find( selector, ele ).length : ( i, ele ) => ele.contains( selector );
 	return this.filter( comparator );
 };
 traversal.is           = function( comparator ) {
@@ -48,7 +48,7 @@ traversal.nextUntil    = function( until, comparator ) {
 };
 traversal.not          = function( comparator ) {
 	const compare = getCompareFunction( comparator );
-	return this.filter( ( i, ele ) => ( !typechecking.isString( comparator ) || typechecking.isElement( ele ) ) && !compare.call( ele, i, ele ) );
+	return this.filter( ( i, ele ) => ( !isString( comparator ) || isElement( ele ) ) && !compare.call( ele, i, ele ) );
 };
 traversal.parent       = function( comparator ) {
 	return filtered( core( unique( pluck( this, 'parentNode' ) ) ), comparator );

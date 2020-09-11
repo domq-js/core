@@ -1,4 +1,4 @@
-import typechecking from "../core/typechecking";
+import { isNull, isUndefined, isElement, isDocument, isWindow, isString, isFunction } from "../core/typechecking";
 import getSplitValues from "../core/get_split_values";
 import each from "../core/each";
 import vars from "../core/vars";
@@ -10,20 +10,20 @@ import regex from "../regex";
 const events = {};
 
 events.off = function( eventFullName, selector, callback ) {
-	if( typechecking.isUndefined( eventFullName ) ) {
+	if( isUndefined( eventFullName ) ) {
 		this.each( ( i, ele ) => {
-			if( !typechecking.isElement( ele ) && !typechecking.isDocument( ele ) && !typechecking.isWindow( ele ) ) {
+			if( !isElement( ele ) && !isDocument( ele ) && !isWindow( ele ) ) {
 				return;
 			}
 			removeEvent( ele );
 		} );
 
-	} else if( !typechecking.isString( eventFullName ) ) {
+	} else if( !isString( eventFullName ) ) {
 		for( const key in eventFullName ) {
 			this.off( key, eventFullName[ key ] );
 		}
 	} else {
-		if( typechecking.isFunction( selector ) ) {
+		if( isFunction( selector ) ) {
 			callback = selector;
 			selector = '';
 		}
@@ -32,7 +32,7 @@ events.off = function( eventFullName, selector, callback ) {
 				  name                         = getEventNameBubbling( nameOriginal );
 
 			this.each( ( i, ele ) => {
-				if( !typechecking.isElement( ele ) && !typechecking.isDocument( ele ) && !typechecking.isWindow( ele ) ) return;
+				if( !isElement( ele ) && !isDocument( ele ) && !isWindow( ele ) ) return;
 				removeEvent( ele, name, namespaces, selector, callback );
 			} );
 		} );
@@ -41,17 +41,17 @@ events.off = function( eventFullName, selector, callback ) {
 };
 
 events.on = function( eventFullName, selector, data, callback, _one ) {
-	if( !typechecking.isString( eventFullName ) ) {
+	if( !isString( eventFullName ) ) {
 		for( const key in eventFullName ) {
 			this.on( key, selector, data, eventFullName[ key ], _one );
 		}
 		return this;
 	}
 
-	if( !typechecking.isString( selector ) ) {
-		if( typechecking.isUndefined( selector ) || typechecking.isNull( selector ) ) {
+	if( !isString( selector ) ) {
+		if( isUndefined( selector ) || isNull( selector ) ) {
 			selector = '';
-		} else if( typechecking.isUndefined( data ) ) {
+		} else if( isUndefined( data ) ) {
 			data     = selector;
 			selector = '';
 		} else {
@@ -61,7 +61,7 @@ events.on = function( eventFullName, selector, data, callback, _one ) {
 		}
 	}
 
-	if( !typechecking.isFunction( callback ) ) {
+	if( !isFunction( callback ) ) {
 		callback = data;
 		data     = undefined;
 	}
@@ -81,7 +81,7 @@ events.on = function( eventFullName, selector, data, callback, _one ) {
 		}
 
 		this.each( ( i, ele ) => {
-			if( !typechecking.isElement( ele ) && !typechecking.isDocument( ele ) && !typechecking.isWindow( ele ) ) {
+			if( !isElement( ele ) && !isDocument( ele ) && !isWindow( ele ) ) {
 				return;
 			}
 			const finalCallback = function( event ) {
@@ -165,7 +165,7 @@ events.ready = function( callback ) {
 };
 
 events.trigger = function( event, data ) {
-	if( typechecking.isString( event ) ) {
+	if( isString( event ) ) {
 		const [ nameOriginal, namespaces ] = parseEventName( event ),
 			  name                         = getEventNameBubbling( nameOriginal );
 
@@ -185,7 +185,7 @@ events.trigger = function( event, data ) {
 	const isEventFocus = ( event.___ot in vars.eventsFocus );
 
 	return this.each( ( i, ele ) => {
-		if( isEventFocus && typechecking.isFunction( ele[ event.___ot ] ) ) {
+		if( isEventFocus && isFunction( ele[ event.___ot ] ) ) {
 			ele[ `___i${event.type}` ] = true; // Ensuring the native event is ignored
 			ele[ event.___ot ]();
 			ele[ `___i${event.type}` ] = false; // Ensuring the custom event is not ignored

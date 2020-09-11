@@ -1,3 +1,5 @@
+import PickledVanilla from "./wrap";
+
 export default ( function( global ) {
-	global.wpopv = require( './wrap' ).default;
+	global.wpopv = PickledVanilla;
 } )( window );

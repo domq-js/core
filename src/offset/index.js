@@ -1,6 +1,6 @@
 import vars from "../core/vars";
 import { computeStyleInt, computeStyle } from "../css/helper";
-import typechecking from "../core/typechecking";
+import { isElement } from "../core/typechecking";
 import core from "../wrap";
 
 const offset = {};
@@ -45,7 +45,7 @@ offset.position = function() {
 			offsetParent = offsetParent.parentNode;
 		}
 
-		if( offsetParent !== ele && typechecking.isElement( offsetParent ) ) {
+		if( offsetParent !== ele && isElement( offsetParent ) ) {
 			const parentOffset = core( offsetParent ).offset();
 			offset.top -= parentOffset.top + computeStyleInt( offsetParent, 'borderTopWidth' );
 			offset.left -= parentOffset.left + computeStyleInt( offsetParent, 'borderLeftWidth' );

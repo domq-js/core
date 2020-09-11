@@ -1,6 +1,6 @@
 import vars from "../core/vars";
 import core from "../wrap";
-import typechecking from "../core/typechecking";
+import { isString } from "../core/typechecking";
 import regex from "../regex";
 
 const utilities  = {},
@@ -26,7 +26,7 @@ utilities.attempt = function( fn, arg ) {
 //@TODO: Create elements inside a document fragment, in order to prevent inline event handlers from firing
 //@TODO: Ensure the created elements have the fragment as their parent instead of null, this also ensures we can deal with detatched nodes more reliably
 utilities.parseHTML = function( html ) {
-	if( !typechecking.isString( html ) ) {
+	if( !isString( html ) ) {
 		return [];
 	}
 

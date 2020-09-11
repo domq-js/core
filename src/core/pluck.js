@@ -1,10 +1,10 @@
-import typechecking from "./typechecking";
+import { isFunction } from "./typechecking";
 import vars from "./vars";
 import getCompareFunction from "./get_compare_function";
 
 export default function pluck( arr, prop, deep, until ) {
 	const plucked    = [],
-		  isCallback = typechecking.isFunction( prop ),
+		  isCallback = isFunction( prop ),
 		  compare    = until && getCompareFunction( until );
 
 	for( let i = 0, l = arr.length; i < l; i++ ) {
