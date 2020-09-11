@@ -1,4 +1,4 @@
-import { getCompareFunction, filtered, unique, pluck, find as _find } from "../helper";
+import { getCompareFunction, filtered, unique, pluck, _find } from "../helper";
 import { isString, isElement } from "../core/typechecking";
 import v from "../core/vars";
 import core from "../global-var";

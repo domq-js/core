@@ -45,7 +45,7 @@ export function filtered( main_instance, comparator ) {
 	return !comparator ? main_instance : main_instance.filter( comparator );
 }
 
-export function find( selector, context ) {
+export function _find( selector, context ) {
 	return !selector || ( !isDocument( context ) && !isElement( context ) ) ? [] : regex.class.test( selector ) ? context.getElementsByClassName( selector.slice( 1 ) ) : regex.tag.test( selector ) ? context.getElementsByTagName( selector ) : context.querySelectorAll( selector );
 
 }
