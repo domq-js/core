@@ -1,5 +1,4 @@
-import getData from "./helpers/get_data";
-import setData from "./helpers/set_data";
+import { setData,getData } from "./helper";
 import typechecking from "../core/typechecking";
 
 export default function data( name, value ) {

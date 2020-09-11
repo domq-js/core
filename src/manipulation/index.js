@@ -1,10 +1,7 @@
-import insertSelectors from "./helpers/insert_selectors";
+import insertSelectors from "./helper";
 import filtered from "../core/filtered";
 import typechecking from "../core/typechecking";
 import core from "../wrap";
-import getCompareFunction from "../core/get_compare_function";
-import vars from "../core/vars";
-
 export default {
 	after: function() {
 		return insertSelectors( arguments, this, false, false, false, true, true );

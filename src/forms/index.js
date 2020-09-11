@@ -1,6 +1,5 @@
 import each from "../core/each";
-import getValue from "./helpers/get_value";
-import queryEncode from "./helpers/query_encode";
+import { queryEncode, getValue } from "./helper";
 import typechecking from "../core/typechecking";
 import regex from "../regex";
 import vars from "../core/vars";
@@ -27,8 +26,7 @@ forms.serialize = function() {
 	return query.slice( 1 );
 };
 
-
-forms.val = function val( value ) {
+forms.val       = function val( value ) {
 	if( !arguments.length ) {
 		return this[ 0 ] && getValue( this[ 0 ] );
 	}

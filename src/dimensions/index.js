@@ -1,9 +1,6 @@
 import typechecking from "../core/typechecking";
-import getDocumentDimension from "./helpers/get_document_dimension";
-import computeStyleInt from '../css/helpers/compute_style_int';
-import getExtraSpace from "./helpers/get_extra_space";
-import computeStyle from "../css/helpers/compute_style";
-import getSuffixedValue from "../css/helpers/get_suffixed_value";
+import { getExtraSpace, getDocumentDimension } from "./helper";
+import { computeStyle, computeStyleInt, getSuffixedValue } from "../css/helper";
 
 /**
  *

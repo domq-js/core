@@ -1,8 +1,5 @@
 import typechecking from "../core/typechecking";
-import isCSSVariable from "./helpers/is_css_variable";
-import getPrefixedProp from "./helpers/get_prefixed_prop";
-import computeStyle from "./helpers/compute_style";
-import getSuffixedValue from "./helpers/get_suffixed_value";
+import { isCSSVariable, getPrefixedProp, computeStyle, getSuffixedValue } from "./helper";
 
 export default function( prop, value ) {
 	if( typechecking.isString( prop ) ) {

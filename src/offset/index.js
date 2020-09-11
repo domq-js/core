@@ -1,6 +1,5 @@
 import vars from "../core/vars";
-import computeStyle from "../css/helpers/compute_style";
-import computeStyleInt from "../css/helpers/compute_style_int";
+import { computeStyleInt, computeStyle } from "../css/helper";
 import typechecking from "../core/typechecking";
 import core from "../wrap";
 

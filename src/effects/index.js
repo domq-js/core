@@ -1,7 +1,6 @@
 import typechecking from "../core/typechecking";
-import isHidden from "./helpers/is_hidden";
-import computeStyle from "../css/helpers/compute_style";
-import getDefaultDisplay from "./helpers/get_default_display";
+import {computeStyle} from "../css/helper";
+import { getDefaultDisplay, isHidden } from './helper';
 import vars from "../core/vars";
 
 const effects = {};

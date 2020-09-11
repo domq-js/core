@@ -1,13 +1,9 @@
 import typechecking from "../core/typechecking";
-import parseEventName from "./helpers/parse_event_name";
-import getEventNameBubbling from "./helpers/get_event_name_bubbling";
 import getSplitValues from "../core/get_split_values";
 import each from "../core/each";
-import removeEvent from "./helpers/remove_event";
 import vars from "../core/vars";
-import hasNamespaces from "./helpers/has_namespaces";
 import matches from "../core/matches";
-import addEvent from "./helpers/add_event";
+import { parseEventName, getEventNameBubbling, removeEvent, hasNamespaces, addEvent } from "./helper";
 import core from "../wrap";
 import regex from "../regex";
 
