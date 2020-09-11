@@ -14,6 +14,7 @@ import events from "./events";
 import forms from "./forms";
 import offset from "./offset";
 import collection from "./collection";
+import traversal from "./traversal";
 
 const fn   = coreClass.prototype,
 	  core = fn.init;
@@ -75,6 +76,23 @@ fn.get          = collection.get;
 fn.index        = collection.index;
 fn.map          = collection.map;
 fn.slice        = collection.slice;
+fn.children     = traversal.children;
+fn.closest      = traversal.closest;
+fn.contents     = traversal.contents;
+fn.find         = traversal.find;
+fn.has          = traversal.has;
+fn.is           = traversal.is;
+fn.next         = traversal.next;
+fn.nextAll      = traversal.nextAll;
+fn.nextUntil    = traversal.nextUntil;
+fn.not          = traversal.not;
+fn.parent       = traversal.parent;
+fn.parents      = traversal.parents;
+fn.parentsUntil = traversal.parentsUntil;
+fn.prev         = traversal.prev;
+fn.prevAll      = traversal.prevAll;
+fn.prevUntil    = traversal.prevUntil;
+fn.siblings     = traversal.siblings;
 
 /**
  * Static Functions
