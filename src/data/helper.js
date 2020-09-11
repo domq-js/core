@@ -1,5 +1,5 @@
-import stringHandler from "../string";
-import utilities from "../utilities";
+import stringHandler from "../string/index";
+import utilities from "../utilities/index";
 import regex from "../regex";
 
 export function getData( ele, key ) {

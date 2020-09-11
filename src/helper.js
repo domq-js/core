@@ -1,5 +1,5 @@
-import core from "./setup";
-import collection from "./collection";
+import core from "./global-var";
+import collection from "./collection/index";
 import { isDocument, isFunction, isString, isWpopv } from "./core/typechecking";
 import vars from "./core/vars";
 import regex from "./regex";

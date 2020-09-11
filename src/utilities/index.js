@@ -1,5 +1,5 @@
 import vars from "../core/vars";
-import core from "../wrap";
+import core from "../global-var";
 import { isString } from "../core/typechecking";
 import regex from "../regex";
 

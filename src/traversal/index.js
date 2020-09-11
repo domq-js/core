@@ -1,7 +1,7 @@
 import { getCompareFunction, filtered, unique, pluck, find } from "../helper";
 import { isString, isElement } from "../core/typechecking";
 import vars from "../core/vars";
-import core from "../wrap";
+import core from "../global-var";
 
 const traversal = {};
 

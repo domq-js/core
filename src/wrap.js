@@ -1,18 +1,18 @@
 import vars from './core/vars';
 import core from './setup';
-import stringHandler from "./string";
-import utilities from "./utilities";
+import stringHandler from "./string/index";
+import utilities from "./utilities/index";
 import { unique, each, extend } from "./helper";
-import attr from "./attributes";
-import css from './css';
-import data from './data';
-import dimensions from "./dimensions";
-import effects from "./effects";
-import events from "./events";
-import forms from "./forms";
-import offset from "./offset";
-import collection from "./collection";
-import traversal from "./traversal";
+import attr from "./attributes/index";
+import css from './css/index';
+import data from './data/index';
+import dimensions from "./dimensions/index";
+import effects from "./effects/index";
+import events from "./events/index";
+import forms from "./forms/index";
+import offset from "./offset/index";
+import collection from "./collection/index";
+import traversal from "./traversal/index";
 
 const fn = core.fn;
 

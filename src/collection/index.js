@@ -1,4 +1,4 @@
-import core from "../wrap";
+import core from "../global-var";
 import { each, getCompareFunction, unique } from "../helper";
 import vars from "../core/vars";
 import { isUndefined } from "../core/typechecking";

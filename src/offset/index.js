@@ -1,7 +1,7 @@
 import vars from "../core/vars";
 import { computeStyleInt, computeStyle } from "../css/helper";
 import { isElement } from "../core/typechecking";
-import core from "../wrap";
+import core from "../global-var";
 
 const offset = {};
 

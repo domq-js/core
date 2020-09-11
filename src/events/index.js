@@ -2,7 +2,7 @@ import { isNull, isUndefined, isElement, isDocument, isWindow, isString, isFunct
 import { each, getSplitValues, matches } from "../helper";
 import vars from "../core/vars";
 import { parseEventName, getEventNameBubbling, removeEvent, hasNamespaces, addEvent } from "./helper";
-import core from "../wrap";
+import core from "../global-var";
 import regex from "../regex";
 
 const events = {};
@@ -140,7 +140,8 @@ events.on = function( eventFullName, selector, data, callback, _one ) {
 					event.stopPropagation();
 				}
 			};
-			finalCallback.guid  = callback.guid = ( callback.guid || core.guid++ );
+
+			finalCallback.guid = callback.guid = ( callback.guid || core.guid++ );
 			addEvent( ele, name, namespaces, selector, finalCallback );
 		} );
 	} );

@@ -2,7 +2,7 @@ import regex from "../regex";
 import vars from "../core/vars";
 import { isNumeric, isElement } from "../core/typechecking";
 import { each } from "../helper";
-import stringHandler from "../string";
+import stringHandler from "../string/index";
 
 const prefixedProps = {},
 	  { style }     = vars.div;

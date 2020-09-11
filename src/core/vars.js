@@ -62,3 +62,5 @@ vars.eventsHover               = {
 };
 vars.scriptAttributes          = [ 'type', 'src', 'nonce', 'noModule' ];
 export default vars;
+
+

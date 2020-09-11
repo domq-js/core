@@ -1,6 +1,6 @@
 import { isWpopv, isString, isFunction } from './typechecking';
 import vars from './vars';
-import utilities from '../utilities';
+import utilities from '../utilities/index';
 import { find } from '../helper';
 import regex from "../regex";
 
@@ -10,6 +10,7 @@ class PickledVanilla {
 			return;
 		}
 
+		console.log( selector, isWpopv( selector ) );
 		if( isWpopv( selector ) ) {
 			return selector;
 		}
@@ -33,6 +34,7 @@ class PickledVanilla {
 		}
 
 		this.length = eles.length;
+		this.wpopv  = '1.0';
 
 		for( let i = 0, l = this.length; i < l; i++ ) {
 			this[ i ] = eles[ i ];
