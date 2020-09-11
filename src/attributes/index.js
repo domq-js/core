@@ -2,12 +2,10 @@ import { isString, isElement, isNull, isUndefined } from "../core/typechecking";
 import vars from "../core/vars";
 import { each, getSplitValues } from "../helper";
 
-const attr = {};
-
 /**
  * Element Attributes
  */
-attr.attr = function( attr, value ) {
+export function attr( attr, value ) {
 	if( !attr ) {
 		return;
 	}
@@ -37,8 +35,9 @@ attr.attr = function( attr, value ) {
 		this.attr( key, attr[ key ] );
 	}
 	return this;
-};
-attr.removeAttr = function( attr ) {
+}
+
+export function removeAttr( attr ) {
 	const attrs = getSplitValues( attr );
 	return this.each( ( i, ele ) => {
 		if( !isElement( ele ) ) {
@@ -46,12 +45,12 @@ attr.removeAttr = function( attr ) {
 		}
 		each( attrs, ( i, a ) => ele.removeAttribute( a ) );
 	} );
-};
+}
 
 /**
  * Element Prop Attributes.
  */
-attr.prop = function( prop, value ) {
+export function prop( prop, value ) {
 	if( !prop ) {
 		return;
 	}
@@ -69,31 +68,35 @@ attr.prop = function( prop, value ) {
 		this.prop( key, prop[ key ] );
 	}
 	return this;
-};
-attr.removeProp = function( prop ) {
+}
+
+export function removeProp( prop ) {
 	return this.each( ( i, ele ) => {
 		let key    = vars.propMap[ prop ] || prop;
 		ele[ key ] = null;
 		delete ele[ key ];
 	} );
-};
+}
 
 /**
  * Element Class.
  */
-attr.addClass = function( cls ) {
+export function addClass( cls ) {
 	return this.toggleClass( cls, true );
-};
-attr.hasClass    = function( cls ) {
+}
+
+export function hasClass( cls ) {
 	return !!cls && vars.some.call( this, ( ele ) => isElement( ele ) && ele.classList.contains( cls ) );
-};
-attr.removeClass = function( cls ) {
+}
+
+export function removeClass( cls ) {
 	if( arguments.length ) {
 		return this.toggleClass( cls, false );
 	}
 	return this.attr( 'class', '' );
-};
-attr.toggleClass = function( cls, force ) {
+}
+
+export function toggleClass( cls, force ) {
 	const classes = getSplitValues( cls ), isForce = !isUndefined( force );
 	return this.each( ( i, ele ) => {
 		if( !isElement( ele ) ) {
@@ -107,6 +110,4 @@ attr.toggleClass = function( cls, force ) {
 			}
 		} );
 	} );
-};
-
-export default attr;
+}

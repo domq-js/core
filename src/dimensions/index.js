@@ -63,25 +63,26 @@ const WidthHeightHandler = function( baseHandler, prop, value ) {
 
 };
 
-const dimensions = {
-	innerWidth: function( includeMargins ) {
-		return OuterInnerHandler( this, 'inner', 'Width', includeMargins );
-	},
-	innerHeight: function( includeMargins ) {
-		return OuterInnerHandler( this, 'inner', 'Height', includeMargins );
-	},
-	outerWidth: function( includeMargins ) {
-		return OuterInnerHandler( this, 'outer', 'Width', includeMargins );
-	},
-	outerHeight: function( includeMargins ) {
-		return OuterInnerHandler( this, 'outer', 'Height', includeMargins );
-	},
-	width: function( value ) {
-		return WidthHeightHandler( this, 'width', value );
-	},
-	height: function( value ) {
-		return WidthHeightHandler( this, 'height', value );
-	}
-};
+export function innerWidth( includeMargins ) {
+	return OuterInnerHandler( this, 'inner', 'Width', includeMargins );
+}
 
-export default dimensions;
+export function innerHeight( includeMargins ) {
+	return OuterInnerHandler( this, 'inner', 'Height', includeMargins );
+}
+
+export function outerWidth( includeMargins ) {
+	return OuterInnerHandler( this, 'outer', 'Width', includeMargins );
+}
+
+export function outerHeight( includeMargins ) {
+	return OuterInnerHandler( this, 'outer', 'Height', includeMargins );
+}
+
+export function width( value ) {
+	return WidthHeightHandler( this, 'width', value );
+}
+
+export function height( value ) {
+	return WidthHeightHandler( this, 'height', value );
+}

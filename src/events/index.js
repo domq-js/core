@@ -5,9 +5,7 @@ import { parseEventName, getEventNameBubbling, removeEvent, hasNamespaces, addEv
 import core from "../global-var";
 import regex from "../regex";
 
-const events = {};
-
-events.off = function( eventFullName, selector, callback ) {
+export function off( eventFullName, selector, callback ) {
 	if( isUndefined( eventFullName ) ) {
 		this.each( ( i, ele ) => {
 			if( !isElement( ele ) && !isDocument( ele ) && !isWindow( ele ) ) {
@@ -36,9 +34,9 @@ events.off = function( eventFullName, selector, callback ) {
 		} );
 	}
 	return this;
-};
+}
 
-events.on = function( eventFullName, selector, data, callback, _one ) {
+export function on( eventFullName, selector, data, callback, _one ) {
 	if( !isString( eventFullName ) ) {
 		for( const key in eventFullName ) {
 			this.on( key, selector, data, eventFullName[ key ], _one );
@@ -146,13 +144,13 @@ events.on = function( eventFullName, selector, data, callback, _one ) {
 		} );
 	} );
 	return this;
-};
+}
 
-events.one = function one( eventFullName, selector, data, callback ) {
+export function one( eventFullName, selector, data, callback ) {
 	return this.on( eventFullName, selector, data, callback, true );
-};
+}
 
-events.ready = function( callback ) {
+export function ready( callback ) {
 	const cb = () => setTimeout( callback, 0, core );
 
 	if( vars.doc.readyState !== 'loading' ) {
@@ -161,9 +159,9 @@ events.ready = function( callback ) {
 		vars.doc.addEventListener( 'DOMContentLoaded', cb );
 	}
 	return this;
-};
+}
 
-events.trigger = function( event, data ) {
+export function trigger( event, data ) {
 	if( isString( event ) ) {
 		const [ nameOriginal, namespaces ] = parseEventName( event ),
 			  name                         = getEventNameBubbling( nameOriginal );
@@ -191,6 +189,4 @@ events.trigger = function( event, data ) {
 		}
 		ele.dispatchEvent( event );
 	} );
-};
-
-export default events;
+}

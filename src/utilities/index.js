@@ -31,7 +31,7 @@ utilities.parseHTML = function( html ) {
 	}
 
 	if( regex.singleTag.test( html ) ) {
-		return [ vars.createElement( RegExp.$1 ) ];
+		return [ vars.celem( RegExp.$1 ) ];
 	}
 	const fragment      = regex.fragment.test( html ) && RegExp.$1,
 		  container     = containers[ fragment ] || containers[ '*' ];

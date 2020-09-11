@@ -7,7 +7,7 @@ export function getDefaultDisplay( tagName ) {
 	if( defaultDisplay[ tagName ] ) {
 		return defaultDisplay[ tagName ];
 	}
-	const ele = vars.createElement( tagName );
+	const ele = vars.celem( tagName );
 	vars.doc.body.insertBefore( ele, null );
 	const display = computeStyle( ele, 'display' );
 	vars.doc.body.removeChild( ele );

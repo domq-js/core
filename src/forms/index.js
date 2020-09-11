@@ -1,12 +1,10 @@
-import {each} from "../helper";
+import { each } from "../helper";
 import { queryEncode, getValue } from "./helper";
 import { isUndefined, isNull } from "../core/typechecking";
 import regex from "../regex";
 import vars from "../core/vars";
 
-const forms = {};
-
-forms.serialize = function() {
+export function serialize() {
 	let query = '';
 	this.each( ( i, ele ) => {
 		each( ele.elements || [ ele ], ( i, ele ) => {
@@ -24,9 +22,9 @@ forms.serialize = function() {
 		} );
 	} );
 	return query.slice( 1 );
-};
+}
 
-forms.val = function val( value ) {
+export function val( value ) {
 	if( !arguments.length ) {
 		return this[ 0 ] && getValue( this[ 0 ] );
 	}
@@ -45,6 +43,4 @@ forms.val = function val( value ) {
 			ele.value = isUndefined( value ) || isNull( value ) ? '' : value;
 		}
 	} );
-};
-
-export default forms;
+}

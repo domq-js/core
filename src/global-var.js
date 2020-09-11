@@ -1,1 +1,3 @@
-export default () => window.wpopv;
+import core from "./setup";
+
+export default core;

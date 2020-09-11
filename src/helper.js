@@ -1,6 +1,5 @@
 import core from "./global-var";
-import collection from "./collection/index";
-import { isDocument, isFunction, isString, isWpopv } from "./core/typechecking";
+import { isElement, isDocument, isFunction, isString, isWpopv } from "./core/typechecking";
 import vars from "./core/vars";
 import regex from "./regex";
 
@@ -42,11 +41,11 @@ export function extend( target, ...objs ) {
 }
 
 export function filtered( main_instance, comparator ) {
-	return !comparator ? main_instance : collection.filter( comparator );
+	return !comparator ? main_instance : main_instance.filter( comparator );
 }
 
 export function find( selector, context ) {
-	return !selector || ( !isDocument( context ) && !vars.isElement( context ) ) ? [] : regex.class.test( selector ) ? context.getElementsByClassName( selector.slice( 1 ) ) : regex.tag.test( selector ) ? context.getElementsByTagName( selector ) : context.querySelectorAll( selector );
+	return !selector || ( !isDocument( context ) && !isElement( context ) ) ? [] : regex.class.test( selector ) ? context.getElementsByClassName( selector.slice( 1 ) ) : regex.tag.test( selector ) ? context.getElementsByTagName( selector ) : context.querySelectorAll( selector );
 
 }
 

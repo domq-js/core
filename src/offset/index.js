@@ -3,9 +3,7 @@ import { computeStyleInt, computeStyle } from "../css/helper";
 import { isElement } from "../core/typechecking";
 import core from "../global-var";
 
-const offset = {};
-
-offset.offset = function() {
+export function offset() {
 	const ele = this[ 0 ];
 
 	if( !ele ) {
@@ -17,9 +15,9 @@ offset.offset = function() {
 		top: rect.top + vars.win.pageYOffset,
 		left: rect.left + vars.win.pageXOffset
 	};
-};
+}
 
-offset.offsetParent = function() {
+export function offsetParent() {
 	return this.map( ( i, ele ) => {
 		let offsetParent = ele.offsetParent;
 		while( offsetParent && computeStyle( offsetParent, 'position' ) === 'static' ) {
@@ -27,9 +25,9 @@ offset.offsetParent = function() {
 		}
 		return offsetParent || vars.docEle;
 	} );
-};
+}
 
-offset.position = function() {
+export function position() {
 	const ele = this[ 0 ];
 	if( !ele ) {
 		return;
@@ -57,6 +55,4 @@ offset.position = function() {
 		left: offset.left - computeStyleInt( ele, 'marginLeft' )
 	};
 
-};
-
-export default offset;
+}

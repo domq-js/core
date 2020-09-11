@@ -1,14 +1,13 @@
-import { getCompareFunction, filtered, unique, pluck, find } from "../helper";
+import { getCompareFunction, filtered, unique, pluck, find as _find} from "../helper";
 import { isString, isElement } from "../core/typechecking";
 import vars from "../core/vars";
 import core from "../global-var";
 
-const traversal = {};
-
-traversal.children     = function( comparator ) {
+export function children( comparator ) {
 	return filtered( core( unique( pluck( this, ele => ele.children ) ) ), comparator );
-};
-traversal.closest      = function( comparator ) {
+}
+
+export function closest( comparator ) {
 	const filtered = this.filter( comparator );
 	if( filtered.length ) {
 		return filtered;
@@ -18,53 +17,67 @@ traversal.closest      = function( comparator ) {
 		return filtered;
 	}
 	return $parent.closest( comparator );
-};
-traversal.contents     = function() {
+}
+
+export function contents() {
 	return core( unique( pluck( this, ele => ele.tagName === 'IFRAME' ? [ ele.contentDocument ] : ( ele.tagName === 'TEMPLATE' ? ele.content.childNodes : ele.childNodes ) ) ) );
-};
-traversal.find         = function( selector ) {
-	return core( unique( pluck( this, ele => find( selector, ele ) ) ) );
-};
-traversal.has          = function( selector ) {
+}
+
+export function find( selector ) {
+	return core( unique( pluck( this, ele => _find( selector, ele ) ) ) );
+}
+
+export function has( selector ) {
 	const comparator = isString( selector ) ? ( i, ele ) => find( selector, ele ).length : ( i, ele ) => ele.contains( selector );
 	return this.filter( comparator );
-};
-traversal.is           = function( comparator ) {
+}
+
+export function is( comparator ) {
 	const compare = getCompareFunction( comparator );
 	return vars.some.call( this, ( ele, i ) => compare.call( ele, i, ele ) );
-};
-traversal.next         = function( comparator, _all, _until ) {
+}
+
+export function next( comparator, _all, _until ) {
 	return filtered( core( unique( pluck( this, 'nextElementSibling', _all, _until ) ) ), comparator );
-};
-traversal.nextAll      = function( comparator ) {
+}
+
+export function nextAll( comparator ) {
 	return this.next( comparator, true );
-};
-traversal.nextUntil    = function( until, comparator ) {
+}
+
+export function nextUntil( until, comparator ) {
 	return this.next( comparator, true, until );
-};
-traversal.not          = function( comparator ) {
+}
+
+export function not( comparator ) {
 	const compare = getCompareFunction( comparator );
 	return this.filter( ( i, ele ) => ( !isString( comparator ) || isElement( ele ) ) && !compare.call( ele, i, ele ) );
-};
-traversal.parent       = function( comparator ) {
+}
+
+export function parent( comparator ) {
 	return filtered( core( unique( pluck( this, 'parentNode' ) ) ), comparator );
-};
-traversal.parents      = function( comparator, _until ) {
+}
+
+export function parents( comparator, _until ) {
 	return filtered( core( unique( pluck( this, 'parentElement', true, _until ) ) ), comparator );
-};
-traversal.parentsUntil = function( until, comparator ) {
+}
+
+export function parentsUntil( until, comparator ) {
 	return this.parents( comparator, until );
-};
-traversal.prev         = function( comparator, _all, _until ) {
+}
+
+export function prev( comparator, _all, _until ) {
 	return filtered( core( unique( pluck( this, 'previousElementSibling', _all, _until ) ) ), comparator );
-};
-traversal.prevAll      = function( comparator ) {
+}
+
+export function prevAll( comparator ) {
 	return this.prev( comparator, true );
-};
-traversal.prevUntil    = function( until, comparator ) {
+}
+
+export function prevUntil( until, comparator ) {
 	return this.prev( comparator, true, until );
-};
-traversal.siblings     = function( comparator ) {
+}
+
+export function siblings( comparator ) {
 	return filtered( core( unique( pluck( this, ele => core( ele ).parent().children().not( ele ) ) ) ), comparator );
-};
-export default traversal;
+}

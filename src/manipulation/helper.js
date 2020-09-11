@@ -10,7 +10,7 @@ function evalScripts( node, doc ) {
 			// The script type is supported
 			// The element is attached to the DOM
 			// Using `documentElement` for broader browser support
-			const script = vars.createElement( 'script' );
+			const script = vars.celem( 'script' );
 			script.text  = ele.textContent.replace( regex.HTMLCDATA, '' );
 			each( vars.scriptAttributes, ( i, attr ) => {
 				if( ele[ attr ] ) {

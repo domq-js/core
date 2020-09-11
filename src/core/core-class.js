@@ -10,7 +10,6 @@ class PickledVanilla {
 			return;
 		}
 
-		console.log( selector, isWpopv( selector ) );
 		if( isWpopv( selector ) ) {
 			return selector;
 		}

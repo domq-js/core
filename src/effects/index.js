@@ -3,15 +3,15 @@ import { computeStyle } from "../css/helper";
 import { getDefaultDisplay, isHidden } from './helper';
 import vars from "../core/vars";
 
-const effects = {};
-
-effects.hide   = function() {
+export function hide() {
 	return this.toggle( false );
-};
-effects.show   = function() {
+}
+
+export function show() {
 	return this.toggle( true );
-};
-effects.toggle = function( force ) {
+}
+
+export function toggle( force ) {
 	return this.each( ( i, ele ) => {
 		if( !isElement( ele ) ) {
 			return;
@@ -29,6 +29,20 @@ effects.toggle = function( force ) {
 			ele.style.display           = 'none';
 		}
 	} );
-};
+}
 
-export default effects;
+export function fadeOut() {
+	this.css( {
+		transition: 'all 1s ease',
+		opacity: 0,
+		display: 'none',
+	} );
+}
+
+export function fadeIn() {
+	this.css( {
+		transition: 'all 1s ease',
+		opacity: 1,
+
+	} );
+}

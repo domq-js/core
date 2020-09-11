@@ -2,23 +2,9 @@ import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { uglify } from 'rollup-plugin-uglify';
+import filesize from 'rollup-plugin-filesize';
 
 export default [
-	{
-		input: './src/wrap.js',
-		output: {
-			file: './dist/wpopv.js',
-			format: 'umd',
-			name: 'wpopv',
-		},
-		plugins: [
-			babel( {
-				exclude: 'node_modules/**'
-			} ),
-			resolve(),
-			commonjs(),
-		]
-	},
 	{
 		input: './src/wrap.js',
 		output: {
@@ -32,7 +18,29 @@ export default [
 			} ),
 			resolve(),
 			commonjs(),
-			uglify(),
+			uglify( {
+				mangle: true,
+				output:{
+					braces:false,
+				}
+			} ),
+			filesize()
 		]
-	}
+	},
+	{
+		input: './src/wrap.js',
+		output: {
+			file: './dist/wpopv.js',
+			format: 'umd',
+			name: 'wpopv',
+		},
+		plugins: [
+			babel( {
+				exclude: 'node_modules/**'
+			} ),
+			resolve(),
+			commonjs(),
+			filesize()
+		]
+	},
 ];
