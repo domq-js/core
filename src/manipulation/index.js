@@ -1,7 +1,7 @@
 import insertSelectors from "./helper";
 import { filtered } from "../helper";
 import { isUndefined, isElement } from "../core/typechecking";
-import core from "../wrap";
+import core from "../setup";
 
 export function after() {
 	return insertSelectors( arguments, this, false, false, false, true, true );

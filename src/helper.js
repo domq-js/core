@@ -1,4 +1,4 @@
-import core from "./global-var";
+import core from "./setup";
 import { isElement, isDocument, isFunction, isString, isWpopv } from "./core/typechecking";
 import v from "./core/vars";
 import regex from "./regex";

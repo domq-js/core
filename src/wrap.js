@@ -1,7 +1,7 @@
 import v from './core/vars';
 import core from './setup';
 import stringHandler from "./string/index";
-import utilities from "./utilities/index";
+import { attempt, parseHTML } from "./utilities/index";
 import { unique, _each, extend } from "./helper";
 import { attr, removeAttr, prop, removeProp, addClass, hasClass, removeClass, toggleClass } from "./attributes/index";
 import css from './css/index';
@@ -69,7 +69,6 @@ fn.splice = v.splice;
 fn.extend = function( plugins ) {
 	return extend( fn, plugins );
 };
-
 fn.attr         = attr;
 fn.removeAttr   = removeAttr;
 fn.prop         = prop;
@@ -98,7 +97,7 @@ fn.ready        = ready;
 fn.trigger      = trigger;
 fn.serialize    = serialize;
 fn.val          = val;
-fn.offset       = offset.offset;
+fn.offset       = offset;
 fn.offsetParent = offsetParent;
 fn.position     = position;
 fn.add          = add;
@@ -153,8 +152,8 @@ fn.wrapInner    = wrapInner;
  * Static Functions
  */
 core.camelCase = stringHandler.camelCase;
-core.attempt   = utilities.attempt;
-core.parseHTML = utilities.parseHTML;
+core.attempt   = attempt;
+core.parseHTML = parseHTML;
 core.each      = _each;
 core.extend    = extend;
 core.unique    = unique;

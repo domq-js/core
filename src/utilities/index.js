@@ -1,7 +1,8 @@
 import v from "../core/vars";
-import core from "../global-var";
+import core from "../setup";
 import { isString } from "../core/typechecking";
 import regex from "../regex";
+
 
 const utilities  = {},
 	  containers = {
@@ -15,17 +16,17 @@ const utilities  = {},
 	  };
 
 
-utilities.attempt = function( fn, arg ) {
+export function attempt( fn, arg ) {
 	try {
 		return fn( arg );
 	} catch( _a ) {
 		return arg;
 	}
-};
+}
 
 //@TODO: Create elements inside a document fragment, in order to prevent inline event handlers from firing
 //@TODO: Ensure the created elements have the fragment as their parent instead of null, this also ensures we can deal with detatched nodes more reliably
-utilities.parseHTML = function( html ) {
+export function parseHTML( html ) {
 	if( !isString( html ) ) {
 		return [];
 	}
@@ -37,6 +38,6 @@ utilities.parseHTML = function( html ) {
 		  container     = containers[ fragment ] || containers[ '*' ];
 	container.innerHTML = html;
 	return core( container.childNodes ).detach().get();
-};
+}
 
 export default utilities;

@@ -1,6 +1,6 @@
 import regex from "../regex";
 import vars from "../core/vars";
-import core from "../wrap";
+import core from "../setup";
 import { _each } from "../helper";
 
 function evalScripts( node, doc ) {

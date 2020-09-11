@@ -1,6 +1,6 @@
 import { isWpopv, isString, isFunction } from './typechecking';
 import v from './vars';
-import utilities from '../utilities/index';
+import { parseHTML } from '../utilities/index';
 import { _find } from '../helper';
 import regex from "../regex";
 
@@ -19,7 +19,7 @@ class PickledVanilla {
 		if( isString( selector ) ) {
 			const ctx = ( isWpopv( context ) ? context[ 0 ] : context ) || v.doc;
 
-			eles = regex.id.test( selector ) ? ctx.getElementById( selector.slice( 1 ) ) : regex.html.test( selector ) ? utilities.parseHTML( selector ) : _find( selector, ctx );
+			eles = regex.id.test( selector ) ? ctx.getElementById( selector.slice( 1 ) ) : regex.html.test( selector ) ? parseHTML( selector ) : _find( selector, ctx );
 			if( !eles ) {
 				return;
 			}
@@ -44,4 +44,5 @@ class PickledVanilla {
 		return new PickledVanilla( selector, context );
 	}
 }
+
 export default PickledVanilla;
