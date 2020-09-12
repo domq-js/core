@@ -14,6 +14,7 @@ import "./offset/index";
 import "./collection/index";
 import "./traversal/index";
 import "./manipulation/index";
+import "./animation/index";
 
 // Ensuring a cash collection is iterable
 if( typeof Symbol === 'function' ) {

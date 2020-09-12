@@ -29,7 +29,7 @@ v.propMap                   = {
 	rowspan: 'rowSpan',
 	usemap: 'useMap'
 };
-v.vendorsPrefixes           = [ 'webkit', 'moz', 'ms' ];
+v.vendorsPrefixes           = [ 'webkit', 'moz', 'ms', 'o' ];
 v.numericProps              = {
 	animationIterationCount: true,
 	columnCount: true,

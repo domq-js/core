@@ -8,6 +8,7 @@ export default {
 	fragment: /^\s*<(\w+)[^>]*>/,
 	singleTag: /^<(\w+)\s*\/?>(?:<\/\1>)?$/,
 	cssVariable: /^--/,
+	cssProperty: /^(.*?)(em|ex|%|px|cm|mm|in|pt|pc|ch|rem|vh|vw|vmin|vmax|deg)?$/,
 	JSONString: /^\s+|\s+$/,
 	eventsMouse: /^(mouse|pointer|contextmenu|drag|drop|click|dblclick)/i,
 	queryEncodeSpace: /%20/g,

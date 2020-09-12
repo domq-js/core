@@ -4,13 +4,13 @@ import { getDefaultDisplay, isHidden } from './helper';
 import { fn } from "../setup";
 import v from "../core/vars";
 
-fn.hide    = function() {
+fn.hide   = function() {
 	return this.toggle( false );
 };
-fn.show    = function() {
+fn.show   = function() {
 	return this.toggle( true );
 };
-fn.toggle  = function( force ) {
+fn.toggle = function( force ) {
 	return this.each( ( i, ele ) => {
 		if( !isElement( ele ) ) {
 			return;
@@ -28,4 +28,8 @@ fn.toggle  = function( force ) {
 			ele.style.display        = 'none';
 		}
 	} );
+};
+
+fn.fadeToggle = function() {
+
 };
