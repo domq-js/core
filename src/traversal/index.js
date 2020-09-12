@@ -1,13 +1,12 @@
 import { getCompareFunction, filtered, unique, pluck, _find } from "../helper";
 import { isString, isElement } from "../core/typechecking";
 import v from "../core/vars";
-import core from "../setup";
+import core, { fn } from "../setup";
 
-export function children( comparator ) {
+fn.children     = function( comparator ) {
 	return filtered( core( unique( pluck( this, ele => ele.children ) ) ), comparator );
-}
-
-export function closest( comparator ) {
+};
+fn.closest      = function( comparator ) {
 	const filtered = this.filter( comparator );
 	if( filtered.length ) {
 		return filtered;
@@ -17,67 +16,52 @@ export function closest( comparator ) {
 		return filtered;
 	}
 	return $parent.closest( comparator );
-}
-
-export function contents() {
+};
+fn.contents     = function() {
 	return core( unique( pluck( this, ele => ele.tagName === 'IFRAME' ? [ ele.contentDocument ] : ( ele.tagName === 'TEMPLATE' ? ele.content.childNodes : ele.childNodes ) ) ) );
-}
-
-export function find( selector ) {
+};
+fn.find         = function( selector ) {
 	return core( unique( pluck( this, ele => _find( selector, ele ) ) ) );
-}
-
-export function has( selector ) {
+};
+fn.has          = function( selector ) {
 	const comparator = isString( selector ) ? ( i, ele ) => find( selector, ele ).length : ( i, ele ) => ele.contains( selector );
 	return this.filter( comparator );
-}
-
-export function is( comparator ) {
+};
+fn.is           = function( comparator ) {
 	const compare = getCompareFunction( comparator );
 	return v.some.call( this, ( ele, i ) => compare.call( ele, i, ele ) );
-}
-
-export function next( comparator, _all, _until ) {
+};
+fn.next         = function( comparator, _all, _until ) {
 	return filtered( core( unique( pluck( this, 'nextElementSibling', _all, _until ) ) ), comparator );
-}
-
-export function nextAll( comparator ) {
+};
+fn.nextAll      = function( comparator ) {
 	return this.next( comparator, true );
-}
-
-export function nextUntil( until, comparator ) {
+};
+fn.nextUntil    = function( until, comparator ) {
 	return this.next( comparator, true, until );
-}
-
-export function not( comparator ) {
+};
+fn.not          = function( comparator ) {
 	const compare = getCompareFunction( comparator );
 	return this.filter( ( i, ele ) => ( !isString( comparator ) || isElement( ele ) ) && !compare.call( ele, i, ele ) );
-}
-
-export function parent( comparator ) {
+};
+fn.parent       = function( comparator ) {
 	return filtered( core( unique( pluck( this, 'parentNode' ) ) ), comparator );
-}
-
-export function parents( comparator, _until ) {
+};
+fn.parents      = function( comparator, _until ) {
 	return filtered( core( unique( pluck( this, 'parentElement', true, _until ) ) ), comparator );
-}
-
-export function parentsUntil( until, comparator ) {
+};
+fn.parentsUntil = function( until, comparator ) {
 	return this.parents( comparator, until );
-}
-
-export function prev( comparator, _all, _until ) {
+};
+fn.prev         = function( comparator, _all, _until ) {
 	return filtered( core( unique( pluck( this, 'previousElementSibling', _all, _until ) ) ), comparator );
-}
-
-export function prevAll( comparator ) {
+};
+fn.prevAll      = function( comparator ) {
 	return this.prev( comparator, true );
-}
-
-export function prevUntil( until, comparator ) {
+};
+fn.prevUntil    = function( until, comparator ) {
 	return this.prev( comparator, true, until );
-}
-
-export function siblings( comparator ) {
+};
+fn.siblings     = function( comparator ) {
 	return filtered( core( unique( pluck( this, ele => core( ele ).parent().children().not( ele ) ) ) ), comparator );
-}
+};

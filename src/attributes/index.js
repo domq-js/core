@@ -1,11 +1,13 @@
 import { isString, isElement, isNull, isUndefined } from "../core/typechecking";
 import vars from "../core/vars";
 import { _each, getSplitValues } from "../helper";
+import { fn } from "../setup";
 
 /**
  * Element Attributes
  */
-export function attr( attr, value ) {
+
+fn.attr       = function( attr, value ) {
 	if( !attr ) {
 		return;
 	}
@@ -35,9 +37,8 @@ export function attr( attr, value ) {
 		this.attr( key, attr[ key ] );
 	}
 	return this;
-}
-
-export function removeAttr( attr ) {
+};
+fn.removeAttr = function( attr ) {
 	const attrs = getSplitValues( attr );
 	return this.each( ( i, ele ) => {
 		if( !isElement( ele ) ) {
@@ -45,12 +46,13 @@ export function removeAttr( attr ) {
 		}
 		_each( attrs, ( i, a ) => ele.removeAttribute( a ) );
 	} );
-}
+};
 
 /**
  * Element Prop Attributes.
  */
-export function prop( prop, value ) {
+
+fn.prop       = function( prop, value ) {
 	if( !prop ) {
 		return;
 	}
@@ -68,35 +70,32 @@ export function prop( prop, value ) {
 		this.prop( key, prop[ key ] );
 	}
 	return this;
-}
-
-export function removeProp( prop ) {
+};
+fn.removeProp = function( prop ) {
 	return this.each( ( i, ele ) => {
 		let key    = vars.propMap[ prop ] || prop;
 		ele[ key ] = null;
 		delete ele[ key ];
 	} );
-}
+};
 
 /**
  * Element Class.
  */
-export function addClass( cls ) {
+
+fn.addClass    = function( cls ) {
 	return this.toggleClass( cls, true );
-}
-
-export function hasClass( cls ) {
+};
+fn.hasClass    = function( cls ) {
 	return !!cls && vars.some.call( this, ( ele ) => isElement( ele ) && ele.classList.contains( cls ) );
-}
-
-export function removeClass( cls ) {
+};
+fn.removeClass = function( cls ) {
 	if( arguments.length ) {
 		return this.toggleClass( cls, false );
 	}
 	return this.attr( 'class', '' );
-}
-
-export function toggleClass( cls, force ) {
+};
+fn.toggleClass = function( cls, force ) {
 	const classes = getSplitValues( cls ), isForce = !isUndefined( force );
 	return this.each( ( i, ele ) => {
 		if( !isElement( ele ) ) {
@@ -110,4 +109,4 @@ export function toggleClass( cls, force ) {
 			}
 		} );
 	} );
-}
+};

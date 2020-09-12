@@ -2,10 +2,10 @@ import { isNull, isUndefined, isElement, isDocument, isWindow, isString, isFunct
 import { _each, getSplitValues, matches } from "../helper";
 import vars from "../core/vars";
 import { parseEventName, getEventNameBubbling, removeEvent, hasNamespaces, addEvent } from "./helper";
-import core from "../setup";
+import core, { fn } from "../setup";
 import regex from "../regex";
 
-export function off( eventFullName, selector, callback ) {
+fn.off     = function( eventFullName, selector, callback ) {
 	if( isUndefined( eventFullName ) ) {
 		this.each( ( i, ele ) => {
 			if( !isElement( ele ) && !isDocument( ele ) && !isWindow( ele ) ) {
@@ -34,9 +34,8 @@ export function off( eventFullName, selector, callback ) {
 		} );
 	}
 	return this;
-}
-
-export function on( eventFullName, selector, data, callback, _one ) {
+};
+fn.on      = function( eventFullName, selector, data, callback, _one ) {
 	if( !isString( eventFullName ) ) {
 		for( const key in eventFullName ) {
 			this.on( key, selector, data, eventFullName[ key ], _one );
@@ -144,13 +143,11 @@ export function on( eventFullName, selector, data, callback, _one ) {
 		} );
 	} );
 	return this;
-}
-
-export function one( eventFullName, selector, data, callback ) {
+};
+fn.one     = function( eventFullName, selector, data, callback ) {
 	return this.on( eventFullName, selector, data, callback, true );
-}
-
-export function ready( callback ) {
+};
+fn.ready   = function( callback ) {
 	const cb = () => setTimeout( callback, 0, core );
 
 	if( vars.doc.readyState !== 'loading' ) {
@@ -159,9 +156,8 @@ export function ready( callback ) {
 		vars.doc.addEventListener( 'DOMContentLoaded', cb );
 	}
 	return this;
-}
-
-export function trigger( event, data ) {
+};
+fn.trigger = function( event, data ) {
 	if( isString( event ) ) {
 		const [ nameOriginal, namespaces ] = parseEventName( event ),
 			  name                         = getEventNameBubbling( nameOriginal );
@@ -189,4 +185,4 @@ export function trigger( event, data ) {
 		}
 		ele.dispatchEvent( event );
 	} );
-}
+};

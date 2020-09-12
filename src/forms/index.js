@@ -3,6 +3,7 @@ import { getValue } from "./helper";
 import { isUndefined, isNull } from "../core/typechecking";
 import regex from "../regex";
 import vars from "../core/vars";
+import { fn } from "../setup";
 
 const serializeHandler = function( instance, type ) {
 	let return_val = ( 'object' === type ) ? {} : [];
@@ -51,7 +52,7 @@ const serializeHandler = function( instance, type ) {
 	return ( 'string' === type ) ? return_val.join( '&' ) : return_val;
 };
 
-export function val( value ) {
+fn.val             = function( value ) {
 	if( !arguments.length ) {
 		return this[ 0 ] && getValue( this[ 0 ] );
 	}
@@ -70,16 +71,13 @@ export function val( value ) {
 			ele.value = isUndefined( value ) || isNull( value ) ? '' : value;
 		}
 	} );
-}
-
-export function serialize() {
+};
+fn.serialize       = function() {
 	return serializeHandler( this, 'string' );
-}
-
-export function serializeArray() {
+};
+fn.serializeArray  = function() {
 	return serializeHandler( this, 'array' );
-}
-
-export function serializeObject() {
+};
+fn.serializeObject = function() {
 	return serializeHandler( this, 'object' );
-}
+};

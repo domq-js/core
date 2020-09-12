@@ -1,7 +1,10 @@
 import coreClass from "./core/core-class";
 
-const core = coreClass.prototype.init;
-core.fn    = core.prototype = coreClass.prototype;
-core.guid  = 1;
+export const fn = coreClass.prototype;
+const core      = fn.init;
+core.fn         = core.prototype = fn;
+core.guid       = 1;
+fn.length       = 0;
 
 export default core;
+

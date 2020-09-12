@@ -1,17 +1,16 @@
 import { isElement, isUndefined } from "../core/typechecking";
 import { computeStyle } from "../css/helper";
 import { getDefaultDisplay, isHidden } from './helper';
+import { fn } from "../setup";
 import v from "../core/vars";
 
-export function hide() {
+fn.hide    = function() {
 	return this.toggle( false );
-}
-
-export function show() {
+};
+fn.show    = function() {
 	return this.toggle( true );
-}
-
-export function toggle( force ) {
+};
+fn.toggle  = function( force ) {
 	return this.each( ( i, ele ) => {
 		if( !isElement( ele ) ) {
 			return;
@@ -29,20 +28,4 @@ export function toggle( force ) {
 			ele.style.display        = 'none';
 		}
 	} );
-}
-
-export function fadeOut() {
-	this.css( {
-		transition: 'all 1s ease',
-		opacity: 0,
-		display: 'none',
-	} );
-}
-
-export function fadeIn() {
-	this.css( {
-		transition: 'all 1s ease',
-		opacity: 1,
-
-	} );
-}
+};

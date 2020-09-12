@@ -1,9 +1,9 @@
 import v from "../core/vars";
 import { computeStyleInt, computeStyle } from "../css/helper";
 import { isElement } from "../core/typechecking";
-import core from "../setup";
+import core, { fn } from "../setup";
 
-export function offset() {
+fn.offset       = function() {
 	const ele = this[ 0 ];
 
 	if( !ele ) {
@@ -15,9 +15,8 @@ export function offset() {
 		top: rect.top + v.win.pageYOffset,
 		left: rect.left + v.win.pageXOffset
 	};
-}
-
-export function offsetParent() {
+};
+fn.offsetParent = function() {
 	return this.map( ( i, ele ) => {
 		let offsetParent = ele.offsetParent;
 		while( offsetParent && computeStyle( offsetParent, 'position' ) === 'static' ) {
@@ -25,9 +24,8 @@ export function offsetParent() {
 		}
 		return offsetParent || v.docEle;
 	} );
-}
-
-export function position() {
+};
+fn.position     = function() {
 	const ele = this[ 0 ];
 	if( !ele ) {
 		return;
@@ -55,4 +53,4 @@ export function position() {
 		left: offset.left - computeStyleInt( ele, 'marginLeft' )
 	};
 
-}
+};

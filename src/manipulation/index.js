@@ -1,46 +1,39 @@
 import insertSelectors from "./helper";
 import { filtered } from "../helper";
 import { isUndefined, isElement } from "../core/typechecking";
-import core from "../setup";
+import core, { fn } from "../setup";
 
-export function after() {
+fn.after        = function() {
 	return insertSelectors( arguments, this, false, false, false, true, true );
-}
-
-export function append() {
+};
+fn.append       = function() {
 	return insertSelectors( arguments, this, false, false, true );
-}
-
-export function appendTo( selector ) {
+};
+fn.appendTo     = function( selector ) {
 	return insertSelectors( arguments, this, true, false, true );
-}
-
-export function before() {
+};
+fn.before       = function() {
 	return insertSelectors( arguments, this, false, true );
-}
-
-export function clone() {
+};
+fn.clone        = function() {
 	return this.map( ( i, ele ) => ele.cloneNode( true ) );
-}
-
-export function detach( comparator ) {
+};
+fn.detach       = function( comparator ) {
 	filtered( this, comparator ).each( ( i, ele ) => {
 		if( ele.parentNode ) {
 			ele.parentNode.removeChild( ele );
 		}
 	} );
 	return this;
-}
-
-export function empty() {
+};
+fn.empty        = function() {
 	return this.each( ( i, ele ) => {
 		while( ele.firstChild ) {
 			ele.removeChild( ele.firstChild );
 		}
 	} );
-}
-
-export function html( html ) {
+};
+fn.html         = function( html ) {
 	if( !arguments.length ) {
 		return this[ 0 ] && this[ 0 ].innerHTML;
 	}
@@ -55,39 +48,31 @@ export function html( html ) {
 		}
 		ele.innerHTML = html;
 	} );
-}
-
-export function insertAfter( selector ) {
+};
+fn.insertAfter  = function( selector ) {
 	return insertSelectors( arguments, this, true, false, false, false, false, true );
-}
-
-export function insertBefore( selector ) {
+};
+fn.insertBefore = function( selector ) {
 	return insertSelectors( arguments, this, true, true );
-}
-
-export function prepend() {
+};
+fn.prepend      = function() {
 	return insertSelectors( arguments, this, false, true, true, true, true );
-}
-
-export function prependTo( selector ) {
+};
+fn.prependTo    = function( selector ) {
 	return insertSelectors( arguments, this, true, true, true, false, false, true );
-}
-
-export function remove( comparator ) {
+};
+fn.remove       = function( comparator ) {
 	filtered( this, comparator ).detach().off();
 	return this;
-}
-
-export function replaceAll( selector ) {
+};
+fn.replaceAll   = function( selector ) {
 	core( selector ).replaceWith( this );
 	return this;
-}
-
-export function replaceWith( selector ) {
+};
+fn.replaceWith  = function( selector ) {
 	return this.before( selector ).remove();
-}
-
-export function text( text ) {
+};
+fn.text         = function( text ) {
 	if( isUndefined( text ) ) {
 		return this[ 0 ] ? this[ 0 ].textContent : '';
 	}
@@ -99,9 +84,8 @@ export function text( text ) {
 		ele.textContent = text;
 	} );
 
-}
-
-export function unwrap() {
+};
+fn.unwrap       = function() {
 	this.parent().each( ( i, ele ) => {
 		if( ele.tagName === 'BODY' ) {
 			return;
@@ -110,16 +94,14 @@ export function unwrap() {
 		$ele.replaceWith( $ele.children() );
 	} );
 	return this;
-}
-
-export function wrap( selector ) {
+};
+fn.wrap         = function( selector ) {
 	return this.each( ( i, ele ) => {
 		const wrapper = core( selector )[ 0 ];
 		core( ele ).wrapAll( !i ? wrapper : wrapper.cloneNode( true ) );
 	} );
-}
-
-export function wrapAll( selector ) {
+};
+fn.wrapAll      = function( selector ) {
 	let structure = core( selector ),
 		wrapper   = structure[ 0 ];
 	while( wrapper.children.length ) {
@@ -127,12 +109,11 @@ export function wrapAll( selector ) {
 	}
 	this.first().before( structure );
 	return this.appendTo( wrapper );
-}
-
-export function wrapInner( selector ) {
+};
+fn.wrapInner    = function( selector ) {
 	return this.each( ( i, ele ) => {
 		const $ele     = core( ele ),
 			  contents = $ele.contents();
 		contents.length ? contents.wrapAll( selector ) : $ele.append( selector );
 	} );
-}
+};

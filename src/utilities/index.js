@@ -3,16 +3,15 @@ import core from "../setup";
 import { isString } from "../core/typechecking";
 import regex from "../regex";
 
-
 const containers = {
-		  '*': v.div,
-		  tr: v.tbody,
-		  td: v.tr,
-		  th: v.tr,
-		  thead: v.table,
-		  tbody: v.table,
-		  tfoot: v.table
-	  };
+	'*': v.div,
+	tr: v.tbody,
+	td: v.tr,
+	th: v.tr,
+	thead: v.table,
+	tbody: v.table,
+	tfoot: v.table
+};
 
 
 export function attempt( fn, arg ) {

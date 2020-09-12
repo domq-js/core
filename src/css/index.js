@@ -1,7 +1,8 @@
 import { isString, isElement } from "../core/typechecking";
 import { isCSSVariable, getPrefixedProp, computeStyle, getSuffixedValue } from "./helper";
+import { fn } from '../setup';
 
-export default function( prop, value ) {
+fn.css = function( prop, value ) {
 	if( isString( prop ) ) {
 		const isVariable = isCSSVariable( prop );
 		prop             = getPrefixedProp( prop, isVariable );
@@ -34,4 +35,4 @@ export default function( prop, value ) {
 	}
 
 	return this;
-}
+};

@@ -1,6 +1,7 @@
 import { isUndefined, isWindow, isDocument, isElement } from "../core/typechecking";
 import { getExtraSpace, getDocumentDimension } from "./helper";
 import { computeStyle, computeStyleInt, getSuffixedValue } from "../css/helper";
+import { fn } from "../setup";
 
 /**
  *
@@ -63,26 +64,21 @@ const WidthHeightHandler = function( baseHandler, prop, value ) {
 
 };
 
-export function innerWidth( includeMargins ) {
+fn.innerWidth  = function( includeMargins ) {
 	return OuterInnerHandler( this, 'inner', 'Width', includeMargins );
-}
-
-export function innerHeight( includeMargins ) {
+};
+fn.innerHeight = function( includeMargins ) {
 	return OuterInnerHandler( this, 'inner', 'Height', includeMargins );
-}
-
-export function outerWidth( includeMargins ) {
+};
+fn.outerWidth  = function( includeMargins ) {
 	return OuterInnerHandler( this, 'outer', 'Width', includeMargins );
-}
-
-export function outerHeight( includeMargins ) {
+};
+fn.outerHeight = function( includeMargins ) {
 	return OuterInnerHandler( this, 'outer', 'Height', includeMargins );
-}
-
-export function width( value ) {
+};
+fn.width       = function( value ) {
 	return WidthHeightHandler( this, 'width', value );
-}
-
-export function height( value ) {
+};
+fn.height      = function( value ) {
 	return WidthHeightHandler( this, 'height', value );
-}
+};

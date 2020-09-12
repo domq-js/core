@@ -19,15 +19,15 @@ v.some                      = v.ArrayProp.some;
 v.splice                    = v.ArrayProp.splice;
 v.displayProperty           = '___cd';
 v.propMap                   = {
-	class: 'className', // General
-	contenteditable: 'contentEditable', // General
-	for: 'htmlFor', // Label
-	readonly: 'readOnly', // Input
-	maxlength: 'maxLength', // Input
-	tabindex: 'tabIndex', // Input
-	colspan: 'colSpan', // Table
-	rowspan: 'rowSpan', // Table
-	usemap: 'useMap' // Image
+	'class': 'className',
+	contenteditable: 'contentEditable',
+	'for': 'htmlFor',
+	readonly: 'readOnly',
+	maxlength: 'maxLength',
+	tabindex: 'tabIndex',
+	colspan: 'colSpan',
+	rowspan: 'rowSpan',
+	usemap: 'useMap'
 };
 v.vendorsPrefixes           = [ 'webkit', 'moz', 'ms' ];
 v.numericProps              = {

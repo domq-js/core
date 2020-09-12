@@ -1,7 +1,8 @@
 import { setData, getData } from "./helper";
 import { isString, isUndefined } from "../core/typechecking";
+import { fn } from '../setup';
 
-export default function data( name, value ) {
+fn.data = function data( name, value ) {
 	if( !name ) {
 		if( !this[ 0 ] ) {
 			return;
@@ -29,4 +30,4 @@ export default function data( name, value ) {
 		this.data( key, name[ key ] );
 	}
 	return this;
-}
+};
