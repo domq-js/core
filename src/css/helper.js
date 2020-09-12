@@ -2,7 +2,7 @@ import regex from "../regex";
 import v from "../core/vars";
 import { isNumeric, isElement } from "../core/typechecking";
 import { _each } from "../helper";
-import stringHandler from "../string/index";
+import { camelCase } from "../string/index";
 
 const prefixedProps = {},
 	  { style }     = v.div;
@@ -21,7 +21,7 @@ export function getPrefixedProp( prop, isVariable = isCSSVariable( prop ) ) {
 	}
 
 	if( !prefixedProps[ prop ] ) {
-		const propCC = stringHandler.camelCase( prop ),
+		const propCC = camelCase( prop ),
 			  propUC = `${propCC[ 0 ].toUpperCase()}${propCC.slice( 1 )}`,
 			  props  = ( `${propCC} ${v.vendorsPrefixes.join( `${propUC} ` )}${propUC}` ).split( ' ' );
 

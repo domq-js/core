@@ -1,7 +1,7 @@
 import { getCompareFunction, filtered, unique, pluck, _find } from "../helper";
 import { isString, isElement } from "../core/typechecking";
 import v from "../core/vars";
-import core from "../global-var";
+import core from "../setup";
 
 export function children( comparator ) {
 	return filtered( core( unique( pluck( this, ele => ele.children ) ) ), comparator );

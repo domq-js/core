@@ -1,4 +1,4 @@
-const v                     = {  };
+const v                     = {};
 v.doc                       = document;
 v.win                       = window;
 v.isArray                   = Array.isArray;
@@ -61,6 +61,5 @@ v.eventsHover               = {
 	mouseleave: 'mouseout'
 };
 v.scriptAttributes          = [ 'type', 'src', 'nonce', 'noModule' ];
-
 
 export default v;

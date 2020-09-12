@@ -1,9 +1,5 @@
 import regex from "../regex";
 
-const stringHandler     = {};
-
-stringHandler.camelCase = function( str ) {
+export function camelCase( str ) {
 	return str.replace( regex.camelCase, ( match, letter ) => letter.toUpperCase() );
-};
-
-export default stringHandler;
+}

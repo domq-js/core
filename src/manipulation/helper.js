@@ -7,9 +7,6 @@ function evalScripts( node, doc ) {
 	const collection = core( node );
 	collection.filter( 'script' ).add( collection.find( 'script' ) ).each( ( i, ele ) => {
 		if( regex.scriptType.test( ele.type ) && vars.docEle.contains( ele ) ) {
-			// The script type is supported
-			// The element is attached to the DOM
-			// Using `documentElement` for broader browser support
 			const script = vars.celem( 'script' );
 			script.text  = ele.textContent.replace( regex.HTMLCDATA, '' );
 			_each( vars.scriptAttributes, ( i, attr ) => {
@@ -25,10 +22,8 @@ function evalScripts( node, doc ) {
 
 function insertElement( anchor, target, left, inside, evaluate ) {
 	if( inside ) {
-		// prepend/append
 		anchor.insertBefore( target, left ? anchor.firstChild : null );
 	} else {
-		// before/after
 		anchor.parentNode.insertBefore( target, left ? anchor : anchor.nextSibling );
 	}
 	if( evaluate ) {

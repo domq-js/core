@@ -4,8 +4,7 @@ import { isString } from "../core/typechecking";
 import regex from "../regex";
 
 
-const utilities  = {},
-	  containers = {
+const containers = {
 		  '*': v.div,
 		  tr: v.tbody,
 		  td: v.tr,
@@ -39,5 +38,3 @@ export function parseHTML( html ) {
 	container.innerHTML = html;
 	return core( container.childNodes ).detach().get();
 }
-
-export default utilities;

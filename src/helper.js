@@ -3,7 +3,6 @@ import { isElement, isDocument, isFunction, isString, isWpopv } from "./core/typ
 import v from "./core/vars";
 import regex from "./regex";
 
-
 export function _each( arr, callback, _reverse ) {
 	if( _reverse ) {
 		let i = arr.length;
@@ -41,18 +40,16 @@ export function extend( target, ...objs ) {
 	return target;
 }
 
-export function filtered( main_instance, comparator ) {
-	return !comparator ? main_instance : main_instance.filter( comparator );
+export function filtered( instance, comparator ) {
+	return !comparator ? instance : instance.filter( comparator );
 }
 
 export function _find( selector, context ) {
 	return !selector || ( !isDocument( context ) && !isElement( context ) ) ? [] : regex.class.test( selector ) ? context.getElementsByClassName( selector.slice( 1 ) ) : regex.tag.test( selector ) ? context.getElementsByTagName( selector ) : context.querySelectorAll( selector );
-
 }
 
 export function getCompareFunction( comparator ) {
-	return isString( comparator ) ?
-		( i, ele ) => matches( ele, comparator ) : isFunction( comparator ) ? comparator : isWpopv( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;
+	return isString( comparator ) ? ( i, ele ) => matches( ele, comparator ) : isFunction( comparator ) ? comparator : isWpopv( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;
 }
 
 export function getSplitValues( str ) {
@@ -92,4 +89,3 @@ export function pluck( arr, prop, deep, until ) {
 export function unique( arr ) {
 	return arr.length > 1 ? v.filter.call( arr, ( item, index, self ) => v.indexOf.call( self, item ) === index ) : arr;
 }
-

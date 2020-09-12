@@ -1,5 +1,4 @@
 import { pluck } from "../helper";
-import regex from "../regex";
 
 export function getValue( ele, filter ) {
 	if( ele.multiple && ele.options ) {

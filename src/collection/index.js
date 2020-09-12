@@ -1,4 +1,4 @@
-import core from "../global-var";
+import core from "../setup";
 import { _each, getCompareFunction, unique } from "../helper";
 import vars from "../core/vars";
 import { isUndefined } from "../core/typechecking";
@@ -19,7 +19,6 @@ export function eq( index ) {
 export function filter( comparator ) {
 	const compare = getCompareFunction( comparator );
 	return core( vars.filter.call( this, ( ele, i ) => compare.call( ele, i, ele ) ) );
-
 }
 
 export function first() {

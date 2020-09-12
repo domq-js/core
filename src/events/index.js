@@ -2,7 +2,7 @@ import { isNull, isUndefined, isElement, isDocument, isWindow, isString, isFunct
 import { _each, getSplitValues, matches } from "../helper";
 import vars from "../core/vars";
 import { parseEventName, getEventNameBubbling, removeEvent, hasNamespaces, addEvent } from "./helper";
-import core from "../global-var";
+import core from "../setup";
 import regex from "../regex";
 
 export function off( eventFullName, selector, callback ) {
