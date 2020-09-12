@@ -7,8 +7,3 @@ export function getValue( ele, filter ) {
 	}
 	return ele.value || '';
 }
-
-export function queryEncode( prop, value ) {
-	return `&${encodeURIComponent( prop )}=${encodeURIComponent( value.replace( regex.queryEncodeCRLF, '\r\n' ) )
-		.replace( regex.queryEncodeSpace, '+' )}`;
-}

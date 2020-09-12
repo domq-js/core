@@ -1,28 +1,55 @@
 import { _each } from "../helper";
-import { queryEncode, getValue } from "./helper";
+import { getValue } from "./helper";
 import { isUndefined, isNull } from "../core/typechecking";
 import regex from "../regex";
 import vars from "../core/vars";
 
-export function serialize() {
-	let query = '';
-	this.each( ( i, ele ) => {
-		_each( ele.elements || [ ele ], ( i, ele ) => {
-			if( ele.disabled || !ele.name || ele.tagName === 'FIELDSET' || regex.skippable.test( ele.type ) || ( regex.checkable.test( ele.type ) && !ele.checked ) ) {
+const serializeHandler = function( instance, type ) {
+	let return_val = ( 'object' === type ) ? {} : [];
+
+	instance.each( ( i, form ) => {
+		_each( form.elements, ( i, field ) => {
+			if( !field.name || field.disabled || [ 'file', 'reset', 'submit', 'button' ].indexOf( field.type ) > -1 ) {
 				return;
 			}
 
-			const value = getValue( ele );
-			if( !isUndefined( value ) ) {
-				const values = vars.isArray( value ) ? value : [ value ];
-				_each( values, ( i, value ) => {
-					query += queryEncode( ele.name, value );
+			if( field.type === 'select-multiple' ) {
+				let options = [];
+				Array.prototype.slice.call( field.options ).forEach( function( option ) {
+					if( !option.selected ) {
+						return;
+					}
+
+					if( 'string' === type ) {
+						return_val.push( encodeURIComponent( field.name ) + '=' + encodeURIComponent( option.value ) );
+					} else if( 'array' === type ) {
+						return_val.push( { name: field.name, value: option.value } );
+					} else {
+						options.push( option.value );
+					}
+
 				} );
+				if( 'object' === type && options.length ) {
+					return_val[ field.name ] = options;
+				}
+				return;
+			}
+
+			if( [ 'checkbox', 'radio' ].indexOf( field.type ) > -1 && !field.checked ) {
+				return;
+			}
+
+			if( 'string' === type ) {
+				return_val.push( encodeURIComponent( field.name ) + '=' + encodeURIComponent( field.value ) );
+			} else if( 'array' === type ) {
+				return_val.push( { name: field.name, value: field.value } );
+			} else {
+				return_val[ field.name ] = field.value;
 			}
 		} );
 	} );
-	return query.slice( 1 );
-}
+	return ( 'string' === type ) ? return_val.join( '&' ) : return_val;
+};
 
 export function val( value ) {
 	if( !arguments.length ) {
@@ -43,4 +70,16 @@ export function val( value ) {
 			ele.value = isUndefined( value ) || isNull( value ) ? '' : value;
 		}
 	} );
+}
+
+export function serialize() {
+	return serializeHandler( this, 'string' );
+}
+
+export function serializeArray() {
+	return serializeHandler( this, 'array' );
+}
+
+export function serializeObject() {
+	return serializeHandler( this, 'object' );
 }
