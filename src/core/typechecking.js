@@ -35,3 +35,7 @@ export function isNull( x ) {
 export function isNumeric( x ) {
 	return !isNaN( parseFloat( x ) ) && isFinite( x );
 }
+
+export function isNumber( x ) {
+	return typeof x === 'number';
+}
