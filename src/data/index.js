@@ -1,6 +1,7 @@
-import { setData, getData } from "./helper";
 import { isString, isUndefined } from "../core/typechecking";
 import { fn } from '../setup';
+import getData from "./helper/getData";
+import setData from "./helper/setData";
 
 fn.data = function data( name, value ) {
 	if( !name ) {
