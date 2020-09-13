@@ -1,5 +1,5 @@
 import { fn } from "../setup";
-import { filtered } from "../helper";
+import filtered from "../core/filtered";
 
 fn.detach       = function( comparator ) {
 	filtered( this, comparator ).each( ( i, ele ) => {

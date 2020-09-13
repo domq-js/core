@@ -2,9 +2,7 @@ import { isElement, isDocument, isFunction, isString, isWpopv } from "./core/typ
 import v from "./core/vars";
 import regex from "./regex";
 
-export function filtered( instance, comparator ) {
-	return !comparator ? instance : instance.filter( comparator );
-}
+
 
 export function _find( selector, context ) {
 	return !selector || ( !isDocument( context ) && !isElement( context ) ) ? [] : regex.class.test( selector ) ? context.getElementsByClassName( selector.slice( 1 ) ) : regex.tag.test( selector ) ? context.getElementsByTagName( selector ) : context.querySelectorAll( selector );

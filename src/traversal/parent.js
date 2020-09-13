@@ -1,5 +1,5 @@
 import core, { fn } from "../setup";
-import { filtered } from "../helper";
+import filtered from "../core/filtered";
 import pluck from "../utilities/pluck";
 import unique from "../utilities/unique";
 
