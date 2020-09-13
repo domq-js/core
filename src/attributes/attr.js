@@ -31,6 +31,6 @@ fn.attr = function( attr, value ) {
 			ele.setAttribute( attr, value );
 		} );
 	}
-	handleObjectDataLoop( this, attr, 'attr' );
+	handleObjectDataLoop.call( this, attr, 'attr' );
 	return this;
 };

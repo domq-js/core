@@ -20,7 +20,7 @@ fn.off = function( eventFullName, selector, callback ) {
 			removeEvent( ele );
 		} );
 	} else if( !isString( eventFullName ) ) {
-		handleObjectDataLoop( this, eventFullName, 'off' );
+		handleObjectDataLoop.call( this, eventFullName, 'off' );
 	} else {
 		if( isFunction( selector ) ) {
 			callback = selector;

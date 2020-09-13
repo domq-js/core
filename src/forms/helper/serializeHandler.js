@@ -1,10 +1,10 @@
 import _each from "../../core/_each";
 import _slice from "../../core/vars/_slice";
 
-export default function( instance, type ) {
+export default function( type ) {
 	let return_val = ( 'object' === type ) ? {} : [];
 
-	instance.each( ( i, form ) => {
+	this.each( ( i, form ) => {
 		_each( form.elements, ( i, field ) => {
 			if( !field.name || field.disabled || [ 'file', 'reset', 'submit', 'button' ].indexOf( field.type ) > -1 ) {
 				return;
@@ -17,16 +17,16 @@ export default function( instance, type ) {
 						return;
 					}
 
-					if( 'string' === type ) {
+					if( 's' === type ) {
 						return_val.push( encodeURIComponent( field.name ) + '=' + encodeURIComponent( option.value ) );
-					} else if( 'array' === type ) {
+					} else if( 'a' === type ) {
 						return_val.push( { name: field.name, value: option.value } );
 					} else {
 						options.push( option.value );
 					}
 
 				} );
-				if( 'object' === type && options.length ) {
+				if( 'o' === type && options.length ) {
 					return_val[ field.name ] = options;
 				}
 				return;
@@ -36,9 +36,9 @@ export default function( instance, type ) {
 				return;
 			}
 
-			if( 'string' === type ) {
+			if( 's' === type ) {
 				return_val.push( encodeURIComponent( field.name ) + '=' + encodeURIComponent( field.value ) );
-			} else if( 'array' === type ) {
+			} else if( 'a' === type ) {
 				return_val.push( { name: field.name, value: field.value } );
 			} else {
 				return_val[ field.name ] = field.value;

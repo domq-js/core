@@ -16,8 +16,8 @@ export function matches( ele, selector ) {
 	return !!matches && !!selector && matches.call( ele, selector );
 }
 
-export function handleObjectDataLoop( instance, data, callback ) {
+export function handleObjectDataLoop( data, callback ) {
 	for( const key in data ) {
-		instance[callback]( key, data[ key ] );
+		this[ callback ]( key, data[ key ] );
 	}
 }

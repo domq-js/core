@@ -35,6 +35,6 @@ fn.css = function( prop, value ) {
 		} );
 	}
 
-	handleObjectDataLoop( this, prop, 'css' );
+	handleObjectDataLoop.call( this, prop, 'css' );
 	return this;
 };

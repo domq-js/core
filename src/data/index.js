@@ -25,10 +25,10 @@ fn.data = function( name, value ) {
 			return this;
 		}
 		return this.each( ( i, ele ) => {
-			setData( ele, name, value );
+			setData.call( ele, name, value );
 		} );
 	}
 
-	handleObjectDataLoop( this, name, 'data' );
+	handleObjectDataLoop.call( this, name, 'data' );
 	return this;
 };

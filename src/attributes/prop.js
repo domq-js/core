@@ -17,6 +17,6 @@ fn.prop = function( prop, value ) {
 			ele[ prop ] = value;
 		} );
 	}
-	handleObjectDataLoop( this, prop, 'prop' );
+	handleObjectDataLoop.call( this, prop, 'prop' );
 	return this;
 };
