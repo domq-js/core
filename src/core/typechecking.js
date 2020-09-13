@@ -39,3 +39,16 @@ export function isNumeric( x ) {
 export function isNumber( x ) {
 	return typeof x === 'number';
 }
+
+export function isPlainObject( x ) {
+	if( typeof x !== 'object' || x === null ) {
+		return false;
+	}
+
+	const proto = Object.getPrototypeOf( x );
+	return proto === null || proto === Object.prototype;
+}
+
+export function isBoolean( x ) {
+	return typeof x === 'boolean';
+}
