@@ -1,20 +1,24 @@
 import v from './core/vars';
+
 import core, { fn } from './setup';
-import { camelCase } from "./string/index";
-import { attempt, parseHTML } from "./utilities/index";
-import { unique, _each, extend } from "./helper";
+import { unique } from "./helper";
+
+import "./attributes/index";
+import "./collection/index";
+import extend from "./core/extend";
+import _each from "./core/_each";
 import './css/index';
 import './data/index';
-import "./attributes/index";
 import "./dimensions/index";
 import "./effects/index";
 import "./events/index";
 import "./forms/index";
-import "./offset/index";
-import "./collection/index";
-import "./traversal/index";
 import "./manipulation/index";
-import "./animation/index";
+import "./offset/index";
+import "./traversal/index";
+import attempt from "./utilities/attempt";
+import parseHTML from "./utilities/parseHTML";
+import camelCase from "./string/camelCase";
 
 // Ensuring a cash collection is iterable
 if( typeof Symbol === 'function' ) {
