@@ -1,9 +1,9 @@
-import v from "../core/vars";
-import { computeStyle } from "../css/helper";
+import v from "../../core/vars";
+import computeStyle from "../../css/helpers/computeStyle";
 
 const defaultDisplay = {};
 
-export function getDefaultDisplay( tagName ) {
+export default function( tagName ) {
 	if( defaultDisplay[ tagName ] ) {
 		return defaultDisplay[ tagName ];
 	}
@@ -12,8 +12,4 @@ export function getDefaultDisplay( tagName ) {
 	const display = computeStyle( ele, 'display' );
 	v.doc.body.removeChild( ele );
 	return defaultDisplay[ tagName ] = display !== 'none' ? display : 'block';
-}
-
-export function isHidden( ele ) {
-	return computeStyle( ele, 'display' ) === 'none';
 }
