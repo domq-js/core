@@ -1,4 +1,4 @@
-import { isPlainObject } from "./typechecking";
+import isPlainObject from "../typechecking/isPlainObject";
 
 export default function _each( arr, callback, _reverse ) {
 	if( _reverse ) {

@@ -1,4 +1,4 @@
-import { isFunction } from "../core/typechecking";
+import isFunction from "../typechecking/isFunction";
 import v from "../core/vars";
 import { getCompareFunction } from "../helper";
 

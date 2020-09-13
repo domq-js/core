@@ -1,4 +1,5 @@
-import { isString, isUndefined } from "../core/typechecking";
+import isUndefined from "../typechecking/isUndefined";
+import isString from "../typechecking/isString";
 import { fn } from '../setup';
 import getData from "./helper/getData";
 import setData from "./helper/setData";

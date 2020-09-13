@@ -1,4 +1,5 @@
-import { isBoolean, isPlainObject } from "./typechecking";
+import isBoolean from "../typechecking/isBoolean";
+import isPlainObject from "../typechecking/isPlainObject";
 import core from "../setup";
 import v from "./vars";
 

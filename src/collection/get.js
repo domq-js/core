@@ -1,5 +1,5 @@
 import { fn } from "../setup";
-import { isUndefined } from "../core/typechecking";
+import isUndefined from "../typechecking/isUndefined";
 import vars from "../core/vars";
 
 fn.get    = function( index ) {

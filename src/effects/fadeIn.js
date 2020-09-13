@@ -1,7 +1,7 @@
 import { fn } from "../setup";
-import { isFunction } from "../core/typechecking";
+import isFunction from "../typechecking/isFunction";
 
-fn.fadeIn  = function( delay, callback ) {
+fn.fadeIn = function( delay, callback ) {
 	this.css( 'opacity', 0 ).show().css( { 'transition': 'opacity ' + delay + 'ms linear 0s', 'opacity': '1' } );
 	setTimeout( () => {
 		this.show();

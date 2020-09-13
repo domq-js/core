@@ -1,5 +1,5 @@
 import v from "../core/vars";
-import { isString } from "../core/typechecking";
+import isString from "../typechecking/isString";
 import regex from "../regex";
 import core from "../setup";
 
@@ -12,7 +12,6 @@ const containers = {
 	tbody: v.table,
 	tfoot: v.table
 };
-
 
 
 //@TODO: Create elements inside a document fragment, in order to prevent inline event handlers from firing

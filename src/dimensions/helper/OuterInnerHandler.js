@@ -1,7 +1,7 @@
-import { isDocument, isWindow } from "../../core/typechecking";
+import isDocument from "../../typechecking/isDocument";
 import getDocumentDimension from "./getDocumentDimension";
 import computeStyleInt from "../../css/helpers/computeStyleInt";
-
+import isWindow from "../../typechecking/isWindow";
 export default function( baseHandler, position, prop, includeMargins ) {
 	if( !baseHandler[ 0 ] ) {
 		return;

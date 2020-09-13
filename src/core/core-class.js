@@ -1,4 +1,6 @@
-import { isWpopv, isString, isFunction } from './typechecking';
+import isWpopv from '../typechecking/isWpopv';
+import isFunction from "../typechecking/isFunction";
+import isString from "../typechecking/isString";
 import v from './vars';
 import regex from "../regex";
 import parseHTML from "../utilities/parseHTML";

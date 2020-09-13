@@ -1,1 +1,1 @@
-import "camelCase.js";
+import "./camelCase.js";

@@ -1,5 +1,6 @@
 import { fn } from "../setup";
-import { isFunction, isString } from "../core/typechecking";
+import isString from "../typechecking/isString";
+import isFunction from "../typechecking/isFunction";
 import parseEventName from "./helper/parseEventName";
 import getEventNameBubbling from "./helper/getEventNameBubbling";
 import regex from "../regex";

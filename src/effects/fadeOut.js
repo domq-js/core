@@ -1,5 +1,5 @@
 import { fn } from "../setup";
-import { isFunction } from "../core/typechecking";
+import isFunction from "../typechecking/isFunction";
 
 fn.fadeOut = function( delay, callback ) {
 	this.css( { 'transition': 'opacity ' + delay + 'ms linear 0s', 'opacity': '0' } );

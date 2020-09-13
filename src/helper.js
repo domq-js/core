@@ -1,5 +1,7 @@
-import { isFunction, isString, isWpopv } from "./core/typechecking";
+import isWpopv from "./typechecking/isWpopv";
+import isString from "./typechecking/isString";
 import regex from "./regex";
+import isFunction from "./typechecking/isFunction";
 
 export function getCompareFunction( comparator ) {
 	return isString( comparator ) ? ( i, ele ) => matches( ele, comparator ) : isFunction( comparator ) ? comparator : isWpopv( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;
@@ -13,6 +15,3 @@ export function matches( ele, selector ) {
 	const matches = ele && ( ele[ 'matches' ] || ele[ 'webkitMatchesSelector' ] || ele[ 'msMatchesSelector' ] );
 	return !!matches && !!selector && matches.call( ele, selector );
 }
-
-
-

@@ -1,6 +1,7 @@
 import { fn } from "../setup";
 import { getSplitValues } from "../helper";
-import { isElement, isUndefined } from "../core/typechecking";
+import isUndefined from "../typechecking/isUndefined";
+import isElement from "../typechecking/isElement";
 import _each from "../core/_each";
 
 fn.toggleClass = function( cls, force ) {

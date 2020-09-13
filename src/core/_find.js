@@ -1,4 +1,5 @@
-import { isDocument, isElement } from "./typechecking";
+import isElement from "../typechecking/isElement";
+import isDocument from "../typechecking/isDocument";
 import regex from "../regex";
 
 export default function( selector, context ) {

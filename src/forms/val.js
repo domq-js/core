@@ -2,10 +2,11 @@ import { fn } from "../setup";
 import getValue from "./helper/getValue";
 import regex from "../regex";
 import vars from "../core/vars";
-import { isNull, isUndefined } from "../core/typechecking";
+import isNull from "../typechecking/isNull";
+import isUndefined from "../typechecking/isUndefined";
 import _each from "../core/_each";
 
-fn.val             = function( value ) {
+fn.val = function( value ) {
 	if( !arguments.length ) {
 		return this[ 0 ] && getValue( this[ 0 ] );
 	}

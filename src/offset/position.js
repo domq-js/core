@@ -1,6 +1,6 @@
 import core, { fn } from "../setup";
 import computeStyle from "../css/helpers/computeStyle";
-import { isElement } from "../core/typechecking";
+import isElement from "../typechecking/isElement";
 import computeStyleInt from "../css/helpers/computeStyleInt";
 
 fn.position     = function() {

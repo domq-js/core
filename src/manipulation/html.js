@@ -1,7 +1,8 @@
 import { fn } from "../setup";
-import { isElement, isUndefined } from "../core/typechecking";
+import isUndefined from "../typechecking/isUndefined";
+import isElement from "../typechecking/isElement";
 
-fn.html         = function( html ) {
+fn.html = function( html ) {
 	if( !arguments.length ) {
 		return this[ 0 ] && this[ 0 ].innerHTML;
 	}

@@ -1,6 +1,6 @@
 import { fn } from "../setup";
 import { getSplitValues } from "../helper";
-import { isElement } from "../core/typechecking";
+import isElement from "../typechecking/isElement";
 import _each from "../core/_each";
 
 fn.removeAttr = function( attr ) {

@@ -1,4 +1,5 @@
-import { isString, isElement } from "../core/typechecking";
+import isString from "../typechecking/isString";
+import isElement from "../typechecking/isElement";
 import { fn } from '../setup';
 import isCSSVariable from "./helpers/isCSSVariable";
 import getSuffixedValue from "./helpers/getSuffixedValue";

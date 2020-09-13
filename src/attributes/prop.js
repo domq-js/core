@@ -1,5 +1,5 @@
 import { fn } from "../setup";
-import { isString } from "../core/typechecking";
+import isString from "../typechecking/isString";
 import vars from "../core/vars";
 
 fn.prop       = function( prop, value ) {

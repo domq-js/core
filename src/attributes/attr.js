@@ -1,7 +1,10 @@
 import { fn } from "../setup";
-import { isElement, isNull, isString, isUndefined } from "../core/typechecking";
+import isNull from "../typechecking/isNull";
+import isUndefined from "../typechecking/isUndefined";
+import isString from "../typechecking/isString";
+import isElement from "../typechecking/isElement";
 
-fn.attr       = function( attr, value ) {
+fn.attr = function( attr, value ) {
 	if( !attr ) {
 		return;
 	}

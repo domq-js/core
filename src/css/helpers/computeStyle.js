@@ -1,4 +1,4 @@
-import { isElement } from "../../core/typechecking";
+import  isElement from "../../typechecking/isElement";
 import v from "../../core/vars";
 
 export default function( ele, prop, isVariable ) {
