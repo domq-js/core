@@ -1,11 +1,12 @@
 import isBoolean from "../typechecking/isBoolean";
 import isPlainObject from "../typechecking/isPlainObject";
 import core from "../setup";
-import v from "./vars";
 import isArray from "./vars/isArray";
 
 export default function extend( ...sources ) {
-	const deep = isBoolean( sources[ 0 ] ) ? sources.shift() : false, target = sources.shift(), length = sources.length;
+	const deep   = isBoolean( sources[ 0 ] ) ? sources.shift() : false,
+		  target = sources.shift(),
+		  length = sources.length;
 	if( !target ) {
 		return {};
 	}
