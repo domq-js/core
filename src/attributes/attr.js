@@ -3,6 +3,7 @@ import isNull from "../typechecking/isNull";
 import isUndefined from "../typechecking/isUndefined";
 import isString from "../typechecking/isString";
 import isElement from "../typechecking/isElement";
+import { handleObjectDataLoop } from "../helper";
 
 fn.attr = function( attr, value ) {
 	if( !attr ) {
@@ -30,8 +31,6 @@ fn.attr = function( attr, value ) {
 			ele.setAttribute( attr, value );
 		} );
 	}
-	for( const key in attr ) {
-		this.attr( key, attr[ key ] );
-	}
+	handleObjectDataLoop( this, attr, 'attr' );
 	return this;
 };

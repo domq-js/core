@@ -10,7 +10,6 @@ import _each from "../core/_each";
 import { getSplitValues, matches } from "../helper";
 import parseEventName from "./helper/parseEventName";
 import getEventNameBubbling from "./helper/getEventNameBubbling";
-import vars from "../core/vars";
 import hasNamespaces from "./helper/hasNamespaces";
 import removeEvent from "./helper/removeEvent";
 import addEvent from "./helper/addEvent";
@@ -62,7 +61,6 @@ fn.on = function( eventFullName, selector, data, callback, _one ) {
 			}
 			const finalCallback = function( event ) {
 				if( event.target[ `___i${event.type}` ] ) {
-					// Ignoring native event in favor of the upcoming custom one
 					return event.stopImmediatePropagation();
 				}
 
@@ -93,17 +91,14 @@ fn.on = function( eventFullName, selector, data, callback, _one ) {
 
 				if( event.___cd ) {
 					Object.defineProperty( event, 'currentTarget', {
-						configurable: true,
-						get() {
-							// We need to define a getter for this to work everywhere
+						configurable: true, get() {
 							return thisArg;
 						}
 					} );
 				}
 
 				Object.defineProperty( event, 'data', {
-					configurable: true,
-					get() {
+					configurable: true, get() {
 						return data;
 					}
 				} );

@@ -1,3 +1,3 @@
-export default function( instance, comparator ) {
-	return !comparator ? instance : instance.filter( comparator );
+export default function( ins, comparator ) {
+	return !comparator ? ins : ins.filter( comparator );
 }

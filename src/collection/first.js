@@ -1,5 +1,5 @@
 import { fn } from "../setup";
 
-fn.first  = function() {
+fn.first = function() {
 	return this.eq( 0 );
 };

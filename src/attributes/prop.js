@@ -1,6 +1,7 @@
 import { fn } from "../setup";
 import isString from "../typechecking/isString";
 import cssMaps from "../core/vars/cssMaps";
+import { handleObjectDataLoop } from "../helper";
 
 fn.prop = function( prop, value ) {
 	if( !prop ) {
@@ -16,8 +17,6 @@ fn.prop = function( prop, value ) {
 			ele[ prop ] = value;
 		} );
 	}
-	for( const key in prop ) {
-		this.prop( key, prop[ key ] );
-	}
+	handleObjectDataLoop( this, prop, 'prop' );
 	return this;
 };

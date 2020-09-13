@@ -29,9 +29,9 @@ fn.trigger = function( event, data ) {
 
 	return this.each( ( i, ele ) => {
 		if( isEventFocus && isFunction( ele[ event.___ot ] ) ) {
-			ele[ `___i${event.type}` ] = true; // Ensuring the native event is ignored
+			ele[ `___i${event.type}` ] = true;
 			ele[ event.___ot ]();
-			ele[ `___i${event.type}` ] = false; // Ensuring the custom event is not ignored
+			ele[ `___i${event.type}` ] = false;
 		}
 		ele.dispatchEvent( event );
 	} );

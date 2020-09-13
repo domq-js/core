@@ -5,6 +5,7 @@ import isCSSVariable from "./helpers/isCSSVariable";
 import getSuffixedValue from "./helpers/getSuffixedValue";
 import getPrefixedProp from "./helpers/getPrefixedProp";
 import computeStyle from "./helpers/computeStyle";
+import { handleObjectDataLoop } from "../helper";
 
 fn.css = function( prop, value ) {
 	if( isString( prop ) ) {
@@ -34,9 +35,6 @@ fn.css = function( prop, value ) {
 		} );
 	}
 
-	for( const key in prop ) {
-		this.css( key, prop[ key ] );
-	}
-
+	handleObjectDataLoop( this, prop, 'css' );
 	return this;
 };

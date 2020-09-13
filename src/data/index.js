@@ -3,6 +3,7 @@ import isString from "../typechecking/isString";
 import { fn } from '../setup';
 import getData from "./helper/getData";
 import setData from "./helper/setData";
+import { handleObjectDataLoop } from "../helper";
 
 fn.data = function( name, value ) {
 	if( !name ) {
@@ -28,8 +29,6 @@ fn.data = function( name, value ) {
 		} );
 	}
 
-	for( const key in name ) {
-		this.data( key, name[ key ] );
-	}
+	handleObjectDataLoop( this, name, 'data' );
 	return this;
 };
