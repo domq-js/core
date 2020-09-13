@@ -1,5 +1,5 @@
-import regex from "../regex";
+import { rcamelCase } from "../core/regex";
 
 export default function( str ) {
-	return str.replace( regex.camelCase, ( match, letter ) => letter.toUpperCase() );
+	return str.replace( rcamelCase, ( match, letter ) => letter.toUpperCase() );
 }

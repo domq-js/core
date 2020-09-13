@@ -1,4 +1,3 @@
-import v from "../../core/vars";
 import computeStyle from "../../css/helpers/computeStyle";
 import doc from "../../core/vars/doc";
 import celem from "../../core/vars/celem";

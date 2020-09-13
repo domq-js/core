@@ -3,9 +3,9 @@ import isString from "../typechecking/isString";
 import isFunction from "../typechecking/isFunction";
 import parseEventName from "./helper/parseEventName";
 import getEventNameBubbling from "./helper/getEventNameBubbling";
-import regex from "../regex";
 import { evFocus, evNamespacesSep } from "../core/vars/events";
 import doc from "../core/vars/doc";
+import { reventsMouse } from "../core/regex";
 
 fn.trigger = function( event, data ) {
 	if( isString( event ) ) {
@@ -16,7 +16,7 @@ fn.trigger = function( event, data ) {
 			return this;
 		}
 
-		const type = regex.eventsMouse.test( name ) ? 'MouseEvents' : 'HTMLEvents';
+		const type = reventsMouse.test( name ) ? 'MouseEvents' : 'HTMLEvents';
 		event      = doc.createEvent( type );
 		event.initEvent( name, true, true );
 		event.namespace = namespaces.join( evNamespacesSep );

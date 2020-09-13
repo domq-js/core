@@ -1,4 +1,3 @@
-import v from './core/vars';
 import core, { fn } from './setup';
 import extend from "./core/extend";
 import _each from "./core/_each";

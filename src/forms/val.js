@@ -1,11 +1,11 @@
 import { fn } from "../setup";
 import getValue from "./helper/getValue";
-import regex from "../regex";
-import v from "../core/vars";
 import isNull from "../typechecking/isNull";
 import isUndefined from "../typechecking/isUndefined";
 import _each from "../core/_each";
 import _map from "../core/vars/_map";
+import { rcheckable } from "../core/regex";
+import isArray from "../core/vars/isArray";
 
 fn.val = function( value ) {
 	if( !arguments.length ) {
@@ -13,8 +13,8 @@ fn.val = function( value ) {
 	}
 	return this.each( ( i, ele ) => {
 		const isSelect = ele.multiple && ele.options;
-		if( isSelect || regex.checkable.test( ele.type ) ) {
-			const eleValue = v.isArray( value ) ? _map.call( value, String ) : ( isNull( value ) ? [] : [ String( value ) ] );
+		if( isSelect || rcheckable.test( ele.type ) ) {
+			const eleValue = isArray( value ) ? _map.call( value, String ) : ( isNull( value ) ? [] : [ String( value ) ] );
 			if( isSelect ) {
 				_each( ele.options, ( i, option ) => {
 					option.selected = eleValue.indexOf( option.value ) >= 0;

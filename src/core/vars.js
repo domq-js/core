@@ -1,9 +1,7 @@
 import celem from "../core/vars/celem";
-
-const v = {};
-v.div   = celem( 'div' );
-v.table = celem( 'table' );
-v.tbody = celem( 'tbody' );
-v.tr    = celem( 'tr' );
-
-export default v;
+export default {
+	div: celem( 'div' ),
+	table: celem( 'table' ),
+	tbody: celem( 'tbody' ),
+	tr: celem( 'tr' ),
+};

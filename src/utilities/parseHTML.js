@@ -1,8 +1,8 @@
 import v from "../core/vars";
 import isString from "../typechecking/isString";
-import regex from "../regex";
 import core from "../setup";
 import celem from "../core/vars/celem";
+import { rfragment, rsingleTag } from "../core/regex";
 
 const containers = {
 	'*': v.div,
@@ -22,10 +22,10 @@ export default function( html ) {
 		return [];
 	}
 
-	if( regex.singleTag.test( html ) ) {
+	if( rsingleTag.test( html ) ) {
 		return [ celem( RegExp.$1 ) ];
 	}
-	const fragment      = regex.fragment.test( html ) && RegExp.$1,
+	const fragment      = rfragment.test( html ) && RegExp.$1,
 		  container     = containers[ fragment ] || containers[ '*' ];
 	container.innerHTML = html;
 	return core( container.childNodes ).detach().get();

@@ -1,12 +1,11 @@
 import isWpopv from '../typechecking/isWpopv';
 import isFunction from "../typechecking/isFunction";
 import isString from "../typechecking/isString";
-import v from './vars';
 import doc from "./vars/doc";
-import regex from "../regex";
 import parseHTML from "../utilities/parseHTML";
 import _find from "./_find";
 import win from "./vars/win";
+import { rhtml, rid } from "./regex";
 
 class PickledVanilla {
 	constructor( selector, context ) {
@@ -23,7 +22,7 @@ class PickledVanilla {
 
 		if( isString( selector ) ) {
 			const ctx = ( isWpopv( context ) ? context[ 0 ] : context ) || doc;
-			eles      = regex.id.test( selector ) ? ctx.getElementById( selector.slice( 1 ) ) : regex.html.test( selector ) ? parseHTML( selector ) : _find( selector, ctx );
+			eles      = rid.test( selector ) ? ctx.getElementById( selector.slice( 1 ) ) : rhtml.test( selector ) ? parseHTML( selector ) : _find( selector, ctx );
 			if( !eles ) {
 				return;
 			}

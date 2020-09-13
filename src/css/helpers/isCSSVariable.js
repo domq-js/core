@@ -1,5 +1,5 @@
-import regex from "../../regex";
+import { rcssVariable } from "../../core/regex";
 
 export default function( prop ) {
-	return regex.cssVariable.test( prop );
+	return rcssVariable.test( prop );
 }
