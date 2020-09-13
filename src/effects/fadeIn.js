@@ -1,13 +1,5 @@
 import { fn } from "../setup";
-import isFunction from "../typechecking/isFunction";
 
-fn.fadeIn = function( delay, callback ) {
-	this.css( 'opacity', 0 ).show().css( { 'transition': 'opacity ' + delay + 'ms linear 0s', 'opacity': '1' } );
-	setTimeout( () => {
-		this.show();
-		if( isFunction( callback ) ) {
-			callback( this );
-		}
-	}, delay );
-	return this;
+fn.fadeIn = function( delay, easing, callback ) {
+	return this.fadeToggle( delay, easing, callback, true );
 };
