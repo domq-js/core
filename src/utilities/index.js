@@ -1,4 +1,10 @@
-import "./attempt.js";
-import "./parseHTML.js";
-import "./pluck.js";
-import "./unique.js";
+import attempt from "./attempt.js";
+import parseHTML from "./parseHTML.js";
+import pluck from "./pluck.js";
+import unique from "./unique.js";
+import core from "../setup";
+
+core.attempt   = attempt;
+core.parseHTML = parseHTML;
+core.pluck     = pluck;
+core.unique    = unique;

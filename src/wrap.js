@@ -1,12 +1,10 @@
 import v from './core/vars';
-
 import core, { fn } from './setup';
-import unique from "./utilities/unique";
+import extend from "./core/extend";
+import _each from "./core/_each";
 
 import "./attributes/index";
 import "./collection/index";
-import extend from "./core/extend";
-import _each from "./core/_each";
 import './css/index';
 import './data/index';
 import "./dimensions/index";
@@ -16,9 +14,9 @@ import "./forms/index";
 import "./manipulation/index";
 import "./offset/index";
 import "./traversal/index";
-import attempt from "./utilities/attempt";
-import parseHTML from "./utilities/parseHTML";
-import camelCase from "./string/camelCase";
+import "./string/index";
+import "./typechecking/index";
+import "./utilities/index";
 
 // Ensuring a cash collection is iterable
 if( typeof Symbol === 'function' ) {
@@ -34,11 +32,7 @@ fn.splice = v.splice;
 /**
  * Static Functions
  */
-core.camelCase = camelCase;
-core.attempt   = attempt;
-core.parseHTML = parseHTML;
-core.each      = _each;
-core.extend    = extend;
-core.unique    = unique;
+core.each = _each;
+core.extend = extend;
 
 export default core;
