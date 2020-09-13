@@ -1,4 +1,4 @@
-import { pluck } from "../../helper";
+import pluck from "../../utilities/pluck";
 
 export default function( ele, filter ) {
 	if( ele.multiple && ele.options ) {

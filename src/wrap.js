@@ -1,7 +1,7 @@
 import v from './core/vars';
 
 import core, { fn } from './setup';
-import { unique } from "./helper";
+import unique from "./utilities/unique";
 
 import "./attributes/index";
 import "./collection/index";
