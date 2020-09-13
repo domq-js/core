@@ -4,7 +4,7 @@ import { fn } from '../setup';
 import getData from "./helper/getData";
 import setData from "./helper/setData";
 
-fn.data = function data( name, value ) {
+fn.data = function( name, value ) {
 	if( !name ) {
 		if( !this[ 0 ] ) {
 			return;
@@ -24,7 +24,7 @@ fn.data = function data( name, value ) {
 			return this;
 		}
 		return this.each( ( i, ele ) => {
-			setData( ele, name, value )
+			setData( ele, name, value );
 		} );
 	}
 

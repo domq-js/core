@@ -4,8 +4,5 @@ import attempt from "../../utilities/attempt";
 
 export default function( ele, key ) {
 	const value = ele.dataset[ key ] || ele.dataset[ camelCase( key ) ];
-	if( regex.JSONString.test( value ) ) {
-		return value;
-	}
-	return attempt( JSON.parse, value );
+	return ( regex.JSONString.test( value ) ) ? value : attempt( JSON.parse, value );
 }

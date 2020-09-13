@@ -1,7 +1,10 @@
+import isTypeof from "./isTypeof";
+import isNull from "./isNull";
+
 export default function( x ) {
-	if( typeof x !== 'object' || x === null ) {
+	if( !isTypeof( x, 'object' ) || isNull( x ) ) {
 		return false;
 	}
 	const proto = Object.getPrototypeOf( x );
-	return proto === null || proto === Object.prototype;
+	return isNull( proto ) || proto === Object.prototype;
 }

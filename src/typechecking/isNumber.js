@@ -1,3 +1,5 @@
+import isTypeof from "./isTypeof";
+
 export default function( x ) {
-	return typeof x === 'number';
+	return isTypeof( x, 'number' );
 }

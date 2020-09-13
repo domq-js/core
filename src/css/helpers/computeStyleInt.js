@@ -1,3 +1,5 @@
 import computeStyle from "./computeStyle";
 
-export default ( ele, prop ) => parseInt( computeStyle( ele, prop ), 10 ) || 0;
+export default function( ele, prop ) {
+	return parseInt( computeStyle( ele, prop ), 10 ) || 0;
+}

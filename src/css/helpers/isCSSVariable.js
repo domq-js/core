@@ -1,3 +1,5 @@
 import regex from "../../regex";
 
-export default ( prop ) => regex.cssVariable.test( prop );
+export default function( prop ) {
+	return regex.cssVariable.test( prop );
+}

@@ -1,3 +1,5 @@
+import isTypeof from "./isTypeof";
+
 export default function( x ) {
-	return typeof x === 'boolean';
+	return isTypeof( x, 'boolean' );
 }

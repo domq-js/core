@@ -1,3 +1,5 @@
+import isNodetype from "./isNodetype";
+
 export default function( x ) {
-	return !!x && x.nodeType === 9;
+	return isNodetype( x, 9 );
 }
