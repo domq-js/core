@@ -1,6 +1,6 @@
 import { fn } from "../setup";
-import vars from "../core/vars";
+import v from "../core/vars";
 import isElement from "../typechecking/isElement";
 fn.hasClass    = function( cls ) {
-	return !!cls && vars.some.call( this, ( ele ) => isElement( ele ) && ele.classList.contains( cls ) );
+	return !!cls && v.some.call( this, ( ele ) => isElement( ele ) && ele.classList.contains( cls ) );
 };

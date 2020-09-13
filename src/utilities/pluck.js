@@ -1,5 +1,5 @@
 import isFunction from "../typechecking/isFunction";
-import v from "../core/vars";
+import _push from "../core/vars/_push";
 import { getCompareFunction } from "../helper";
 
 export default function( arr, prop, deep, until ) {
@@ -11,7 +11,7 @@ export default function( arr, prop, deep, until ) {
 		if( isCallback ) {
 			const val = prop( arr[ i ] );
 			if( val.length ) {
-				v.push.apply( plucked, val );
+				_push.apply( plucked, val );
 			}
 		} else {
 			let val = arr[ i ][ prop ];

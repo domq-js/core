@@ -1,7 +1,7 @@
 import isCSSVariable from "./isCSSVariable";
-import v from "../../core/vars";
 import isNumeric from "../../typechecking/isNumeric";
+import cssNumericProp from "../../core/vars/cssNumericProp";
 
 export default function( prop, value, isVariable = isCSSVariable( prop ) ) {
-	return !isVariable && !v.numericProps[ prop ] && isNumeric( value ) ? `${value}px` : value;
+	return !isVariable && !cssNumericProp[ prop ] && isNumeric( value ) ? `${value}px` : value;
 }

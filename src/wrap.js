@@ -17,17 +17,19 @@ import "./traversal/index";
 import "./string/index";
 import "./typechecking/index";
 import "./utilities/index";
+import _ArrayPrototype from "./core/vars/_ArrayPrototype";
+import _splice from "./core/vars/_splice";
 
 // Ensuring a cash collection is iterable
 if( typeof Symbol === 'function' ) {
-	fn[ Symbol.iterator ] = v.ArrayProp[ Symbol.iterator ];
+	fn[ Symbol.iterator ] = _ArrayPrototype[ Symbol.iterator ];
 }
 
 /**
  * Dynamic Functions.
  */
 fn.extend = ( plugins ) => extend( fn, plugins );
-fn.splice = v.splice;
+fn.splice = _splice;
 
 /**
  * Static Functions

@@ -1,5 +1,7 @@
 import v from "../../core/vars";
 import computeStyle from "../../css/helpers/computeStyle";
+import doc from "../../core/vars/doc";
+import celem from "../../core/vars/celem";
 
 const defaultDisplay = {};
 
@@ -7,9 +9,9 @@ export default function( tagName ) {
 	if( defaultDisplay[ tagName ] ) {
 		return defaultDisplay[ tagName ];
 	}
-	const ele = v.celem( tagName );
-	v.doc.body.insertBefore( ele, null );
+	const ele = celem( tagName );
+	doc.body.insertBefore( ele, null );
 	const display = computeStyle( ele, 'display' );
-	v.doc.body.removeChild( ele );
+	doc.body.removeChild( ele );
 	return defaultDisplay[ tagName ] = display !== 'none' ? display : 'block';
 }

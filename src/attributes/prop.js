@@ -1,14 +1,14 @@
 import { fn } from "../setup";
 import isString from "../typechecking/isString";
-import vars from "../core/vars";
+import cssMaps from "../core/vars/cssMaps";
 
-fn.prop       = function( prop, value ) {
+fn.prop = function( prop, value ) {
 	if( !prop ) {
 		return;
 	}
 
 	if( isString( prop ) ) {
-		prop = vars.propMap[ prop ] || prop;
+		prop = cssMaps[ prop ] || prop;
 		if( arguments.length < 2 ) {
 			return this[ 0 ] && this[ 0 ][ prop ];
 		}

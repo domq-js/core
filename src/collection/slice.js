@@ -1,6 +1,6 @@
 import core, { fn } from "../setup";
-import vars from "../core/vars";
+import _slice from "../core/vars/_slice";
 
-fn.slice  = function( start, end ) {
-	return core( vars.slice.call( this, start, end ) );
+fn.slice = function( start, end ) {
+	return core( _slice.call( this, start, end ) );
 };

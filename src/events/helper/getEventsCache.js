@@ -1,5 +1,5 @@
-import v from "../../core/vars";
+import { evNamespace } from "../../core/vars/events";
 
 export default function( ele ) {
-	return ele[ v.eventsNamespace ] = ( ele[ v.eventsNamespace ] || {} );
+	return ele[ evNamespace ] = ( ele[ evNamespace ] || {} );
 }

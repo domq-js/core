@@ -1,10 +1,10 @@
 import  isElement from "../../typechecking/isElement";
-import v from "../../core/vars";
+import win from "../../core/vars/win";
 
 export default function( ele, prop, isVariable ) {
 	if( !isElement( ele ) ) {
 		return;
 	}
-	const style = v.win.getComputedStyle( ele, null );
+	const style = win.getComputedStyle( ele, null );
 	return isVariable ? style.getPropertyValue( prop ) || undefined : style[ prop ] || ele.style[ prop ];
 }

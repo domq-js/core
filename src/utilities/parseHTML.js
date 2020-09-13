@@ -2,6 +2,7 @@ import v from "../core/vars";
 import isString from "../typechecking/isString";
 import regex from "../regex";
 import core from "../setup";
+import celem from "../core/vars/celem";
 
 const containers = {
 	'*': v.div,
@@ -22,7 +23,7 @@ export default function( html ) {
 	}
 
 	if( regex.singleTag.test( html ) ) {
-		return [ v.celem( RegExp.$1 ) ];
+		return [ celem( RegExp.$1 ) ];
 	}
 	const fragment      = regex.fragment.test( html ) && RegExp.$1,
 		  container     = containers[ fragment ] || containers[ '*' ];

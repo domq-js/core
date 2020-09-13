@@ -14,6 +14,7 @@ import vars from "../core/vars";
 import hasNamespaces from "./helper/hasNamespaces";
 import removeEvent from "./helper/removeEvent";
 import addEvent from "./helper/addEvent";
+import { evFocus, evHover, evNamespacesSep } from "../core/vars/events";
 
 fn.on = function( eventFullName, selector, data, callback, _one ) {
 	if( !isString( eventFullName ) ) {
@@ -48,8 +49,8 @@ fn.on = function( eventFullName, selector, data, callback, _one ) {
 	_each( getSplitValues( eventFullName ), ( i, eventFullName ) => {
 		const [ nameOriginal, namespaces ] = parseEventName( eventFullName ),
 			  name                         = getEventNameBubbling( nameOriginal ),
-			  isEventHover                 = ( nameOriginal in vars.eventsHover ),
-			  isEventFocus                 = ( nameOriginal in vars.eventsFocus );
+			  isEventHover                 = ( nameOriginal in evHover ),
+			  isEventFocus                 = ( nameOriginal in evFocus );
 
 		if( !name ) {
 			return;
@@ -65,7 +66,7 @@ fn.on = function( eventFullName, selector, data, callback, _one ) {
 					return event.stopImmediatePropagation();
 				}
 
-				if( event.namespace && !hasNamespaces( namespaces, event.namespace.split( vars.eventsNamespacesSeparator ) ) ) {
+				if( event.namespace && !hasNamespaces( namespaces, event.namespace.split( evNamespacesSep ) ) ) {
 					return;
 				}
 

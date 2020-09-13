@@ -1,5 +1,5 @@
-import v from "../../core/vars";
+import { evFocus, evHover } from "../../core/vars/events";
 
 export default function( name ) {
-	return v.eventsHover[ name ] || v.eventsFocus[ name ] || name;
+	return evHover[ name ] || evFocus[ name ] || name;
 }

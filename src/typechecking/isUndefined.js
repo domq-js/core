@@ -1,5 +1,5 @@
 import isTypeof from "./isTypeof";
 
-export default function(x) {
-	return isTypeof( x, 'isUndefined' );
+export default function( x ) {
+	return isTypeof( x, 'undefined' );
 }

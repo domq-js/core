@@ -5,6 +5,7 @@ import isHidden from "./helper/isHidden";
 import v from "../core/vars";
 import getDefaultDisplay from "./helper/getDefaultDisplay";
 import computeStyle from "../css/helpers/computeStyle";
+import cssDisplayProp from "../core/vars/cssDisplayProp";
 
 fn.toggle = function( force ) {
 	return this.each( ( i, ele ) => {
@@ -15,13 +16,13 @@ fn.toggle = function( force ) {
 		const show = isUndefined( force ) ? isHidden( ele ) : force;
 
 		if( show ) {
-			ele.style.display = ele[ v.displayProperty ] || '';
+			ele.style.display = ele[ cssDisplayProp ] || '';
 			if( isHidden( ele ) ) {
 				ele.style.display = getDefaultDisplay( ele.tagName );
 			}
 		} else {
-			ele[ v.displayProperty ] = computeStyle( ele, 'display' );
-			ele.style.display        = 'none';
+			ele[ cssDisplayProp ] = computeStyle( ele, 'display' );
+			ele.style.display     = 'none';
 		}
 	} );
 };

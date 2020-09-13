@@ -4,7 +4,8 @@ import isFunction from "../typechecking/isFunction";
 import parseEventName from "./helper/parseEventName";
 import getEventNameBubbling from "./helper/getEventNameBubbling";
 import regex from "../regex";
-import vars from "../core/vars";
+import { evFocus, evNamespacesSep } from "../core/vars/events";
+import doc from "../core/vars/doc";
 
 fn.trigger = function( event, data ) {
 	if( isString( event ) ) {
@@ -16,15 +17,15 @@ fn.trigger = function( event, data ) {
 		}
 
 		const type = regex.eventsMouse.test( name ) ? 'MouseEvents' : 'HTMLEvents';
-		event      = vars.doc.createEvent( type );
+		event      = doc.createEvent( type );
 		event.initEvent( name, true, true );
-		event.namespace = namespaces.join( vars.eventsNamespacesSeparator );
+		event.namespace = namespaces.join( evNamespacesSep );
 		event.___ot     = nameOriginal;
 
 	}
 
 	event.___td        = data;
-	const isEventFocus = ( event.___ot in vars.eventsFocus );
+	const isEventFocus = ( event.___ot in evFocus );
 
 	return this.each( ( i, ele ) => {
 		if( isEventFocus && isFunction( ele[ event.___ot ] ) ) {

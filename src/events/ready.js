@@ -1,13 +1,13 @@
 import core, { fn } from "../setup";
-import vars from "../core/vars";
+import doc from "../core/vars/doc";
 
-fn.ready   = function( callback ) {
+fn.ready = function( callback ) {
 	const cb = () => setTimeout( callback, 0, core );
 
-	if( vars.doc.readyState !== 'loading' ) {
+	if( doc.readyState !== 'loading' ) {
 		cb();
 	} else {
-		vars.doc.addEventListener( 'DOMContentLoaded', cb );
+		doc.addEventListener( 'DOMContentLoaded', cb );
 	}
 	return this;
 };

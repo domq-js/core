@@ -1,6 +1,6 @@
 import { fn } from "../setup";
 import computeStyle from "../css/helpers/computeStyle";
-import v from "../core/vars";
+import docEle from "../core/vars/docEle";
 
 fn.offsetParent = function() {
 	return this.map( ( i, ele ) => {
@@ -8,6 +8,6 @@ fn.offsetParent = function() {
 		while( offsetParent && computeStyle( offsetParent, 'position' ) === 'static' ) {
 			offsetParent = offsetParent.offsetParent;
 		}
-		return offsetParent || v.docEle;
+		return offsetParent || docEle;
 	} );
 };

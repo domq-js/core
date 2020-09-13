@@ -1,5 +1,5 @@
 import { fn } from "../setup";
-import v from "../core/vars";
+import win from "../core/vars/win";
 
 fn.offset       = function() {
 	const ele = this[ 0 ];
@@ -10,7 +10,7 @@ fn.offset       = function() {
 
 	const rect = ele.getBoundingClientRect();
 	return {
-		top: rect.top + v.win.pageYOffset,
-		left: rect.left + v.win.pageXOffset
+		top: rect.top + win.pageYOffset,
+		left: rect.left + win.pageXOffset
 	};
 };
