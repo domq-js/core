@@ -1,6 +1,5 @@
 import core, { fn } from "../setup";
 import { getCompareFunction } from "../helper";
-import vars from "../core/vars";
 import _filter from "../core/vars/_filter";
 
 fn.filter = function( comparator ) {

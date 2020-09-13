@@ -1,3 +1,3 @@
 import doc from "./doc";
 
-export default doc.documentElement
+export default doc.documentElement;

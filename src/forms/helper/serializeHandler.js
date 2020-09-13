@@ -1,4 +1,5 @@
 import _each from "../../core/_each";
+import _slice from "../../core/vars/_slice";
 
 export default function( instance, type ) {
 	let return_val = ( 'object' === type ) ? {} : [];
@@ -11,7 +12,7 @@ export default function( instance, type ) {
 
 			if( field.type === 'select-multiple' ) {
 				let options = [];
-				Array.prototype.slice.call( field.options ).forEach( function( option ) {
+				_slice.call( field.options ).forEach( function( option ) {
 					if( !option.selected ) {
 						return;
 					}
