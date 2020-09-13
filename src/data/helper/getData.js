@@ -1,6 +1,6 @@
-import { camelCase } from "../../string";
 import regex from "../../regex";
-import { attempt } from "../../utilities";
+import camelCase from "../../string/camelCase";
+import attempt from "../../utilities/attempt";
 
 export default function( ele, key ) {
 	const value = ele.dataset[ key ] || ele.dataset[ camelCase( key ) ];

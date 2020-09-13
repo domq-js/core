@@ -1,4 +1,4 @@
-import { attempt } from "../../utilities";
-import { camelCase } from "../../string";
+import attempt from "../../utilities/attempt";
+import camelCase from "../../string/camelCase";
 
 export default ( ele, key, value ) => ele.dataset[ camelCase( key ) ] = attempt( JSON.stringify, value );

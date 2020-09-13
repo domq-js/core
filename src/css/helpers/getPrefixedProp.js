@@ -1,7 +1,7 @@
 import isCSSVariable from "./isCSSVariable";
-import { camelCase } from "../../string";
 import v from "../../core/vars";
 import _each from "../../core/_each";
+import camelCase from "../../string/camelCase";
 
 const prefixedProps = {},
 	  { style }     = v.div;
