@@ -1,8 +1,8 @@
 import { isWpopv, isString, isFunction } from './typechecking';
 import v from './vars';
-import { _find } from '../helper';
 import regex from "../regex";
 import parseHTML from "../utilities/parseHTML";
+import _find from "./_find";
 
 class PickledVanilla {
 	constructor( selector, context ) {

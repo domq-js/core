@@ -1,12 +1,5 @@
-import { isElement, isDocument, isFunction, isString, isWpopv } from "./core/typechecking";
-import v from "./core/vars";
+import { isFunction, isString, isWpopv } from "./core/typechecking";
 import regex from "./regex";
-
-
-
-export function _find( selector, context ) {
-	return !selector || ( !isDocument( context ) && !isElement( context ) ) ? [] : regex.class.test( selector ) ? context.getElementsByClassName( selector.slice( 1 ) ) : regex.tag.test( selector ) ? context.getElementsByTagName( selector ) : context.querySelectorAll( selector );
-}
 
 export function getCompareFunction( comparator ) {
 	return isString( comparator ) ? ( i, ele ) => matches( ele, comparator ) : isFunction( comparator ) ? comparator : isWpopv( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;
