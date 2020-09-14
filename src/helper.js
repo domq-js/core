@@ -2,6 +2,8 @@ import isWpopv from "./typechecking/isWpopv";
 import isString from "./typechecking/isString";
 import isFunction from "./typechecking/isFunction";
 import { rsplitValues } from "./core/regex";
+import _each from "./core/_each";
+import { fn } from "./setup";
 
 export function getCompareFunction( comparator ) {
 	return isString( comparator ) ? ( i, ele ) => matches( ele, comparator ) : isFunction( comparator ) ? comparator : isWpopv( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;
@@ -20,4 +22,15 @@ export function handleObjectDataLoop( data, callback ) {
 	for( const key in data ) {
 		this[ callback ]( key, data[ key ] );
 	}
+}
+
+export function setupExtraEventsFunctions() {
+	_each( 'blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu'.split( ' ' ), ( i, _event ) => {
+		fn[ _event ] = function( eventData, callback ) {
+			if( eventData || callback ) {
+				return this.on();
+			}
+			return this.trigger( _event, eventData, callback );
+		};
+	} );
 }

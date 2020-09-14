@@ -18,6 +18,7 @@ import "./typechecking/index";
 import "./utilities/index";
 import _ArrayPrototype from "./core/vars/_ArrayPrototype";
 import _splice from "./core/vars/_splice";
+import { setupExtraEventsFunctions } from "./helper";
 
 // Ensuring a cash collection is iterable
 if( typeof Symbol === 'function' ) {
@@ -35,5 +36,7 @@ fn.splice = _splice;
  */
 core.each = _each;
 core.extend = extend;
+
+setupExtraEventsFunctions();
 
 export default core;
