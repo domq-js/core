@@ -1,6 +1,6 @@
 import core, { fn } from "../setup";
 
-fn.wrapAll      = function( selector ) {
+fn.wrapAll = function( selector ) {
 	let structure = core( selector ),
 		wrapper   = structure[ 0 ];
 	while( wrapper.children.length ) {

@@ -2,7 +2,7 @@ import { fn } from "../setup";
 import isUndefined from "../typechecking/isUndefined";
 import isElement from "../typechecking/isElement";
 
-fn.text         = function( text ) {
+fn.text = function( text ) {
 	if( isUndefined( text ) ) {
 		return this[ 0 ] ? this[ 0 ].textContent : '';
 	}
@@ -13,5 +13,4 @@ fn.text         = function( text ) {
 		}
 		ele.textContent = text;
 	} );
-
 };
