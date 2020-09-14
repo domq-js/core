@@ -5,3 +5,4 @@ import "./fadeTo.js";
 import "./hide.js";
 import "./show.js";
 import "./toggle.js";
+import "./pulse.js";
