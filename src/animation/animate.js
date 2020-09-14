@@ -11,12 +11,14 @@ fn.animate = function( keyframes, speed, easing, callback ) {
 	let options     = {},
 		defaultArgs = [ 'id', 'speed', 'direction', 'delay', 'easing', 'endDelay', 'fill', 'iterationStart', 'iterations' ];
 
-	_each( defaultArgs, ( i, key ) => {
-		if( !isUndefined( keyframes[ key ] ) ) {
-			options[ key ] = keyframes[ key ];
-			delete keyframes[ key ];
-		}
-	} );
+	if( isPlainObject( keyframes ) ) {
+		_each( defaultArgs, ( i, key ) => {
+			if( !isUndefined( keyframes[ key ] ) ) {
+				options[ key ] = keyframes[ key ];
+				delete keyframes[ key ];
+			}
+		} );
+	}
 
 	if( isFunction( speed ) ) {
 		callback = speed;
