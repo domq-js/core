@@ -3,5 +3,19 @@ import isDocument from "../typechecking/isDocument";
 import { rclass, rtag } from "./regex";
 
 export default function( sel, ctx ) {
-	return !sel || ( !isDocument( ctx ) && !isElement( ctx ) ) ? [] : rclass.test( sel ) ? ctx.getElementsByClassName( sel.slice( 1 ) ) : rtag.test( sel ) ? ctx.getElementsByTagName( sel ) : ctx.querySelectorAll( sel );
+	if( !sel || ( !isDocument( ctx ) && !isElement( ctx ) ) ) {
+		return [];
+	}
+
+	// Regex Test For Class.
+	if( rclass.test( sel ) ) {
+		return ctx.getElementsByClassName( sel.slice( 1 ) );
+	}
+
+	// Regex Test For Tag.
+	if( rtag.test( sel ) ) {
+		return ctx.getElementsByTagName( sel );
+	}
+
+	return ctx.querySelectorAll( sel );
 }
