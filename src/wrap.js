@@ -1,7 +1,8 @@
+import "./polyfill";
 import core, { fn } from './setup';
 import extend from "./core/extend";
 import _each from "./core/_each";
-
+import "./animation/index";
 import "./attributes/index";
 import "./collection/index";
 import './css/index';
@@ -38,5 +39,4 @@ core.each = _each;
 core.extend = extend;
 
 setupExtraEventsFunctions();
-
 export default core;
