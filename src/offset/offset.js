@@ -1,7 +1,7 @@
 import { fn } from "../setup";
 import win from "../core/vars/win";
 
-fn.offset       = function() {
+fn.offset = function() {
 	const ele = this[ 0 ];
 
 	if( !ele ) {

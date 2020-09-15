@@ -15,4 +15,4 @@ fn.html = function( html ) {
 		}
 		ele.innerHTML = html;
 	} );
-}
+};

@@ -6,9 +6,9 @@ import isFunction from "../typechecking/isFunction";
 fn.fadeToggle = function( speed, easing, callback, force ) {
 	return this.each( ( i, el ) => {
 		let isElemHidden = isHidden( el ),
-			isShow       = ( true === isElemHidden ) ? true : false;
+			isShow       = ( isElemHidden );
 		el               = core( el );
-		isShow           = isUndefined( force ) ? isShow : ( false === force ) ? false : ( true === force ) ? true : isShow;
+		isShow           = isUndefined( force ) ? isShow : ( !force ) ? false : ( force ) ? true : isShow;
 
 		if( ( isElemHidden && !isShow ) || ( !isElemHidden && isShow ) ) {
 			return;
@@ -19,11 +19,7 @@ fn.fadeToggle = function( speed, easing, callback, force ) {
 		}
 
 		el.animate( { 'opacity': ( isShow ) ? [ 0, 1 ] : 0 }, speed, easing, ( elm ) => {
-			if( isShow ) {
-				el.show();
-			} else {
-				el.hide();
-			}
+			( isShow ) ? el.show() : el.hide();
 			if( isFunction( callback ) ) {
 				callback( elm );
 			}

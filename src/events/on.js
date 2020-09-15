@@ -14,6 +14,7 @@ import hasNamespaces from "./helper/hasNamespaces";
 import removeEvent from "./helper/removeEvent";
 import addEvent from "./helper/addEvent";
 import { evFocus, evHover, evNamespacesSep } from "../core/vars/events";
+import _obj from "../core/vars/_obj";
 
 fn.on = function( eventFullName, selector, data, callback, _one ) {
 	if( !isString( eventFullName ) ) {
@@ -90,14 +91,14 @@ fn.on = function( eventFullName, selector, data, callback, _one ) {
 				}
 
 				if( event.___cd ) {
-					Object.defineProperty( event, 'currentTarget', {
+					_obj.defineProperty( event, 'currentTarget', {
 						configurable: true, get() {
 							return thisArg;
 						}
 					} );
 				}
 
-				Object.defineProperty( event, 'data', {
+				_obj.defineProperty( event, 'data', {
 					configurable: true, get() {
 						return data;
 					}

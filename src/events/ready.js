@@ -3,11 +3,6 @@ import doc from "../core/vars/doc";
 
 fn.ready = function( callback ) {
 	const cb = () => setTimeout( callback, 0, core );
-
-	if( doc.readyState !== 'loading' ) {
-		cb();
-	} else {
-		doc.addEventListener( 'DOMContentLoaded', cb );
-	}
+	( doc.readyState !== 'loading' ) ? cb() : doc.addEventListener( 'DOMContentLoaded', cb );
 	return this;
 };

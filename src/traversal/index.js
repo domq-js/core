@@ -3,7 +3,6 @@ import "./closest.js";
 import "./contents.js";
 import "./find.js";
 import "./has.js";
-import "./index.js";
 import "./is.js";
 import "./next.js";
 import "./nextAll.js";

@@ -1,4 +1,4 @@
-import { fn } from "../setup";
+import core, { fn } from "../setup";
 import isPlainObject from "../typechecking/isPlainObject";
 import isUndefined from "../typechecking/isUndefined";
 import isFunction from "../typechecking/isFunction";
@@ -6,13 +6,14 @@ import isNumber from "../typechecking/isNumber";
 import isString from "../typechecking/isString";
 import _each from "../core/_each";
 import extend from "../core/extend";
+import animationArgs from "../core/vars/animationArgs";
+import config from "../config";
 
 fn.animate = function( keyframes, speed, easing, callback ) {
-	let options     = {},
-		defaultArgs = [ 'id', 'speed', 'direction', 'delay', 'easing', 'endDelay', 'fill', 'iterationStart', 'iterations' ];
+	let options = {};
 
 	if( isPlainObject( keyframes ) ) {
-		_each( defaultArgs, ( i, key ) => {
+		_each( animationArgs, ( i, key ) => {
 			if( !isUndefined( keyframes[ key ] ) ) {
 				options[ key ] = keyframes[ key ];
 				delete keyframes[ key ];
@@ -23,6 +24,7 @@ fn.animate = function( keyframes, speed, easing, callback ) {
 	if( isFunction( speed ) ) {
 		callback = speed;
 	}
+
 	if( isPlainObject( speed ) ) {
 		options = extend( speed, options );
 	}
@@ -30,16 +32,13 @@ fn.animate = function( keyframes, speed, easing, callback ) {
 	if( isPlainObject( easing ) ) {
 		options = extend( easing, options );
 	}
+
 	if( isFunction( easing ) ) {
 		callback = easing;
 	}
 
-	speed            = ( !isNumber( speed ) ) ? 400 : speed;
-	speed            = ( 'slow' === speed ) ? 600 : speed;
-	speed            = ( 'fast' === speed ) ? 200 : speed;
-	easing           = ( !isString( easing ) ) ? 'linear' : easing;
-	options.duration = speed;
-	options.easing   = easing;
+	options.duration = (!isNumber( speed )) ? config.animation[ speed ] || config.animation.default : speed;
+	options.easing   = ( !isString( easing ) ) ? 'linear' : easing;
 
 	if( !isUndefined( options.loop ) ) {
 		options.iterations = options.loop;
@@ -50,13 +49,13 @@ fn.animate = function( keyframes, speed, easing, callback ) {
 		options.iterations = Infinity;
 	}
 
-	if( this.length === 1 ) {
+	/*if( this.length === 1 ) {
 		let animate = this[ 0 ].animate( keyframes, options );
 		if( isFunction( callback ) ) {
 			animate.onfinish = () => callback( this[ 0 ] );
 		}
 		return animate;
-	}
+	}*/
 
 	return this.each( ( i, el ) => {
 		let animate = el.animate( keyframes, options );

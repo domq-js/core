@@ -14,8 +14,12 @@ export function getSplitValues( str ) {
 }
 
 export function matches( ele, selector ) {
-	const matches = ele && ( ele[ 'matches' ] || ele[ 'webkitMatchesSelector' ] || ele[ 'msMatchesSelector' ] );
-	return !!matches && !!selector && matches.call( ele, selector );
+	try {
+		const matches = ele && ( ele.matches || ele.webkitMatchesSelector || ele.msMatchesSelector );
+		return !!matches && !!selector && matches.call( ele, selector );
+	} catch( e ) {
+
+	}
 }
 
 export function handleObjectDataLoop( data, callback ) {

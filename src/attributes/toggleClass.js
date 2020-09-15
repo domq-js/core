@@ -5,7 +5,8 @@ import isElement from "../typechecking/isElement";
 import _each from "../core/_each";
 
 fn.toggleClass = function( cls, force ) {
-	const classes = getSplitValues( cls ), isForce = !isUndefined( force );
+	const classes = getSplitValues( cls ),
+		  isForce = !isUndefined( force );
 	return this.each( ( i, ele ) => {
 		if( !isElement( ele ) ) {
 			return;

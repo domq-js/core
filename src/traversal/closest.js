@@ -1,6 +1,6 @@
 import { fn } from "../setup";
 
-fn.closest      = function( comparator ) {
+fn.closest = function( comparator ) {
 	const filtered = this.filter( comparator );
 	if( filtered.length ) {
 		return filtered;

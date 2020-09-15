@@ -1,4 +1,5 @@
 import isPlainObject from "../typechecking/isPlainObject";
+import _obj from "./vars/_obj";
 
 export default function _each( arr, callback, _reverse ) {
 	if( _reverse ) {
@@ -9,7 +10,7 @@ export default function _each( arr, callback, _reverse ) {
 			}
 		}
 	} else if( isPlainObject( arr ) ) {
-		const keys = Object.keys( arr );
+		const keys = _obj.keys( arr );
 		for( let i = 0, l = keys.length; i < l; i++ ) {
 			const key = keys[ i ];
 			if( callback.call( arr[ key ], key, arr[ key ] ) === false ) {
