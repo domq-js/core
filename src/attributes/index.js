@@ -1,5 +1,6 @@
 import "./addClass.js";
 import "./attr.js";
+import "./hasAttr.js";
 import "./hasClass.js";
 import "./html.js";
 import "./prop.js";
