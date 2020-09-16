@@ -21,15 +21,18 @@ import "./utilities/index";
 import _ArrayPrototype from "./core/vars/_ArrayPrototype";
 import _splice from "./core/vars/_splice";
 import { setupExtraEventsFunctions } from "./helper";
+import isFunction from "./typechecking/isFunction";
 
 // Ensuring a cash collection is iterable
-if( typeof Symbol === 'function' ) {
+if( isFunction( Symbol ) ) {
 	fn[ Symbol.iterator ] = _ArrayPrototype[ Symbol.iterator ];
 }
 
 /**
  * Dynamic Functions.
  */
+fn.version = '${version}';
+fn.wpopv  = 'wpopv' + Math.random();
 fn.extend = ( plugins ) => extend( fn, plugins );
 fn.splice = _splice;
 

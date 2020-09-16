@@ -2,6 +2,7 @@ import "./children.js";
 import "./closest.js";
 import "./contents.js";
 import "./find.js";
+import "./even.js";
 import "./has.js";
 import "./is.js";
 import "./next.js";
