@@ -49,14 +49,6 @@ fn.animate = function( keyframes, speed, easing, callback ) {
 		options.iterations = Infinity;
 	}
 
-	/*if( this.length === 1 ) {
-		let animate = this[ 0 ].animate( keyframes, options );
-		if( isFunction( callback ) ) {
-			animate.onfinish = () => callback( this[ 0 ] );
-		}
-		return animate;
-	}*/
-
 	return this.each( ( i, el ) => {
 		let animate = el.animate( keyframes, options );
 		if( isFunction( callback ) ) {
