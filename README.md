@@ -1,12 +1,14 @@
 <p align="center"> <img src="https://repository-images.githubusercontent.com/293538879/1904e000-f1a1-11ea-8783-9b6127a0c04c"/> </p>
 <p align="center"> Simple, Lightweight Wrapper For Vanilla JS </p>
 
-## What is it ?
-PickledVanilla is a simple, lightweight wrapper for Vanilla JS which combines multiple lines of code into single 1. its more like jquery
-But its directly linked with VanillaJS instead of adding some middleman code
+## What ?
+PickledVanilla is an absurdly small jQuery alternative for modern browsers (IE11+) that provides jQuery-style syntax for manipulating the DOM. Utilizing modern browser features to minimize the codebase, developers can use the familiar chainable methods at a fraction of the file size. 100% feature parity with jQuery isn't a goal, but PickledVanilla comes helpfully close, covering most day to day use cases.
 
 ## Why ?
-I was very bored with jquery script and wanted to try something else :see_no_evil:.
+> I was very bored with jquery script and wanted to try something else :see_no_evil:.
+
+Well as a web developer i wanted to move out from jQuery and use Vanilla JS when i realized it i found that i had to repeate few lins of code every time i need to do some actions. so instead i just created as a library. 
+
 
 ## Usage
 ```html
@@ -19,7 +21,7 @@ wpopv('#your-div-id').addClass('your-class').removeClass('your-class');
 
 ## Functions / Usecase
 
-Please refer the documentation inside docs folder [Docs](/docs/readme.md)
+Please refer the documentation inside docs folder [Docs](https://docs.pv.wponion.com)
 
 
 ---
