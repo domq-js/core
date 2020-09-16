@@ -7,7 +7,6 @@ import isString from "../typechecking/isString";
 import _each from "../core/_each";
 import extend from "../core/extend";
 import animationArgs from "../core/vars/animationArgs";
-import config from "../config";
 
 fn.animate = function( keyframes, speed, easing, callback ) {
 	let options = {};
@@ -37,7 +36,7 @@ fn.animate = function( keyframes, speed, easing, callback ) {
 		callback = easing;
 	}
 
-	options.duration = (!isNumber( speed )) ? config.animation[ speed ] || config.animation.default : speed;
+	options.duration = ( !isNumber( speed ) ) ? core.animation[ speed ] || core.animation.default : speed;
 	options.easing   = ( !isString( easing ) ) ? 'linear' : easing;
 
 	if( !isUndefined( options.loop ) ) {
