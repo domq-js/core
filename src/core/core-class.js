@@ -17,7 +17,6 @@ class PickledVanilla {
 			return selector;
 		}
 
-
 		let eles = selector;
 
 		if( isString( selector ) ) {
@@ -26,8 +25,7 @@ class PickledVanilla {
 			if( !eles ) {
 				return;
 			}
-		}
-		if( isFunction( selector ) ) {
+		} else if( isFunction( selector ) ) {
 			return this.ready( selector );
 		}
 
