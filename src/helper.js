@@ -34,17 +34,11 @@ export function handleObjectDataLoop( data, callback ) {
 export function setupExtraEventsFunctions() {
 	_each( 'load error blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu'.split( ' ' ), ( i, _event ) => {
 		fn[ _event ] = function( eventData, callback ) {
-			if( eventData || callback ) {
-				return this.on();
-			}
-			return this.trigger( _event, eventData, callback );
+			return (eventData || callback) ? this.on( _event, eventData, callback ) : this.trigger( _event, eventData, callback );
 		};
 	} );
 }
 
 export function access( value, index, elem ) {
-	if( isFunction( value ) ) {
-		return value.call( elem, index, elem );
-	}
-	return value;
+	return ( isFunction( value ) ) ? value.call( elem, index, elem ) : value;
 }
