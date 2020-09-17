@@ -1,5 +1,5 @@
 import { fn } from "../setup";
-import { getSplitValues } from "../helper";
+import { access, getSplitValues } from "../helper";
 import isElement from "../typechecking/isElement";
 import _each from "../core/_each";
 
@@ -9,8 +9,8 @@ fn.removeAttr = function( attr ) {
 		if( !isElement( ele ) ) {
 			return;
 		}
-		_each( attrs, ( i, a ) => {
-			ele.removeAttribute( a );
+		_each( attrs, ( L, a ) => {
+			ele.removeAttribute( access( a, i, ele ) );
 		} );
 	} );
 };

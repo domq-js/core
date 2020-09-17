@@ -1,5 +1,5 @@
 import { fn } from "../setup";
-import { getSplitValues } from "../helper";
+import { access, getSplitValues } from "../helper";
 import isUndefined from "../typechecking/isUndefined";
 import isElement from "../typechecking/isElement";
 import _each from "../core/_each";
@@ -12,6 +12,7 @@ fn.toggleClass = function( cls, force ) {
 			return;
 		}
 		_each( classes, ( i, c ) => {
+			c = access( c, i, ele );
 			if( isForce ) {
 				force ? ele.classList.add( c ) : ele.classList.remove( c );
 			} else {

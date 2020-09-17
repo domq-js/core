@@ -1,7 +1,7 @@
 import { fn } from "../setup";
 import isString from "../typechecking/isString";
 import cssMaps from "../core/vars/cssMaps";
-import { handleObjectDataLoop } from "../helper";
+import { access, handleObjectDataLoop } from "../helper";
 
 fn.prop = function( prop, value ) {
 	if( !prop ) {
@@ -14,7 +14,7 @@ fn.prop = function( prop, value ) {
 			return this[ 0 ] && this[ 0 ][ prop ];
 		}
 		return this.each( ( i, ele ) => {
-			ele[ prop ] = value;
+			ele[ prop ] = access( value, i, ele );
 		} );
 	}
 	handleObjectDataLoop.call( this, prop, 'prop' );

@@ -10,6 +10,9 @@ export function getCompareFunction( comparator ) {
 }
 
 export function getSplitValues( str ) {
+	if( isFunction( str ) ) {
+		return [ str ];
+	}
 	return isString( str ) ? str.match( rsplitValues ) || [] : [];
 }
 
@@ -37,4 +40,11 @@ export function setupExtraEventsFunctions() {
 			return this.trigger( _event, eventData, callback );
 		};
 	} );
+}
+
+export function access( value, index, elem ) {
+	if( isFunction( value ) ) {
+		return value.call( elem, index, elem );
+	}
+	return value;
 }

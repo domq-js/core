@@ -1,6 +1,7 @@
 import { fn } from "../setup";
 import isUndefined from "../typechecking/isUndefined";
 import isElement from "../typechecking/isElement";
+import { access } from "../helper";
 
 fn.html = function( html ) {
 	if( !arguments.length ) {
@@ -13,6 +14,6 @@ fn.html = function( html ) {
 		if( !isElement( ele ) ) {
 			return;
 		}
-		ele.innerHTML = html;
+		ele.innerHTML = access( html, i, ele );
 	} );
 };
