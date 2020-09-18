@@ -7,13 +7,13 @@ fn.fadeToggle = function( speed, easing, callback, force ) {
 	return this.each( ( i, el ) => {
 		let isElemHidden = isHidden( el ),
 			isShow       = ( isElemHidden );
-		el               = core( el );
 		isShow           = isUndefined( force ) ? isShow : ( !force ) ? false : ( force ) ? true : isShow;
 
 		if( ( isElemHidden && !isShow ) || ( !isElemHidden && isShow ) ) {
 			return;
 		}
 
+		el = core( el );
 		if( isShow ) {
 			el.show();
 		}
