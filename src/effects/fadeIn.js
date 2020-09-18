@@ -1,5 +1,5 @@
 import { fn } from "../setup";
 
-fn.fadeIn = function( delay, easing, callback ) {
-	return this.fadeToggle( delay, easing, callback, true );
+fn.fadeIn = function( speed, easing, callback ) {
+	return this.fadeToggle( speed, easing, callback, true );
 };
