@@ -10,17 +10,21 @@ export default {
 	input: './src/wrap.js',
 	output: [
 		{
-			file: './dist/wpopv.js',
+			file: './dist/wpopv.umd.js',
 			format: 'umd',
 			name: 'wpopv',
 		},
 		{
-			file: './dist/wpopv.min.js',
+			file: './dist/wpopv.umd.min.js',
 			format: 'umd',
 			name: 'wpopv',
 			plugins: [
 				uglify( { mangle: true } ),
 			]
+		},
+		{
+			file: './dist/wpopv.ems.js',
+			format: 'es',
 		}
 	],
 	plugins: [
