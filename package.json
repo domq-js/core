@@ -1,12 +1,10 @@
 {
   "name": "@wponion/pickledvanilla-js",
   "description": " PickledVanilla wrapper for Vanilla JS ",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c --watch",
-    "reload": "livereload 'build/'",
-    "watch": "npm-run-all --parallel reload dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "maintainers": [
@@ -17,20 +15,14 @@
     }
   ],
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
-    "rollup": "^2.26.11",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-uglify": "^6.0.4",
-    "rollup-plugin-filesize": "^9.0.2",
-    "rollup-plugin-visualizer": "^4.1.1"
+    "sofy": "*",
+    "@varunsridharan/js-is": "*",
+    "@varunsridharan/js-vars": "*"
   },
   "repositories": [
     {
       "type": "git",
-      "url": "github.com:wponion/pickledvanilla-js.git"
+      "url": "https://github.com/wponion/pickledvanilla-js.git"
     }
   ],
   "licenses": [
