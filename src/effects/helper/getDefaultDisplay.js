@@ -1,6 +1,5 @@
 import computeStyle from "../../css/helpers/computeStyle";
-import celem from "../../core/vars/celem";
-import doc from "../../core/vars/doc";
+import { celem, doc } from "@varunsridharan/js-vars";
 
 const defaultDisplay = {};
 

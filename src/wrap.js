@@ -19,14 +19,13 @@ import "./traversal/index";
 import "./string/index";
 import "./typechecking/index";
 import "./utilities/index";
-import _ArrayPrototype from "./core/vars/_ArrayPrototype";
-import _splice from "./core/vars/_splice";
 import { setupExtraEventsFunctions } from "./helper";
 import isFunction from "./typechecking/isFunction";
+import { _Arrayprop, _splice } from "@varunsridharan/js-vars";
 
 // Ensuring a cash collection is iterable
 if( isFunction( Symbol ) ) {
-	fn[ Symbol.iterator ] = _ArrayPrototype[ Symbol.iterator ];
+	fn[ Symbol.iterator ] = _Arrayprop[ Symbol.iterator ];
 }
 
 /**

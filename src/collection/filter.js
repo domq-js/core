@@ -1,6 +1,6 @@
 import core, { fn } from "../setup";
 import { getCompareFunction } from "../helper";
-import _filter from "../core/vars/_filter";
+import { _filter } from "@varunsridharan/js-vars";
 
 fn.filter = function( comparator ) {
 	const compare = getCompareFunction( comparator );

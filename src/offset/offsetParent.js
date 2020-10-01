@@ -1,6 +1,6 @@
 import { fn } from "../setup";
 import computeStyle from "../css/helpers/computeStyle";
-import docEle from "../core/vars/docEle";
+import { docEle } from "@varunsridharan/js-vars";
 
 fn.offsetParent = function() {
 	return this.map( ( i, ele ) => {

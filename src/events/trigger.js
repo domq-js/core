@@ -4,8 +4,8 @@ import isFunction from "../typechecking/isFunction";
 import parseEventName from "./helper/parseEventName";
 import getEventNameBubbling from "./helper/getEventNameBubbling";
 import { evFocus, evNamespacesSep } from "../core/vars/events";
-import doc from "../core/vars/doc";
 import { reventsMouse } from "../core/regex";
+import { doc } from "@varunsridharan/js-vars";
 
 fn.trigger = function( event, data ) {
 	if( isString( event ) ) {

@@ -3,9 +3,9 @@ import getValue from "./helper/getValue";
 import isNull from "../typechecking/isNull";
 import isUndefined from "../typechecking/isUndefined";
 import _each from "../core/_each";
-import _map from "../core/vars/_map";
 import { rcheckable } from "../core/regex";
-import isArray from "../core/vars/isArray";
+import { isArray } from "@varunsridharan/js-is";
+import { _map } from "@varunsridharan/js-vars";
 
 fn.val = function( value ) {
 	if( !arguments.length ) {

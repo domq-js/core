@@ -1,5 +1,5 @@
 import { fn } from "../setup";
-import win from "../core/vars/win";
+import { win } from "@varunsridharan/js-vars";
 
 fn.offset = function() {
 	const ele = this[ 0 ];

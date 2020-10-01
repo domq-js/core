@@ -1,4 +1,5 @@
-import celem from "../core/vars/celem";
+import { celem } from "@varunsridharan/js-vars";
+
 export default {
 	div: celem( 'div' ),
 	table: celem( 'table' ),

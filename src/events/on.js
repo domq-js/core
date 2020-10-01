@@ -14,7 +14,7 @@ import hasNamespaces from "./helper/hasNamespaces";
 import removeEvent from "./helper/removeEvent";
 import addEvent from "./helper/addEvent";
 import { evFocus, evHover, evNamespacesSep } from "../core/vars/events";
-import _obj from "../core/vars/_obj";
+import { _obj } from "@varunsridharan/js-vars";
 
 fn.on = function( eventFullName, selector, data, callback, _one ) {
 	if( !isString( eventFullName ) ) {

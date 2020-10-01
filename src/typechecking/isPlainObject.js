@@ -1,6 +1,6 @@
 import isTypeof from "./isTypeof";
 import isNull from "./isNull";
-import _obj from "../core/vars/_obj";
+import { _obj } from "@varunsridharan/js-vars";
 
 export default function( x ) {
 	if( !isTypeof( x, 'object' ) || isNull( x ) ) {

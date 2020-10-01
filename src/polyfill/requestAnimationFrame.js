@@ -1,6 +1,6 @@
 import cssVendors from "../core/vars/cssVendors";
-import win from "../core/vars/win";
 import _each from "../core/_each";
+import { win } from "@varunsridharan/js-vars";
 
 export default function() {
 	let arf = 'requestAnimationFrame',

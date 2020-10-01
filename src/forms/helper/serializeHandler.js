@@ -1,5 +1,5 @@
 import _each from "../../core/_each";
-import _slice from "../../core/vars/_slice";
+import { _slice } from "@varunsridharan/js-vars";
 
 export default function( type ) {
 	let rval = ( 'o' === type ) ? {} : [];

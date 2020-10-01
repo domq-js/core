@@ -1,9 +1,8 @@
 import core from "../../setup";
-import docEle from "../../core/vars/docEle";
 import scriptAttrs from "../../core/vars/scriptAttrs";
 import _each from "../../core/_each";
-import celem from "../../core/vars/celem";
 import { rHTMLCDATA, rscriptType } from "../../core/regex";
+import { celem, docEle } from "@varunsridharan/js-vars";
 
 export default function( node, doc ) {
 	const collection = core( node );

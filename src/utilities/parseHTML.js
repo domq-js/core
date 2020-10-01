@@ -1,8 +1,8 @@
 import v from "../core/vars";
 import isString from "../typechecking/isString";
 import core from "../setup";
-import celem from "../core/vars/celem";
 import { rfragment, rsingleTag } from "../core/regex";
+import { celem } from "@varunsridharan/js-vars";
 
 const containers = {
 	'*': v.div,

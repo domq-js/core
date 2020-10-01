@@ -1,5 +1,5 @@
 import core, { fn } from "../setup";
-import doc from "../core/vars/doc";
+import { doc } from "@varunsridharan/js-vars";
 
 fn.ready = function( callback ) {
 	const cb = () => setTimeout( callback, 0, core );

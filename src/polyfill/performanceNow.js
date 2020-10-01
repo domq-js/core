@@ -1,4 +1,4 @@
-import win from "../core/vars/win";
+import { win } from "@varunsridharan/js-vars";
 
 export default function() {
 	if( !Date.now ) {

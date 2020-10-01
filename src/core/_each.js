@@ -1,5 +1,5 @@
 import isPlainObject from "../typechecking/isPlainObject";
-import _obj from "./vars/_obj";
+import { _obj } from "@varunsridharan/js-vars";
 
 export default function _each( arr, callback, _reverse ) {
 	if( _reverse ) {
