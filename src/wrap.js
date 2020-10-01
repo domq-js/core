@@ -3,6 +3,7 @@ import core, { fn } from './setup';
 import extend from "./core/extend";
 import _each from "./core/_each";
 import "./config.js";
+import "./hooks.js";
 import "./animation/index";
 import "./attributes/index";
 import "./collection/index";
@@ -31,9 +32,9 @@ if( isFunction( Symbol ) ) {
 /**
  * Dynamic Functions.
  */
-fn.version = '${version}';
-fn.wpopv  = 'wpopv' + Math.random();
-fn.extend = ( plugins ) => extend( fn, plugins );
+fn.version = '__VERSION__';
+fn.uid    = '__SHORTNAME__' + Math.random();
+fn.extend = plugins => extend( fn, plugins );
 fn.splice = _splice;
 
 /**
