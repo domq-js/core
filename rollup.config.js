@@ -5,29 +5,38 @@ import { uglify } from 'rollup-plugin-uglify';
 import filesize from 'rollup-plugin-filesize';
 import visualizer from 'rollup-plugin-visualizer';
 import json from "@rollup/plugin-json";
+import replace from "@rollup/plugin-replace";
+import pkg from "./package.json";
+
+const shortname    = 'wpopv';
+const version      = pkg.version,
+	  replaceVals  = {
+		  '__VERSION__': version,
+		  '__SHORTNAME__': shortname,
+	  };
+const distLocation = './dist/',
+	  outputName   = 'wpopv';
+
 
 export default {
 	input: './src/wrap.js',
 	output: [
 		{
-			file: './dist/wpopv.umd.js',
+			file: `${distLocation}${outputName}.umd.js`,
 			format: 'umd',
-			name: 'wpopv',
+			name: shortname
 		},
 		{
-			file: './dist/wpopv.umd.min.js',
+			file: `${distLocation}${outputName}.umd.min.js`,
 			format: 'umd',
-			name: 'wpopv',
+			name: shortname,
 			plugins: [
 				uglify( { mangle: true } ),
 			]
-		},
-		{
-			file: './dist/wpopv.ems.js',
-			format: 'es',
 		}
 	],
 	plugins: [
+		replace( replaceVals ),
 		json(),
 		babel( {
 			exclude: 'node_modules/**'
