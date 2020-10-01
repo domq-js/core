@@ -1,1 +1,2 @@
-export default document;
+import win from "./win";
+export default win.document;
