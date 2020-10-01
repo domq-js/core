@@ -1,11 +1,10 @@
 import { fn } from "../setup";
-import isString from "../typechecking/isString";
-import isFunction from "../typechecking/isFunction";
 import parseEventName from "./helper/parseEventName";
 import getEventNameBubbling from "./helper/getEventNameBubbling";
 import { evFocus, evNamespacesSep } from "../core/vars/events";
 import { reventsMouse } from "../core/regex";
 import { doc } from "@varunsridharan/js-vars";
+import { isFunction, isString } from "@varunsridharan/js-is";
 
 fn.trigger = function( event, data ) {
 	if( isString( event ) ) {

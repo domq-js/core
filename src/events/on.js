@@ -1,11 +1,4 @@
 import core, { fn } from "../setup";
-import isNull from "../typechecking/isNull";
-import isUndefined from "../typechecking/isUndefined";
-import isString from "../typechecking/isString";
-import isFunction from "../typechecking/isFunction";
-import isElement from "../typechecking/isElement";
-import isWindow from "../typechecking/isWindow";
-import isDocument from "../typechecking/isDocument";
 import _each from "../core/_each";
 import { getSplitValues, matches } from "../helper";
 import parseEventName from "./helper/parseEventName";
@@ -15,6 +8,7 @@ import removeEvent from "./helper/removeEvent";
 import addEvent from "./helper/addEvent";
 import { evFocus, evHover, evNamespacesSep } from "../core/vars/events";
 import { _obj } from "@varunsridharan/js-vars";
+import { isDocument, isElement, isFunction, isNull, isString, isUndefined, isWindow } from "@varunsridharan/js-is";
 
 fn.on = function( eventFullName, selector, data, callback, _one ) {
 	if( !isString( eventFullName ) ) {

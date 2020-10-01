@@ -1,7 +1,7 @@
 import { fn } from "../setup";
 import { access, getSplitValues } from "../helper";
-import isElement from "../typechecking/isElement";
 import _each from "../core/_each";
+import { isElement } from "@varunsridharan/js-is";
 
 fn.removeAttr = function( attr ) {
 	const attrs = getSplitValues( attr );

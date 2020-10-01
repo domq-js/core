@@ -1,7 +1,7 @@
 import { fn } from "../setup";
-import isString from "../typechecking/isString";
 import cssMaps from "../core/vars/cssMaps";
 import { access, handleObjectDataLoop } from "../helper";
+import { isString } from "@varunsridharan/js-is";
 
 fn.prop = function( prop, value ) {
 	if( !prop ) {

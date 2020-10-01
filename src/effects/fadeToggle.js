@@ -1,7 +1,6 @@
 import core, { fn } from "../setup";
 import isHidden from "./helper/isHidden";
-import isUndefined from "../typechecking/isUndefined";
-import isFunction from "../typechecking/isFunction";
+import { isFunction, isUndefined } from "@varunsridharan/js-is";
 
 fn.fadeToggle = function( speed, easing, callback, force ) {
 	return this.each( ( i, el ) => {

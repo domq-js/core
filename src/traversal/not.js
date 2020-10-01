@@ -1,7 +1,6 @@
 import { fn } from "../setup";
 import { getCompareFunction } from "../helper";
-import isString from "../typechecking/isString";
-import isElement from "../typechecking/isElement";
+import { isElement, isString } from "@varunsridharan/js-is";
 
 fn.not = function( comparator ) {
 	const compare = getCompareFunction( comparator );

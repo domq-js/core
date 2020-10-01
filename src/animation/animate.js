@@ -1,12 +1,8 @@
 import core, { fn } from "../setup";
-import isPlainObject from "../typechecking/isPlainObject";
-import isUndefined from "../typechecking/isUndefined";
-import isFunction from "../typechecking/isFunction";
-import isNumber from "../typechecking/isNumber";
-import isString from "../typechecking/isString";
 import _each from "../core/_each";
 import extend from "../core/extend";
 import animationArgs from "../core/vars/animationArgs";
+import { isFunction, isNumber, isPlainObject, isString, isUndefined } from "@varunsridharan/js-is";
 
 fn.animate = function( keyframes, speed, easing, callback ) {
 	let options = {};

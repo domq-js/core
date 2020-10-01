@@ -1,9 +1,6 @@
 import { fn } from "../setup";
-import isNull from "../typechecking/isNull";
-import isUndefined from "../typechecking/isUndefined";
-import isString from "../typechecking/isString";
-import isElement from "../typechecking/isElement";
 import { handleObjectDataLoop } from "../helper";
+import { isElement, isNull, isString, isUndefined } from "@varunsridharan/js-is";
 
 fn.attr = function( attr, value ) {
 	if( !attr ) {

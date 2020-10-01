@@ -1,10 +1,9 @@
 import isWpopv from '../typechecking/isWpopv';
-import isFunction from "../typechecking/isFunction";
-import isString from "../typechecking/isString";
 import parseHTML from "../utilities/parseHTML";
 import _find from "./_find";
 import { rhtml, rid } from "./regex";
 import { doc, win } from "@varunsridharan/js-vars";
+import { isFunction, isString } from "@varunsridharan/js-is";
 
 class PickledVanilla {
 	constructor( selector, context ) {

@@ -1,6 +1,6 @@
-import isFunction from "../typechecking/isFunction";
 import { getCompareFunction } from "../helper";
 import { _push } from "@varunsridharan/js-vars";
+import { isFunction } from "@varunsridharan/js-is";
 
 export default function( arr, prop, deep, until ) {
 	const plucked    = [],

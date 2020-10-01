@@ -1,10 +1,9 @@
 import { fn } from "../setup";
-import isUndefined from "../typechecking/isUndefined";
-import isElement from "../typechecking/isElement";
 import isHidden from "./helper/isHidden";
 import getDefaultDisplay from "./helper/getDefaultDisplay";
 import computeStyle from "../css/helpers/computeStyle";
 import cssDisplayProp from "../core/vars/cssDisplayProp";
+import { isElement, isUndefined } from "@varunsridharan/js-is";
 
 fn.toggle = function( force ) {
 	return this.each( ( i, ele ) => {

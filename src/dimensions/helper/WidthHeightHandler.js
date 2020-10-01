@@ -1,11 +1,8 @@
-import isUndefined from "../../typechecking/isUndefined";
-import isDocument from "../../typechecking/isDocument";
-import isElement from "../../typechecking/isElement";
 import getDocumentDimension from "./getDocumentDimension";
-import isWindow from "../../typechecking/isWindow";
 import getExtraSpace from "./getExtraSpace";
 import computeStyle from "../../css/helpers/computeStyle";
 import getSuffixedValue from "../../css/helpers/getSuffixedValue";
+import { isDocument, isElement, isUndefined, isWindow } from "@varunsridharan/js-is";
 
 export default function( prop, value ) {
 	let index = ( 'width' === prop ) ? 0 : 1;

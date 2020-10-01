@@ -1,6 +1,5 @@
 import core from "../../setup";
-import isUndefined from "../../typechecking/isUndefined";
-import isElement from "../../typechecking/isElement";
+import { isElement, isUndefined } from "@varunsridharan/js-is";
 
 export default function( from, to, isMove = false ) {
 	return this.each( ( i, el ) => {

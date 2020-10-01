@@ -1,7 +1,6 @@
-import isDocument from "../../typechecking/isDocument";
 import getDocumentDimension from "./getDocumentDimension";
 import computeStyleInt from "../../css/helpers/computeStyleInt";
-import isWindow from "../../typechecking/isWindow";
+import { isDocument, isWindow } from "@varunsridharan/js-is";
 
 export default function( ins, position, prop, includeMargins ) {
 	if( !this[ 0 ] ) {

@@ -1,6 +1,6 @@
 import { fn } from "../setup";
-import isUndefined from "../typechecking/isUndefined";
 import { _slice } from "@varunsridharan/js-vars";
+import { isUndefined } from "@varunsridharan/js-is";
 
 fn.get = function( index ) {
 	if( isUndefined( index ) ) {

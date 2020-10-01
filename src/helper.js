@@ -1,9 +1,8 @@
 import isWpopv from "./typechecking/isWpopv";
-import isString from "./typechecking/isString";
-import isFunction from "./typechecking/isFunction";
 import { rsplitValues } from "./core/regex";
 import _each from "./core/_each";
 import { fn } from "./setup";
+import { isFunction, isString } from "@varunsridharan/js-is";
 
 export function getCompareFunction( comparator ) {
 	return isString( comparator ) ? ( i, ele ) => matches( ele, comparator ) : isFunction( comparator ) ? comparator : isWpopv( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;

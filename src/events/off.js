@@ -1,15 +1,10 @@
 import { fn } from "../setup";
-import isUndefined from "../typechecking/isUndefined";
-import isString from "../typechecking/isString";
-import isFunction from "../typechecking/isFunction";
-import isElement from "../typechecking/isElement";
-import isWindow from "../typechecking/isWindow";
-import isDocument from "../typechecking/isDocument";
 import removeEvent from "./helper/removeEvent";
 import _each from "../core/_each";
 import { getSplitValues, handleObjectDataLoop } from "../helper";
 import parseEventName from "./helper/parseEventName";
 import getEventNameBubbling from "./helper/getEventNameBubbling";
+import { isDocument, isElement, isFunction, isString, isUndefined, isWindow } from "@varunsridharan/js-is";
 
 fn.off = function( eventFullName, selector, callback ) {
 	if( isUndefined( eventFullName ) ) {

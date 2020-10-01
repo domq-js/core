@@ -1,5 +1,5 @@
-import  isElement from "../../typechecking/isElement";
 import { win } from "@varunsridharan/js-vars";
+import { isElement } from "@varunsridharan/js-is";
 
 export default function( ele, prop, isVariable ) {
 	if( !isElement( ele ) ) {

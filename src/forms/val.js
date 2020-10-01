@@ -1,10 +1,8 @@
 import { fn } from "../setup";
 import getValue from "./helper/getValue";
-import isNull from "../typechecking/isNull";
-import isUndefined from "../typechecking/isUndefined";
 import _each from "../core/_each";
 import { rcheckable } from "../core/regex";
-import { isArray } from "@varunsridharan/js-is";
+import { isArray, isNull, isUndefined } from "@varunsridharan/js-is";
 import { _map } from "@varunsridharan/js-vars";
 
 fn.val = function( value ) {

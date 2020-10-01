@@ -1,8 +1,7 @@
 import { fn } from "../setup";
 import { access, getSplitValues } from "../helper";
-import isUndefined from "../typechecking/isUndefined";
-import isElement from "../typechecking/isElement";
 import _each from "../core/_each";
+import { isElement, isUndefined } from "@varunsridharan/js-is";
 
 fn.toggleClass = function( cls, force ) {
 	const classes = getSplitValues( cls ),

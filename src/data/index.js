@@ -1,9 +1,8 @@
-import isUndefined from "../typechecking/isUndefined";
-import isString from "../typechecking/isString";
 import { fn } from '../setup';
 import getData from "./helper/getData";
 import setData from "./helper/setData";
 import { handleObjectDataLoop } from "../helper";
+import { isString, isUndefined } from "@varunsridharan/js-is";
 
 fn.data = function( name, value ) {
 	if( !name ) {

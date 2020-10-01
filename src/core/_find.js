@@ -1,6 +1,5 @@
-import isElement from "../typechecking/isElement";
-import isDocument from "../typechecking/isDocument";
 import { rclass, rtag } from "./regex";
+import { isDocument, isElement } from "@varunsridharan/js-is";
 
 export default function( sel, ctx ) {
 	if( !sel || ( !isDocument( ctx ) && !isElement( ctx ) ) ) {

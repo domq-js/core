@@ -20,8 +20,8 @@ import "./string/index";
 import "./typechecking/index";
 import "./utilities/index";
 import { setupExtraEventsFunctions } from "./helper";
-import isFunction from "./typechecking/isFunction";
 import { _Arrayprop, _splice } from "@varunsridharan/js-vars";
+import { isFunction } from "@varunsridharan/js-is";
 
 // Ensuring a cash collection is iterable
 if( isFunction( Symbol ) ) {

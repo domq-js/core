@@ -1,7 +1,6 @@
 import { fn } from "../setup";
-import isUndefined from "../typechecking/isUndefined";
-import isElement from "../typechecking/isElement";
 import { access } from "../helper";
+import { isElement, isUndefined } from "@varunsridharan/js-is";
 
 fn.html = function( html ) {
 	if( !arguments.length ) {

@@ -1,6 +1,5 @@
 import { fn } from "../setup";
-import isUndefined from "../typechecking/isUndefined";
-import isElement from "../typechecking/isElement";
+import { isElement, isUndefined } from "@varunsridharan/js-is";
 
 fn.text = function( text ) {
 	if( isUndefined( text ) ) {

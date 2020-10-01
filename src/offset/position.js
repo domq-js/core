@@ -1,7 +1,7 @@
 import core, { fn } from "../setup";
 import computeStyle from "../css/helpers/computeStyle";
-import isElement from "../typechecking/isElement";
 import computeStyleInt from "../css/helpers/computeStyleInt";
+import { isElement } from "@varunsridharan/js-is";
 
 fn.position     = function() {
 	const ele = this[ 0 ];

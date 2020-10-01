@@ -1,5 +1,5 @@
 import core, { fn } from "../setup";
-import isFunction from "../typechecking/isFunction";
+import { isFunction } from "@varunsridharan/js-is";
 
 fn.fadeTo = function( speed, opacity, easing, callback ) {
 	return this.animate( { opacity: opacity }, speed, easing, ( el ) => {
