@@ -1,7 +1,7 @@
 import isWpopv from "./typechecking/isWpopv";
 import { rsplitValues } from "./core/regex";
 import _each from "./core/_each";
-import { fn } from "./setup";
+import core, { fn } from "./setup";
 import { isFunction, isString } from "@varunsridharan/js-is";
 
 export function getCompareFunction( comparator ) {
@@ -16,12 +16,7 @@ export function getSplitValues( str ) {
 }
 
 export function matches( ele, selector ) {
-	try {
-		const matches = ele && ( ele.matches || ele.webkitMatchesSelector || ele.msMatchesSelector );
-		return !!matches && !!selector && matches.call( ele, selector );
-	} catch( e ) {
-
-	}
+	return core.dizzle.is( selector, ele );
 }
 
 export function handleObjectDataLoop( data, callback ) {
