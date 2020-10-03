@@ -3,7 +3,7 @@ import core, { fn } from './setup';
 import extend from "./core/extend";
 import _each from "./core/_each";
 import "./config.js";
-import "./hooks.js";
+import "./hooks/index.js";
 import "./animation/index";
 import "./attributes/index";
 import "./collection/index";
