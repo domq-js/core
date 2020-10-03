@@ -22,8 +22,7 @@ import "./utilities/index";
 import { setupExtraEventsFunctions } from "./helper";
 import { _Arrayprop, _splice } from "@varunsridharan/js-vars";
 import { isFunction } from "@varunsridharan/js-is";
-import * as dizzle from "dizzle";
-
+import dizzle from "dizzle";
 
 // Ensuring a cash collection is iterable
 if( isFunction( Symbol ) ) {
