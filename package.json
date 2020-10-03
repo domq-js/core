@@ -17,7 +17,8 @@
   "devDependencies": {
     "sofy": "*",
     "@varunsridharan/js-is": "*",
-    "@varunsridharan/js-vars": "*"
+    "@varunsridharan/js-vars": "*",
+    "dizzle": "^1.0.2"
   },
   "repositories": [
     {
