@@ -1,7 +1,7 @@
 import isWpopv from '../typechecking/isWpopv';
 import parseHTML from "../utilities/parseHTML";
 import _find from "./_find";
-import { rhtml, rid } from "./regex";
+import { rhtml } from "./regex";
 import { doc, win } from "@varunsridharan/js-vars";
 import { isFunction, isString } from "@varunsridharan/js-is";
 
@@ -19,7 +19,7 @@ class PickledVanilla {
 
 		if( isString( selector ) ) {
 			const ctx = ( isWpopv( context ) ? context[ 0 ] : context ) || doc;
-			eles      = rid.test( selector ) ? ctx.getElementById( selector.slice( 1 ) ) : rhtml.test( selector ) ? parseHTML( selector ) : _find( selector, ctx );
+			eles      = ( rhtml.test( selector ) ) ? parseHTML( selector ) : _find( selector, ctx );
 			if( !eles ) {
 				return;
 			}
