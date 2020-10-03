@@ -21,6 +21,11 @@ export default {
 	input: './src/wrap.js',
 	output: [
 		{
+			file: `${distLocation}${outputName}.es.js`,
+			format: 'es',
+			name: shortname
+		},
+		{
 			file: `${distLocation}${outputName}.umd.js`,
 			format: 'umd',
 			name: shortname

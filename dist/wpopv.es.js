@@ -2,21 +2,34 @@ function isWpopv (instance) {
   return instance instanceof PickledVanilla;
 }
 
-function isTypeof (x, _typeof) {
-  return typeof x === _typeof;
-}
+/**
+ * Array Related Vars.
+ */
+var Arr = Array;
+var _Arrayprop = Arr.prototype;
+var _concat = _Arrayprop.concat;
+var _filter = _Arrayprop.filter;
+var _indexOf = _Arrayprop.indexOf;
+var _map = _Arrayprop.map;
+var _push = _Arrayprop.push;
+var _some = _Arrayprop.some;
+var _slice = _Arrayprop.slice;
+var _splice = _Arrayprop.splice;
+var _isArray = Arr.isArray;
+/**
+ * Object Related Vars
+ */
 
-function isFunction (x) {
-  return isTypeof(x, 'function');
-}
+var _obj = Object;
+/**
+ * General Vars
+ */
 
-function isString (x) {
-  return isTypeof(x, 'string');
-}
-
-var doc = document;
-
+var win = window;
+var doc = win.document;
+var docEle = doc.documentElement;
 var celem = doc.createElement.bind(doc);
+var body = doc.body;
 
 var v = {
   div: celem('div'),
@@ -44,6 +57,59 @@ rcheckable = /radio|checkbox/i,
     rHTMLCDATA = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g,
     rscriptType = /^$|^module$|\/(java|ecma)script/;
 
+function isObjectType(data, type) {
+  type = "[object " + type + "]" || "[object]";
+  return _obj.prototype.toString.call(data) === type;
+}
+function isType(data, type) {
+  return typeof data === type;
+}
+function isNodeType(x, type) {
+  return !!x && x.nodeType === type;
+}
+function isNull(value) {
+  return value === null;
+}
+function isArray(value) {
+  return _isArray && _isArray(value) || isObjectType(value, 'Array');
+}
+function isBoolean(value) {
+  return value === true || value === false || isObjectType(value, 'Boolean');
+}
+function isFunction(value) {
+  return isObjectType(value, 'Function') || isType(value, 'function');
+}
+function isNumber(value) {
+  return isType(value, 'number');
+}
+function isNumeric(value) {
+  return Number.isFinite(value);
+}
+function isString(value) {
+  return isObjectType(value, 'String');
+}
+function isUndefined(value) {
+  return value === void 0 || isType(value, 'undefined');
+}
+function isPlainObject(value) {
+  if (!isType(value, 'object') || isNull(value)) {
+    return false;
+  }
+
+  var proto = _obj.getPrototypeOf(value);
+
+  return isNull(proto) || proto === _obj.prototype;
+}
+function isWindow(x) {
+  return !!x && x === x.window;
+}
+function isElement(x) {
+  return isNodeType(x, 1);
+}
+function isDocument(x) {
+  return isNodeType(x, 9);
+}
+
 var containers = {
   '*': v.div,
   tr: v.tbody,
@@ -70,18 +136,6 @@ function parseHTML (html) {
   return core(container.childNodes).detach().get();
 }
 
-function isNodetype (x, nodeType) {
-  return !!x && x.nodeType === nodeType;
-}
-
-function isElement (x) {
-  return isNodetype(x, 1);
-}
-
-function isDocument (x) {
-  return isNodetype(x, 9);
-}
-
 function _find (sel, ctx) {
   if (!sel || !isDocument(ctx) && !isElement(ctx)) {
     return [];
@@ -99,8 +153,6 @@ function _find (sel, ctx) {
 
   return ctx.querySelectorAll(sel);
 }
-
-var win = window;
 
 var PickledVanilla = /*#__PURE__*/function () {
   function PickledVanilla(selector, context) {
@@ -150,28 +202,6 @@ var core = fn.init;
 core.fn = core.prototype = fn;
 core.guid = 1;
 fn.length = 0;
-
-function isBoolean (x) {
-  return isTypeof(x, 'boolean');
-}
-
-function isNull (x) {
-  return x === null;
-}
-
-var _obj = Object;
-
-function isPlainObject (x) {
-  if (!isTypeof(x, 'object') || isNull(x)) {
-    return false;
-  }
-
-  var proto = _obj.getPrototypeOf(x);
-
-  return isNull(proto) || proto === _obj.prototype;
-}
-
-var isArray = Array.isArray;
 
 function extend() {
   for (var _len = arguments.length, sources = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -274,14 +304,6 @@ core.hooks = {
   css: hooksCSS
 };
 core.hooks;
-
-function isUndefined (x) {
-  return isTypeof(x, 'undefined');
-}
-
-function isNumber (x) {
-  return isTypeof(x, 'number');
-}
 
 var animationArgs = ['id', 'speed', 'direction', 'delay', 'easing', 'endDelay', 'fill', 'iterationStart', 'iterations'];
 
@@ -422,10 +444,6 @@ fn.hasAttr = function (attr) {
   return this[0] && this[0].hasAttribute(attr);
 };
 
-var _ArrayPrototype = Array.prototype;
-
-var _some = _ArrayPrototype.some;
-
 fn.hasClass = function (cls) {
   return !!cls && _some.call(this, function (ele) {
     return isElement(ele) && ele.classList.contains(cls);
@@ -559,10 +577,6 @@ fn.toggleClass = function (cls, force) {
   });
 };
 
-var _indexOf = _ArrayPrototype.indexOf;
-
-var _filter = _ArrayPrototype.filter;
-
 function unique (arr) {
   return arr.length > 1 ? _filter.call(arr, function (item, index, self) {
     return _indexOf.call(self, item) === index;
@@ -592,8 +606,6 @@ fn.first = function () {
   return this.eq(0);
 };
 
-var _slice = _ArrayPrototype.slice;
-
 fn.get = function (index) {
   if (isUndefined(index)) {
     return _slice.call(this);
@@ -613,10 +625,6 @@ fn.last = function () {
   return this.eq(-1);
 };
 
-var _concat = _ArrayPrototype.concat;
-
-var _map = _ArrayPrototype.map;
-
 fn.map = function (callback) {
   return core(_concat.apply([], _map.call(this, function (ele, i) {
     return callback.call(ele, i, ele);
@@ -629,10 +637,6 @@ fn.slice = function (start, end) {
 
 function isCSSVariable (prop) {
   return rcssVariable.test(prop);
-}
-
-function isNumeric (x) {
-  return !isNaN(parseFloat(x)) && isFinite(x);
 }
 
 function getSuffixedValue (prop, value, isVariable) {
@@ -768,16 +772,8 @@ fn.data = function (name, value) {
   return this;
 };
 
-var docEle = doc.documentElement;
-
-var body = doc.body;
-
 function getDocumentDimension (doc, dimension) {
   return Math.max(body["scroll" + dimension], docEle["scroll" + dimension], body["offset" + dimension], docEle["offset" + dimension], docEle["client" + dimension]);
-}
-
-function isWindow (x) {
-  return !!x && x === x.window;
 }
 
 function computeStyleInt (ele, prop) {
@@ -928,9 +924,9 @@ function getDefaultDisplay (tagName) {
   }
 
   var ele = celem(tagName);
-  body.insertBefore(ele, null);
+  doc.body.insertBefore(ele, null);
   var display = computeStyle(ele, 'display');
-  body.removeChild(ele);
+  doc.body.removeChild(ele);
   return defaultDisplay[tagName] = display !== 'none' ? display : 'block';
 }
 
@@ -963,27 +959,6 @@ fn.pulse = function (speed, easing, callback) {
     direction: 'alternate',
     transform: ['scale(0.5)', 'scale(1)']
   }, speed, easing, callback);
-};
-
-fn.slideDown = function (speed, easing, callback) {
-  return this.each(function (i, el) {
-    var isElemHidden = isHidden(el);
-
-    if (!isElemHidden) {
-      return;
-    }
-
-    el = core(el);
-    el.animate({
-      translateY: ['-100%', 0]
-    }, speed, easing, function (elm) {
-      el.show();
-
-      if (isFunction(callback)) {
-        callback(elm);
-      }
-    });
-  });
 };
 
 function hasNamespaces (ns1, ns2) {
@@ -1314,8 +1289,6 @@ fn.serializeArray = function () {
 fn.serializeObject = function () {
   return serializeHandler.call(this, 'o');
 };
-
-var _push = _ArrayPrototype.push;
 
 function pluck (arr, prop, deep, until) {
   var plucked = [],
@@ -1759,13 +1732,13 @@ core.isBoolean = isBoolean;
 core.isDocument = isDocument;
 core.isElement = isElement;
 core.isFunction = isFunction;
-core.isNodetype = isNodetype;
+core.isNodetype = isNodeType;
 core.isNull = isNull;
 core.isNumber = isNumber;
 core.isNumeric = isNumeric;
 core.isPlainObject = isPlainObject;
 core.isString = isString;
-core.isTypeof = isTypeof;
+core.isType = isType;
 core.isUndefined = isUndefined;
 core.isWindow = isWindow;
 core.isWpopv = isWpopv;
@@ -1936,18 +1909,16 @@ core.grep = grep;
 core.storage = storage;
 core.Queue = Queue;
 
-var _splice = _ArrayPrototype.splice;
-
 if (isFunction(Symbol)) {
-  fn[Symbol.iterator] = _ArrayPrototype[Symbol.iterator];
+  fn[Symbol.iterator] = _Arrayprop[Symbol.iterator];
 }
 /**
  * Dynamic Functions.
  */
 
 
-fn.version = '$version';
-fn.wpopv = 'wpopv' + Math.random();
+fn.version = '0.0.0';
+fn.uid = 'wpopv' + Math.random();
 
 fn.extend = function (plugins) {
   return extend(fn, plugins);

@@ -17,4 +17,4 @@ core.getScript = getScript;
 core.merge     = merge;
 core.grep      = grep;
 core.storage   = storage;
-core.Queue   = Queue;
+core.Queue     = Queue;
