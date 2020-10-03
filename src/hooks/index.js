@@ -6,4 +6,5 @@ import plainObject from "../utilities/plainObject";
 core.hooks = {
 	attr: attrHooks,
 	css: plainObject(),
+	prop: plainObject(),
 };

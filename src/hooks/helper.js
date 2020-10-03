@@ -15,3 +15,8 @@ export function attrHook( hookName, type ) {
 export function cssHook( hookName, type ) {
 	return hookHandler( 'css', hookName, type );
 }
+
+
+export function propHook( hookName, type ) {
+	return hookHandler( 'prop', hookName, type );
+}
