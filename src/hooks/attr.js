@@ -1,7 +1,8 @@
 import attrBools from "../core/vars/attrBools";
 import _each from "../core/_each";
+import plainObject from "../utilities/plainObject";
 
-const attrHooks = {};
+const attrHooks = plainObject();
 
 _each( attrBools, function( i, type ) {
 	attrHooks[ type ] = Object.create( {
