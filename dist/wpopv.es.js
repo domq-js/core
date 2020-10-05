@@ -1,3 +1,7 @@
+/**
+ * @wponion/pickledvanilla-js v0.0.0 | 05-10-2020 - MIT License
+ */
+
 function isWpopv (instance) {
   return instance instanceof PickledVanilla;
 }
@@ -3313,4 +3317,5 @@ core.extend = extend;
 core.dizzle = DizzleCore;
 setupExtraEventsFunctions();
 
-export default core;
+window.wpopv = core;
+//# sourceMappingURL=wpopv.es.js.map

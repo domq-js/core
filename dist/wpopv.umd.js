@@ -1,8 +1,11 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+/**
+ * @wponion/pickledvanilla-js v0.0.0 | 05-10-2020 - MIT License
+ */
+
+(function (factory) {
 	typeof define === 'function' && define.amd ? define(factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.wpopv = factory());
-}(this, (function () { 'use strict';
+	factory();
+}((function () { 'use strict';
 
 	function isWpopv (instance) {
 	  return instance instanceof PickledVanilla;
@@ -3319,6 +3322,7 @@
 	core.dizzle = DizzleCore;
 	setupExtraEventsFunctions();
 
-	return core;
+	window.wpopv = core;
 
 })));
+//# sourceMappingURL=wpopv.umd.js.map

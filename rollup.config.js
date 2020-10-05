@@ -1,50 +1,77 @@
+/**
+ * Rollup Core
+ */
+import nodeResolve from '@rollup/plugin-node-resolve';
+
+/**
+ * ES6 To ES5
+ */
 import babel from '@rollup/plugin-babel';
-import resolve from '@rollup/plugin-node-resolve';
-import { uglify } from 'rollup-plugin-uglify';
+
+/**
+ * Minify
+ */
+import { terser } from "rollup-plugin-terser";
+import compiler from '@ampproject/rollup-plugin-closure-compiler';
+
+/**
+ * Utility
+ */
+import license from 'rollup-plugin-license';
 import filesize from 'rollup-plugin-filesize';
 import visualizer from 'rollup-plugin-visualizer';
-import json from "@rollup/plugin-json";
+import json from '@rollup/plugin-json';
 import replace from "@rollup/plugin-replace";
+
+/**
+ * Package.JSON
+ */
 import pkg from "./package.json";
 
-const shortname    = 'wpopv';
-const version      = pkg.version,
-	  replaceVals  = {
-		  '__VERSION__': version,
-		  '__SHORTNAME__': shortname,
-	  };
-const distLocation = './dist/',
-	  outputName   = 'wpopv';
+const _name = 'wpopv';
+const input = './src/index.js';
+const files = [
+	{ input: input, format: 'es' },
+	{ input: input, format: 'umd' },
+	{ input: input, format: 'umd', minify: true },
+];
 
 
-export default {
-	input: './src/wrap.js',
-	output: [
-		{
-			file: `${distLocation}${outputName}.es.js`,
-			format: 'es',
-			name: shortname
+const config = files.map( ( { input, format, minify } ) => {
+	return {
+		input: input,
+		output: {
+			file: `./dist/${_name}.${format}${minify ? '.min' : ''}.js`,
+			format: format,
+			name: _name,
+			sourcemap: true,
 		},
-		{
-			file: `${distLocation}${outputName}.umd.js`,
-			format: 'umd',
-			name: shortname
-		},
-		{
-			file: `${distLocation}${outputName}.umd.min.js`,
-			format: 'umd',
-			name: shortname,
-			plugins: [
-				uglify( { mangle: true } ),
-			]
-		}
-	],
-	plugins: [
-		resolve(),
-		replace( replaceVals ),
-		json(),
-		babel(),
-		filesize(),
-		visualizer()
-	]
-};
+		plugins: [
+			replace( {
+				'__VERSION__': pkg.version,
+				'__SHORTNAME__': _name,
+			} ),
+			nodeResolve(),
+			json(),
+			babel( { babelHelpers: 'bundled' } ),
+			minify && compiler(),
+			minify && terser( {
+				output: {
+					beautify: false,
+					quote_style: 1,
+				},
+				mangle: true
+			} ),
+			license( {
+				banner: `${pkg.name} v${pkg.version} | <%= moment().format('DD-MM-YYYY') %> - MIT License`
+			} ),
+			filesize(),
+			visualizer( {
+				sourcemap: true,
+				filename: `stats/${format}${minify ? '.min' : ''}.html`,
+			} )
+		].filter( Boolean )
+	};
+} ).flat();
+
+export default config;
