@@ -6,3 +6,6 @@ import "./hide.js";
 import "./show.js";
 import "./toggle.js";
 import "./pulse.js";
+import "./highlight.js";
+import "./scale.js";
+import "./move.js";
