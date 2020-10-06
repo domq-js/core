@@ -47,10 +47,7 @@ const config = files.map( ( { input, format, minify } ) => {
 			sourcemap: true,
 		},
 		plugins: [
-			replace( {
-				'__VERSION__': pkg.version,
-				'__SHORTNAME__': _name,
-			} ),
+			replace( { '__SHORTNAME__': _name } ),
 			nodeResolve(),
 			json(),
 			babel( { babelHelpers: 'bundled' } ),

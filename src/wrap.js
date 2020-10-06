@@ -23,6 +23,7 @@ import { setupExtraEventsFunctions } from "./helper";
 import { _Arrayprop, _splice } from "@varunsridharan/js-vars";
 import { isFunction } from "@varunsridharan/js-is";
 import dizzle from "dizzle";
+import { version } from "../package.json";
 
 // Ensuring a cash collection is iterable
 if( isFunction( Symbol ) ) {
@@ -32,7 +33,7 @@ if( isFunction( Symbol ) ) {
 /**
  * Dynamic Functions.
  */
-fn.version = '__VERSION__';
+fn.version = version;
 fn.uid    = '__SHORTNAME__' + Math.random();
 fn.extend = plugins => extend( fn, plugins );
 fn.splice = _splice;
