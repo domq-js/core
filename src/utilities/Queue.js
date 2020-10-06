@@ -68,5 +68,3 @@ export default class Queue {
 		return this.i.length === 0;
 	}
 }
-
-
