@@ -62,10 +62,10 @@ domq(function () {
 });
 ```
 
-## Documentation
-domQ gives you a query selector, collection methods and some library methods. If you need more details about our API just check out jQuery's, while we don't implement everything that jQuery provides, everything what we do implement should be compatible with jQuery. domQ can be extended with custom methods, read how [here](https://domq.sva.wiki/developer-guides/extending-domq).
+## [Documentation](https://domq.sva.wiki)
+**domQ** gives you a query selector, `collection` methods and some `library` methods. If you need more details about our API just check out jQuery's, while we don't implement everything that jQuery provides, everything what we do implement should be compatible with jQuery. **domQ** can be extended with custom methods, read how [here](https://domq.sva.wiki/developer-guides/extending-domq).
 
-
+### Documentation : https://domq.sva.wiki 
 ---
 
 ## 📝 Changelog
