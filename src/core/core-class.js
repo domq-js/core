@@ -1,4 +1,4 @@
-import isWpopv from '../typechecking/isWpopv';
+import isdomQ from '../typechecking/isdomQ';
 import parseHTML from "../utilities/parseHTML";
 import _find from "./_find";
 import { rhtml } from "./regex";
@@ -11,14 +11,14 @@ class domQ {
 			return;
 		}
 
-		if( isWpopv( selector ) ) {
+		if( isdomQ( selector ) ) {
 			return selector;
 		}
 
 		let eles = selector;
 
 		if( isString( selector ) ) {
-			const ctx = ( isWpopv( context ) ? context[ 0 ] : context ) || doc;
+			const ctx = ( isdomQ( context ) ? context[ 0 ] : context ) || doc;
 			eles      = ( rhtml.test( selector ) ) ? parseHTML( selector ) : _find( selector, ctx );
 			if( !eles ) {
 				return;

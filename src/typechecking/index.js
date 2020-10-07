@@ -1,5 +1,5 @@
 import core from "../setup";
-import isWpopv from "./isWpopv";
+import isdomQ from "./isdomQ";
 import {
 	isBoolean,
 	isDocument,
@@ -29,4 +29,4 @@ core.isString      = isString;
 core.isType        = isType;
 core.isUndefined   = isUndefined;
 core.isWindow      = isWindow;
-core.isWpopv       = isWpopv;
+core.isdomQ        = isdomQ;

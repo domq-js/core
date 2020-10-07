@@ -1,11 +1,11 @@
-import isWpopv from "./typechecking/isWpopv";
+import isdomQ from "./typechecking/isdomQ";
 import { rsplitValues } from "./core/regex";
 import _each from "./core/_each";
 import core, { fn } from "./setup";
 import { isFunction, isString } from "@varunsridharan/js-is";
 
 export function getCompareFunction( comparator ) {
-	return isString( comparator ) ? ( i, ele ) => core.is( ele, comparator ) : isFunction( comparator ) ? comparator : isWpopv( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;
+	return isString( comparator ) ? ( i, ele ) => core.is( ele, comparator ) : isFunction( comparator ) ? comparator : isdomQ( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;
 }
 
 export function getSplitValues( str ) {
