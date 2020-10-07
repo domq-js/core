@@ -1,6 +1,6 @@
 import core, { fn } from "../setup";
 import _each from "../core/_each";
-import { getSplitValues, matches } from "../helper";
+import { getSplitValues } from "../helper";
 import parseEventName from "./helper/parseEventName";
 import getEventNameBubbling from "./helper/getEventNameBubbling";
 import hasNamespaces from "./helper/hasNamespaces";
@@ -71,7 +71,7 @@ fn.on = function( eventFullName, selector, data, callback, _one ) {
 
 				if( selector ) {
 					let target = event.target;
-					while( !matches( target, selector ) ) {
+					while( !core.is( target, selector ) ) {
 						if( target === ele ) {
 							return;
 						}

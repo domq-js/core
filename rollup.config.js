@@ -28,20 +28,24 @@ import replace from "@rollup/plugin-replace";
  */
 import pkg from "./package.json";
 
-const _name = 'wpopv';
-const input = './src/index.js';
-const files = [
-	{ input: input, format: 'es' },
-	{ input: input, format: 'umd' },
-	{ input: input, format: 'umd', minify: true },
+const _name           = 'domq';
+const input_bundled   = './src/export/bundled.js';
+const input_standlone = './src/export/standlone.js';
+const files           = [
+	{ input: input_bundled, format: 'es', minify: false, type: 'bundled' },
+	{ input: input_bundled, format: 'umd', minify: false, type: 'bundled' },
+	{ input: input_bundled, format: 'umd', minify: true, type: 'bundled' },
+	{ input: input_standlone, format: 'es', minify: false, type: 'standalone' },
+	{ input: input_standlone, format: 'umd', minify: false, type: 'standalone' },
+	{ input: input_standlone, format: 'umd', minify: true, type: 'standalone' },
 ];
 
 
-const config = files.map( ( { input, format, minify } ) => {
+const config = files.map( ( { input, format, minify, type } ) => {
 	return {
 		input: input,
 		output: {
-			file: `./dist/${_name}.${format}${minify ? '.min' : ''}.js`,
+			file: `./dist/${_name}.${type}.${format}${minify ? '.min' : ''}.js`,
 			format: format,
 			name: _name,
 			sourcemap: true,
@@ -65,7 +69,7 @@ const config = files.map( ( { input, format, minify } ) => {
 			filesize(),
 			visualizer( {
 				sourcemap: true,
-				filename: `stats/${format}${minify ? '.min' : ''}.html`,
+				filename: `stats/${type}.${format}${minify ? '.min' : ''}.html`,
 			} )
 		].filter( Boolean )
 	};

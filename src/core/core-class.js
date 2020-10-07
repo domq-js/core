@@ -5,7 +5,7 @@ import { rhtml } from "./regex";
 import { doc, win } from "@varunsridharan/js-vars";
 import { isFunction, isString } from "@varunsridharan/js-is";
 
-class PickledVanilla {
+class domQ {
 	constructor( selector, context ) {
 		if( !selector ) {
 			return;
@@ -39,8 +39,8 @@ class PickledVanilla {
 	}
 
 	init( selector, context ) {
-		return new PickledVanilla( selector, context );
+		return new domQ( selector, context );
 	}
 }
 
-export default PickledVanilla;
+export default domQ;

@@ -22,7 +22,6 @@ import "./utilities/index";
 import { setupExtraEventsFunctions } from "./helper";
 import { _Arrayprop, _splice } from "@varunsridharan/js-vars";
 import { isFunction } from "@varunsridharan/js-is";
-import dizzle from "dizzle";
 import { version } from "../package.json";
 
 // Ensuring a cash collection is iterable
@@ -43,7 +42,6 @@ fn.splice = _splice;
  */
 core.each = _each;
 core.extend = extend;
-core.dizzle = dizzle;
 
 setupExtraEventsFunctions();
 export default core;

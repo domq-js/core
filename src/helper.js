@@ -5,7 +5,7 @@ import core, { fn } from "./setup";
 import { isFunction, isString } from "@varunsridharan/js-is";
 
 export function getCompareFunction( comparator ) {
-	return isString( comparator ) ? ( i, ele ) => matches( ele, comparator ) : isFunction( comparator ) ? comparator : isWpopv( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;
+	return isString( comparator ) ? ( i, ele ) => core.is( ele, comparator ) : isFunction( comparator ) ? comparator : isWpopv( comparator ) ? ( i, ele ) => comparator.is( ele ) : !comparator ? () => false : ( i, ele ) => ele === comparator;
 }
 
 export function getSplitValues( str ) {
@@ -13,10 +13,6 @@ export function getSplitValues( str ) {
 		return [ str ];
 	}
 	return isString( str ) ? str.match( rsplitValues ) || [] : [];
-}
-
-export function matches( ele, selector ) {
-	return core.dizzle.is( selector, ele );
 }
 
 export function handleObjectDataLoop( data, callback ) {

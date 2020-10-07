@@ -1,10 +1,5 @@
-import { isDocument, isElement } from "@varunsridharan/js-is";
-import dizzle from "dizzle";
-
+import core from "../wrap";
 export default function( sel, ctx ) {
-	if( !sel || ( !isDocument( ctx ) && !isElement( ctx ) ) ) {
-		return [];
-	}
-
-	return dizzle( sel, ctx );
+	return core.find( sel, ctx );
 }
+
