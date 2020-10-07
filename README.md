@@ -1,27 +1,69 @@
-<p align="center"> <img src="https://repository-images.githubusercontent.com/293538879/1904e000-f1a1-11ea-8783-9b6127a0c04c"/> </p>
-<p align="center"> Simple, Lightweight Wrapper For Vanilla JS </p>
+<p align="center"> <img src="https://cdn.svarun.dev/gh/varunsridharan/domq/banner.jpg"/> </p>
 
 ## What ?
-PickledVanilla is an absurdly small jQuery alternative for modern browsers (IE11+) that provides jQuery-style syntax for manipulating the DOM. Utilizing modern browser features to minimize the codebase, developers can use the familiar chainable methods at a fraction of the file size. 100% feature parity with jQuery isn't a goal, but PickledVanilla comes helpfully close, covering most day to day use cases.
+domQ is an absurdly small jQuery alternative for modern browsers (IE11+) that provides jQuery-style syntax for manipulating the DOM. Utilizing modern browser features to minimize the codebase, developers can use the familiar chainable methods at a fraction of the file size. 100% feature parity with jQuery isn't a goal, but domQ comes helpfully close, covering most day to day use cases.
 
 ## Why ?
 > I was very bored with jquery script and wanted to try something else :see_no_evil:.
 
-Well as a web developer i wanted to move out from jQuery and use Vanilla JS when i realized it i found that i had to repeate few lins of code every time i need to do some actions. so instead i just created as a library. 
+Well as a web developer i wanted to move out from jQuery and use Vanilla JS. When i realized i had to write multiple lines of code for a single action thats when i decided to create a lightweight javascript library that can do most things that `jQuery` can.
 
+## Comparison
+| Size | domQ | domQ + Dizzle | Zepto 1.2.0 | jQuery Slim 3.5.1 |
+| :---: | :--- | :---: | :---: | :---: |
+| Unminified | 48.7 KB | 80.2 KB | 58.7 KB | 250 KB | 
+| Minified | 21.5 KB | 32.4 KB | 26 KB | 70.6 KB |
+| Minified & Gzipped | 7.91KB | 11.71KB | 9.8 KB | 24.4 KB |
+
+| Features | domq | domQ + Dizzle | Zepto 1.2.0 | jQuery Slim 3.5.1 |
+| :---: | :---: |  :---: |  :---: |  :---: |
+| Supports Older Browsers | ❌ | ❌ | ❌ | ✔ |
+| Supports Modern Browsers | ✔ | ✔ | ✔ | ✔ |
+| Actively Maintained | ✔ | ✔ | ❌ | ✔ |
+| Namespaced Events | ✔ | ✔ | ❌ | ✔ |
+| jQuery Selectors | ✔ | ✔ | ⚠️(Experimental Feature)| ✔ |
+| ** Animation | ✔ | ✔ | ⚠️(Custom Workaround) ️| ❌ |
+
+
+** domQ uses [WebAnimation's](https://github.com/web-animations/web-animations-js) API
 
 ## Usage
+Get domQ from CloudFlare or jsDelivr and use it like this:
+
+### jsDelivr
+1. **domQ** : [jsDelivr](https://cdn.jsdelivr.net/npm/domq/dist/domq.standalone.umd.min.js)
+2. **domQ + Dizzle** : [jsDelivr](https://cdn.jsdelivr.net/npm/domq/dist/domq.bundled.umd.min.js)
+
+### CloudFlare
+    Coming Soon
+
 ```html
-<script src="wpopv-dist.js"></script>
-<div id="your-div-id"> some content here.... </div>
+<script src="https://cdn.jsdelivr.net/npm/domq/dist/domq.bundled.umd.min.js"></script>
+<script>
+  domQ(function () {
+    domQ('html').addClass ( 'domq-works' );
+    domQ('<footer>Appended with domQ</footer>').appendTo ( document.body );
+  });
+</script>
 ```
+
+domQ is also available through [npm](https://npmjs.com/) as the [`domq`](https://npmjs.com/package/domq) package:
+
+    npm install --save domq
+
+That you can then use like this:
+
 ```javascript
-wpopv('#your-div-id').addClass('your-class').removeClass('your-class');
+import domq from "domq";
+
+domq(function () {
+  domq('html').addClass ( 'domq-works' );
+  domq('<footer>Appended with domQ</footer>').appendTo ( document.body );
+});
 ```
 
-## Functions / Usecase
-
-Please refer the documentation inside docs folder [Docs](https://docs.pv.wponion.com)
+## Documentation
+domQ gives you a query selector, collection methods and some library methods. If you need more details about our API just check out jQuery's, while we don't implement everything that jQuery provides, everything what we do implement should be compatible with jQuery. domQ can be extended with custom methods, read how [here](https://domq.sva.wiki/developer-guides/extending-domq).
 
 
 ---
