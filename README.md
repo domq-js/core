@@ -67,7 +67,7 @@ domq(function () {
 
 ### Documentation : https://domq.sva.wiki 
 
-> Thanks To [Mannatstudio Themes](https://github.com/mannatstudio-themes) For The Awesome Logo
+> ❤️ Thanks To [Mannatstudio Themes](https://github.com/mannatstudio-themes) For The Awesome Logo
 ---
 
 ## 📝 Changelog
