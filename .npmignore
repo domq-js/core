@@ -1,0 +1,14 @@
+test/*
+./test/*
+.github/*
+.github
+.gitattributes
+.editorconfig
+website/*
+./website/*
+./stats/*
+stats/**
+stats
+test
+test/**
+test
