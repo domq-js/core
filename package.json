@@ -1,13 +1,35 @@
 {
   "name": "domq",
-  "description": "Lightweight Wrapper For Vanilla JS",
-  "version": "0.0.0",
+  "description": "~ Lightweight Wrapper For Vanilla JS ~",
+  "version": "1.0.0",
   "funding": "https://sva.onl/sponsor",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "vanilla-javascript",
+    "vanilla-js",
+    "vanillajs",
+    "tiny",
+    "jquery",
+    "html",
+    "dom",
+    "dom-query",
+    "query-dom",
+    "jquery-alternative",
+    "dom-manipulation",
+    "dom-effects",
+    "dom-api",
+    "html-dom",
+    "html-dom-element",
+    "javascript",
+    "javascript-library",
+    "javascript-dom",
+    "modern-browsers",
+    "dom-library"
+  ],
   "maintainers": [
     {
       "name": "Varun Sridharan",
@@ -19,7 +41,8 @@
     "sofy": "^1.0.7",
     "@varunsridharan/js-is": "*",
     "@varunsridharan/js-vars": "*",
-    "dizzle": "^1.0.4"
+    "dizzle": "^1.0.4",
+    "rollup-plugin-gzip": "^2.5.0"
   },
   "repositories": [
     {
