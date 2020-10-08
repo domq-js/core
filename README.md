@@ -15,7 +15,7 @@ Well as a web developer i wanted to move out from jQuery and use Vanilla JS. Whe
 | :---: | :--- | :---: | :---: | :---: |
 | Unminified | 48.7 KB | 80.2 KB | 58.7 KB | 250 KB | 
 | Minified | 21.5 KB | 32.4 KB | 26 KB | 70.6 KB |
-| Minified & Gzipped | 7.91KB | 11.71KB | 9.8 KB | 24.4 KB |
+| Minified & Gzipped | 7.80KB | 11.4KB | 9.8 KB | 24.4 KB |
 
 | Features | domq | domQ + Dizzle | Zepto 1.2.0 | jQuery Slim 3.5.1 |
 | :---: | :---: |  :---: |  :---: |  :---: |
