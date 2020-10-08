@@ -13,7 +13,7 @@ import babel from '@rollup/plugin-babel';
  */
 import { terser } from "rollup-plugin-terser";
 import compiler from '@ampproject/rollup-plugin-closure-compiler';
-
+import gzipPlugin from 'rollup-plugin-gzip'
 /**
  * Utility
  */
@@ -35,17 +35,19 @@ const files           = [
 	{ input: input_bundled, format: 'es', minify: false, type: 'bundled' },
 	{ input: input_bundled, format: 'umd', minify: false, type: 'bundled' },
 	{ input: input_bundled, format: 'umd', minify: true, type: 'bundled' },
+	{ input: input_bundled, format: 'umd', minify: true, gzip: true, type: 'bundled' },
 	{ input: input_standlone, format: 'es', minify: false, type: 'standalone' },
 	{ input: input_standlone, format: 'umd', minify: false, type: 'standalone' },
 	{ input: input_standlone, format: 'umd', minify: true, type: 'standalone' },
+	{ input: input_standlone, format: 'umd', minify: true, gzip: true, type: 'standalone' },
 ];
 
 
-const config = files.map( ( { input, format, minify, type } ) => {
+const config = files.map( ( { input, format, minify, gzip, type } ) => {
 	return {
 		input: input,
 		output: {
-			file: `./dist/${_name}.${type}.${format}${minify ? '.min' : ''}.js`,
+			file: `./dist/${type}/${_name}.${format}${minify ? '.min' : ''}.js`,
 			format: format,
 			name: _name,
 			sourcemap: true,
@@ -63,13 +65,14 @@ const config = files.map( ( { input, format, minify, type } ) => {
 				},
 				mangle: true
 			} ),
+			gzip && gzipPlugin(),
 			license( {
 				banner: `${pkg.name} v${pkg.version} | <%= moment().format('DD-MM-YYYY') %> - MIT License`
 			} ),
 			filesize(),
 			visualizer( {
 				sourcemap: true,
-				filename: `stats/${type}.${format}${minify ? '.min' : ''}.html`,
+				filename: `stats/${type}.${format}${minify ? '.min' : ''}${gzip ? '.gz' : ''}.html`,
 			} )
 		].filter( Boolean )
 	};
