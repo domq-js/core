@@ -8,6 +8,8 @@ domQ is an absurdly small jQuery alternative for modern browsers (IE11+) that pr
 
 Well as a web developer i wanted to move out from jQuery and use Vanilla JS. When i realized i had to write multiple lines of code for a single action thats when i decided to create a lightweight javascript library that can do most things that `jQuery` can.
 
+> domQ Uses [Dizzle](https://github.com/varunsridharan/dizzle) which is an alternate to jQuery's Sizzle Framework which is used for Customized CSS Selectors like `:input`, `:hidden` and **Dizzle** is bundled along with **domQ**. we both standalone & bundled versions
+
 ## Comparison
 | Size | domQ | domQ + Dizzle | Zepto 1.2.0 | jQuery Slim 3.5.1 |
 | :---: | :--- | :---: | :---: | :---: |
