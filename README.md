@@ -1,4 +1,4 @@
-<p align="center"> <img src="https://cdn.svarun.dev/gh/varunsridharan/domq-js/banner.jpg"/> </p>
+<p align="center"> <img src="https://cdn.svarun.dev/gh/domq-js/core/banner.jpg"/> </p>
 
 ## What ?
 domQ is an absurdly small jQuery alternative for modern browsers (IE11+) that provides jQuery-style syntax for manipulating the DOM. Utilizing modern browser features to minimize the codebase, developers can use the familiar chainable methods at a fraction of the file size. 100% feature parity with jQuery isn't a goal, but domQ comes helpfully close, covering most day to day use cases.
@@ -33,14 +33,14 @@ Well as a web developer i wanted to move out from jQuery and use Vanilla JS. Whe
 Get domQ from CloudFlare or jsDelivr and use it like this:
 
 ### jsDelivr
-1. **domQ** : [jsDelivr](https://cdn.jsdelivr.net/npm/domq-js/dist/domq.standalone.umd.min.js)
-2. **domQ + Dizzle** : [jsDelivr](https://cdn.jsdelivr.net/npm/domq-js/dist/domq.bundled.umd.min.js)
+1. **domQ** : [jsDelivr](https://cdn.jsdelivr.net/npm/@domq-js/core/dist/domq.standalone.umd.min.js)
+2. **domQ + Dizzle** : [jsDelivr](https://cdn.jsdelivr.net/npm/@domq-js/core/dist/domq.bundled.umd.min.js)
 
 ### CloudFlare
     Coming Soon
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/domq-js/dist/domq.bundled.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@domq-js/core/dist/domq.bundled.umd.min.js"></script>
 <script>
   domQ(function () {
     domQ('html').addClass ( 'domq-works' );
@@ -49,9 +49,9 @@ Get domQ from CloudFlare or jsDelivr and use it like this:
 </script>
 ```
 
-domQ is also available through [npm](https://npmjs.com/) as the [`domq-js`](https://npmjs.com/package/domq-js) package:
+domQ is also available through [npm](https://npmjs.com/) as the [`@domq-js/core`](https://npmjs.com/package/@domq-js/core) package:
 
-    npm install --save domq-js
+    npm install --save @domq-js/core
 
 That you can then use like this:
 
