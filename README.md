@@ -1,4 +1,4 @@
-<p align="center"> <img src="https://cdn.svarun.dev/gh/varunsridharan/domq/banner.jpg"/> </p>
+<p align="center"> <img src="https://cdn.svarun.dev/gh/varunsridharan/domq-js/banner.jpg"/> </p>
 
 ## What ?
 domQ is an absurdly small jQuery alternative for modern browsers (IE11+) that provides jQuery-style syntax for manipulating the DOM. Utilizing modern browser features to minimize the codebase, developers can use the familiar chainable methods at a fraction of the file size. 100% feature parity with jQuery isn't a goal, but domQ comes helpfully close, covering most day to day use cases.
@@ -8,14 +8,14 @@ domQ is an absurdly small jQuery alternative for modern browsers (IE11+) that pr
 
 Well as a web developer i wanted to move out from jQuery and use Vanilla JS. When i realized i had to write multiple lines of code for a single action thats when i decided to create a lightweight javascript library that can do most things that `jQuery` can.
 
-> domQ Uses [Dizzle](https://github.com/varunsridharan/dizzle) which is an alternate to jQuery's Sizzle Framework which is used for Customized CSS Selectors like `:input`, `:hidden` and **Dizzle** is bundled along with **domQ**. we both standalone & bundled versions
+> domQ Uses [Dizzle](https://github.com/varunsridharan/dizzle) which is an alternate to jQuery's Sizzle Framework which is used for Customized CSS Selectors like `:input`, `:hidden` and **Dizzle** is bundled along with **domQ**. we both standalone & bundled versions.
 
 ## Comparison
 | Size | domQ | domQ + Dizzle | Zepto 1.2.0 | jQuery Slim 3.5.1 |
 | :---: | :--- | :---: | :---: | :---: |
-| Unminified | 48.7 KB | 80.2 KB | 58.7 KB | 250 KB | 
-| Minified | 21.5 KB | 32.4 KB | 26 KB | 70.6 KB |
-| Minified & Gzipped | 7.80KB | 11.4KB | 9.8 KB | 24.4 KB |
+| Unminified | 45.9 KB | 77.4 KB | 58.7 KB | 250 KB | 
+| Minified | 20.6 KB | 31.5 KB | 26 KB | 70.6 KB |
+| Minified & Gzipped | 7.50KB | 11.1 KB | 9.8 KB | 24.4 KB |
 
 | Features | domq | domQ + Dizzle | Zepto 1.2.0 | jQuery Slim 3.5.1 |
 | :---: | :---: |  :---: |  :---: |  :---: |
