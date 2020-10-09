@@ -12,3 +12,6 @@ stats
 test
 test/**
 test
+./.idea/**
+.idea/**
+.idea

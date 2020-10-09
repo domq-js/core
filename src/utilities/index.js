@@ -15,7 +15,7 @@ core.parseHTML = parseHTML;
 core.pluck     = pluck;
 core.unique    = unique;
 core.merge     = merge;
-core.grep      = grep;
+//core.grep      = grep;
 /*
 core.getScript   = getScript;
 core.storage     = storage;
