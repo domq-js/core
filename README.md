@@ -33,14 +33,14 @@ Well as a web developer i wanted to move out from jQuery and use Vanilla JS. Whe
 Get domQ from CloudFlare or jsDelivr and use it like this:
 
 ### jsDelivr
-1. **domQ** : [jsDelivr](https://cdn.jsdelivr.net/npm/domq/dist/domq.standalone.umd.min.js)
-2. **domQ + Dizzle** : [jsDelivr](https://cdn.jsdelivr.net/npm/domq/dist/domq.bundled.umd.min.js)
+1. **domQ** : [jsDelivr](https://cdn.jsdelivr.net/npm/domq-js/dist/domq.standalone.umd.min.js)
+2. **domQ + Dizzle** : [jsDelivr](https://cdn.jsdelivr.net/npm/domq-js/dist/domq.bundled.umd.min.js)
 
 ### CloudFlare
     Coming Soon
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/domq/dist/domq.bundled.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/domq-js/dist/domq.bundled.umd.min.js"></script>
 <script>
   domQ(function () {
     domQ('html').addClass ( 'domq-works' );
@@ -49,9 +49,9 @@ Get domQ from CloudFlare or jsDelivr and use it like this:
 </script>
 ```
 
-domQ is also available through [npm](https://npmjs.com/) as the [`domq`](https://npmjs.com/package/domq) package:
+domQ is also available through [npm](https://npmjs.com/) as the [`domq-js`](https://npmjs.com/package/domq-js) package:
 
-    npm install --save domq
+    npm install --save domq-js
 
 That you can then use like this:
 
