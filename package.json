@@ -30,13 +30,7 @@
     "modern-browsers",
     "dom-library"
   ],
-  "maintainers": [
-    {
-      "name": "Varun Sridharan",
-      "email": "varunsridharan23@gmail.com",
-      "web": "https://varunsridharan.in"
-    }
-  ],
+  "author": "Varun Sridharan <varunsridharan23@gmail.com> (https://varunsridharan.in)",
   "devDependencies": {
     "sofy": "^1.0.7",
     "@varunsridharan/js-is": "*",
@@ -44,17 +38,10 @@
     "dizzle": "^1.0.4",
     "rollup-plugin-gzip": "^2.5.0"
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/varunsridharan/domq-js.git"
-    }
-  ],
-  "licenses": [
-    {
-      "name": "MIT",
-      "url": "https://github.com/varunsridharan/domq-js/blob/master/LICENSE"
-    }
-  ],
+  "repositories": {
+    "type": "git",
+    "url": "https://github.com/varunsridharan/domq-js.git"
+  },
+  "license": "MIT",
   "homepage": "https://github.com/varunsridharan/domq-js"
 }
