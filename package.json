@@ -1,5 +1,5 @@
 {
-  "name": "domq",
+  "name": "domq-js",
   "description": "~ Lightweight Wrapper For Vanilla JS ~",
   "version": "1.0.0",
   "funding": "https://sva.onl/sponsor",
@@ -47,14 +47,14 @@
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/varunsridharan/domq.git"
+      "url": "https://github.com/varunsridharan/domq-js.git"
     }
   ],
   "licenses": [
     {
       "name": "MIT",
-      "url": "https://github.com/varunsridharan/domq/blob/master/LICENSE"
+      "url": "https://github.com/varunsridharan/domq-js/blob/master/LICENSE"
     }
   ],
-  "homepage": "https://github.com/varunsridharan/domq"
+  "homepage": "https://github.com/varunsridharan/domq-js"
 }

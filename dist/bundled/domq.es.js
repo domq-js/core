@@ -1,5 +1,5 @@
 /**
- * domq v1.0.0 | 08-10-2020 - MIT License
+ * domq v1.0.0 | 09-10-2020 - MIT License
  */
 
 function isdomQ (instance) {
@@ -1736,27 +1736,9 @@ fn.find = function (selector) {
   })));
 };
 
-function grep (elems, callback, invert) {
-  var callbackInverse,
-      matches = [],
-      i = 0,
-      length = elems.length,
-      callbackExpect = !invert; // Go through the array, only saving the items
-  // that pass the validator function
-
-  for (; i < length; i++) {
-    callbackInverse = !callback(elems[i], i);
-
-    if (callbackInverse !== callbackExpect) {
-      matches.push(elems[i]);
-    }
-  }
-
-  return matches;
-}
-
 fn.even = function () {
-  return core(grep(this, function (_elem, i) {
+  //return core( grep( this, ( _elem, i ) => ( i + 1 ) % 2 ) );
+  return core(_filter.call(this, function (el, i) {
     return (i + 1) % 2;
   }));
 };
@@ -1843,20 +1825,6 @@ core.isUndefined = isUndefined;
 core.isWindow = isWindow;
 core.isdomQ = isdomQ;
 
-function getScript (url, success) {
-  var script = celem('script');
-  script.async = true;
-  script.src = url;
-
-  if (success) {
-    script.onload = function () {
-      return success();
-    };
-  }
-
-  core('script').before(script);
-}
-
 function merge (first, second) {
   var len = +second.length,
       j = 0,
@@ -1870,144 +1838,18 @@ function merge (first, second) {
   return first;
 }
 
-function CacheStorage() {}
-
-CacheStorage.prototype = {
-  get: function get(key, _default) {
-    if (_default === void 0) {
-      _default = false;
-    }
-
-    return this[key] || _default;
-  },
-  set: function set(key, data) {
-    this[key] = data;
-    return this;
-  }
-};
-var staticStorage = Object.create({
-  d: Object.create({}),
-  g: function g(name) {
-    return staticStorage.d[name] || false;
-  },
-  s: function s(name) {
-    staticStorage.d[name] = new CacheStorage();
-    return staticStorage.d[name];
-  },
-  r: function r(name) {
-    if (staticStorage.d[name]) {
-      delete staticStorage.d[name];
-    }
-  }
-});
-function storage (cacheName, remove) {
-  if (remove === void 0) {
-    remove = false;
-  }
-
-  if (remove) {
-    staticStorage.r(cacheName);
-    return this;
-  }
-
-  var isExists = staticStorage.g(cacheName);
-
-  if (!isExists) {
-    return staticStorage.s(cacheName);
-  }
-
-  return isExists;
-}
-
-/**
- * Control a sequence of objects
- *
- * @class Queue
- * @api private
- */
-var Queue = /*#__PURE__*/function () {
-  /**
-   * Create a new `Queue` instance
-   *
-   * @constructor
-   * @api public
-   */
-  function Queue() {
-    this.i = [];
-  }
-  /**
-   * Add an object to the end of
-   * the queue
-   *
-   * @param {*} item
-   * @api public
-   */
-
-
-  var _proto = Queue.prototype;
-
-  _proto.enqueue = function enqueue(item) {
-    this.i.push(item);
-  }
-  /**
-   * Remove and return the first
-   * object in the queue, return
-   * null if none exist
-   *
-   * @return {*|Null}
-   * @api public
-   */
-  ;
-
-  _proto.dequeue = function dequeue() {
-    return this.i.shift() || null;
-  }
-  /**
-   * Return the last item in the
-   * queue or null if none exist
-   *
-   * @return {*|Null}
-   * @api public
-   */
-  ;
-
-  _proto.getLast = function getLast() {
-    return this.i[this.i.length - 1] || null;
-  }
-  /**
-   * Clear the queue
-   *
-   * @api public
-   */
-  ;
-
-  _proto.clear = function clear() {
-    this.i.length = 0;
-  }
-  /**
-   * Is the queue empty?
-   *
-   * @return {Boolean}
-   * @api public
-   */
-  ;
-
-  _proto.isEmpty = function isEmpty() {
-    return this.i.length === 0;
-  };
-
-  return Queue;
-}();
-
 core.attempt = attempt;
 core.parseHTML = parseHTML;
 core.pluck = pluck;
 core.unique = unique;
-core.getScript = getScript;
-core.merge = merge;
-core.grep = grep;
-core.storage = storage;
-core.Queue = Queue;
+core.merge = merge; //core.grep      = grep;
+
+/*
+core.getScript   = getScript;
+core.storage     = storage;
+core.Queue       = Queue;
+*/
+
 core.plainObject = plainObject;
 
 var version = "1.0.0";
