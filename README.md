@@ -11,14 +11,14 @@ Well as a web developer i wanted to move out from jQuery and use Vanilla JS. Whe
 > domQ Uses [Dizzle](https://github.com/varunsridharan/dizzle) which is an alternate to jQuery's Sizzle Framework which is used for Customized CSS Selectors like `:input`, `:hidden` and **Dizzle** is bundled along with **domQ**. we both standalone & bundled versions.
 
 ## Comparison
-| Size | domQ | domQ + Dizzle | Zepto 1.2.0 | jQuery Slim 3.5.1 |
-| :---: | :--- | :---: | :---: | :---: |
+| Size | domQ | domQ + Dizzle | Zepto | jQuery Slim |
+| :--- | :--- | :---: | :---: | :---: |
 | Unminified | 45.9 KB | 77.4 KB | 58.7 KB | 250 KB | 
 | Minified | 20.6 KB | 31.5 KB | 26 KB | 70.6 KB |
 | Minified & Gzipped | 7.50KB | 11.1 KB | 9.8 KB | 24.4 KB |
 
-| Features | domq | domQ + Dizzle | Zepto 1.2.0 | jQuery Slim 3.5.1 |
-| :---: | :---: |  :---: |  :---: |  :---: |
+| Features | domq | domQ + Dizzle | Zepto | jQuery Slim |
+| :--- | :---: |  :---: |  :---: |  :---: |
 | Supports Older Browsers | ❌ | ❌ | ❌ | ✔ |
 | Supports Modern Browsers | ✔ | ✔ | ✔ | ✔ |
 | Actively Maintained | ✔ | ✔ | ❌ | ✔ |
