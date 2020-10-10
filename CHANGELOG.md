@@ -21,5 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Removed
 * `html` function from attribute category because it already exist in another category
 
+---
+
 ## 1.0 - 09/10/2020
 ### First Release
