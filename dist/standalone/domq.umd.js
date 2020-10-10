@@ -1,5 +1,5 @@
 /**
- * domq v1.0.0 | 09-10-2020 - MIT License
+ * @domq-js/core v1.0.0 | 10-10-2020 - MIT License
  */
 
 (function (global, factory) {
@@ -527,24 +527,6 @@
 	  return attrHandler.call(this, from, to, true);
 	};
 
-	fn.html = function (html) {
-	  if (!arguments.length) {
-	    return this[0] && this[0].innerHTML;
-	  }
-
-	  if (isUndefined(html)) {
-	    return this;
-	  }
-
-	  return this.each(function (i, ele) {
-	    if (!isElement(ele)) {
-	      return;
-	    }
-
-	    ele.innerHTML = access(html, i, ele);
-	  });
-	};
-
 	var cssMaps = {
 	  'class': 'className',
 	  contenteditable: 'contentEditable',
@@ -692,6 +674,18 @@
 
 	fn.slice = function (start, end) {
 	  return core(_slice.call(this, start, end));
+	};
+
+	fn.odd = function () {
+	  return core(_filter.call(this, function (el, i) {
+	    return i % 2;
+	  }));
+	};
+
+	fn.even = function () {
+	  return core(_filter.call(this, function (el, i) {
+	    return (i + 1) % 2;
+	  }));
 	};
 
 	function isCSSVariable (prop) {
@@ -1740,13 +1734,6 @@
 	  return core(unique(pluck(this, function (ele) {
 	    return _find(selector, ele);
 	  })));
-	};
-
-	fn.even = function () {
-	  //return core( grep( this, ( _elem, i ) => ( i + 1 ) % 2 ) );
-	  return core(_filter.call(this, function (el, i) {
-	    return (i + 1) % 2;
-	  }));
 	};
 
 	fn.has = function (selector) {

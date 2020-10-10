@@ -1,7 +1,7 @@
 {
   "name": "@domq-js/core",
   "description": "~ Lightweight Wrapper For Vanilla JS ~",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "funding": "https://sva.onl/sponsor",
   "scripts": {
     "build": "rollup -c",
@@ -45,4 +45,3 @@
   "license": "MIT",
   "homepage": "https://github.com/domq-js/core"
 }
-

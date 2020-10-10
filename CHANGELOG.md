@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Security
 -->
 
-## 1.1 - 10/10/2020
+## 1.0.1 - 10/10/2020
 ### Updated
 * `even` && `odd` functions moved to collection
 
