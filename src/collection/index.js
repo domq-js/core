@@ -8,3 +8,5 @@ import "./index_fn.js";
 import "./last.js";
 import "./map.js";
 import "./slice.js";
+import "./odd.js";
+import "./even.js";
