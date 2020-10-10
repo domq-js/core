@@ -42,8 +42,8 @@ jobs:
         uses: varunsridharan/action-change-log-updater@main
         with:
           REPO_NAME: ${{ env.GITBOOK_GITHUB_REPO }}
-          REMOTE_FILE: ${{ env.REMOTE_CHANGE_LOG_FILE }}
-          LOCAL_FILE: ${{ env.LOCAL_CHANGE_LOG_FILE }}
+          REMOTE_FILE: ${{ env.VS_REMOTE_CHANGE_LOG_FILE }}
+          LOCAL_FILE: ${{ env.VS_LOCAL_CHANGE_LOG_FILE }}
           GITHUB_TOKEN: ${{ secrets.GH_PUBLIC_REPO }}
 
       - name: "⚡  Repository - After Hook"
