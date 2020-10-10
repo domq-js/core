@@ -22,13 +22,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 -->
 
 ## 1.1 - 10/10/2020
-### Fixed
+### Updated
 * `even` && `odd` functions moved to collection
 
 ### Removed
 * `html` function from attribute category because it already exist in another category
-
-
 
 ## 1.0 - 09/10/2020
 ### First Release
