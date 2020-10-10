@@ -33,14 +33,14 @@ Well as a web developer i wanted to move out from jQuery and use Vanilla JS. Whe
 Get domQ from CloudFlare or jsDelivr and use it like this:
 
 ### jsDelivr
-1. **domQ** : [jsDelivr](https://cdn.jsdelivr.net/npm/@domq-js/core/dist/domq.standalone.umd.min.js)
-2. **domQ + Dizzle** : [jsDelivr](https://cdn.jsdelivr.net/npm/@domq-js/core/dist/domq.bundled.umd.min.js)
+1. **domQ** : [jsDelivr](https://cdn.jsdelivr.net/npm/@domq-js/core@1.0.0/dist/standalone/domq.umd.min.js)
+2. **domQ + Dizzle** : [jsDelivr](https://cdn.jsdelivr.net/npm/@domq-js/core@1.0.0/dist/bundled/domq.umd.min.js)
 
 ### CloudFlare
     Coming Soon
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@domq-js/core/dist/domq.bundled.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@domq-js/core@1.0.0/dist/bundled/domq.umd.min.js"></script>
 <script>
   domQ(function () {
     domQ('html').addClass ( 'domq-works' );
