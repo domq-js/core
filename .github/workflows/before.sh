@@ -1,7 +1,12 @@
 #!/bin/sh
+GITBOOK_REPO_NAME="$VS_CHANGE_LOG_ACCOUNT_NAME/domq"
 
-echo "Change Log Account Name"
-echo "$VS_CHANGE_LOG_ACCOUNT_NAME"
+echo "
+🔧  Fixing Gitbook Github Repositry Name
 
-echo "Gitbook Github Repo Name"
-echo "$GITBOOK_GITHUB_REPO"
+Existing Repo Name : $GITBOOK_GITHUB_REPO
+
+New Repo Name : $GITBOOK_REPO_NAME
+"
+
+echo "GITBOOK_GITHUB_REPO=$GITBOOK_REPO_NAME" >> $GITHUB_ENV
