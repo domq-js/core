@@ -41,7 +41,7 @@ jobs:
       - name: "📝  Updating"
         uses: varunsridharan/action-change-log-updater@main
         with:
-          REPO_NAME: ${{ env.VS_CHANGE_LOG_ACCOUNT_NAME }}/${{ env.REPOSITORY_SLUG }}
+          REPO_NAME: ${{ env.GITBOOK_GITHUB_REPO }}
           REMOTE_FILE: ${{ env.REMOTE_CHANGE_LOG_FILE }}
           LOCAL_FILE: ${{ env.LOCAL_CHANGE_LOG_FILE }}
           GITHUB_TOKEN: ${{ secrets.GH_PUBLIC_REPO }}
