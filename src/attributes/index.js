@@ -4,7 +4,6 @@ import "./hasAttr.js";
 import "./hasClass.js";
 import "./copyAttr.js";
 import "./moveAttr.js";
-import "./html.js";
 import "./prop.js";
 import "./removeAttr.js";
 import "./removeClass.js";
