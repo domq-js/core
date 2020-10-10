@@ -36,9 +36,6 @@ Get domQ from CloudFlare or jsDelivr and use it like this:
 1. **domQ** : [jsDelivr](https://cdn.jsdelivr.net/npm/@domq-js/core@1.0.0/dist/standalone/domq.umd.min.js)
 2. **domQ + Dizzle** : [jsDelivr](https://cdn.jsdelivr.net/npm/@domq-js/core@1.0.0/dist/bundled/domq.umd.min.js)
 
-### CloudFlare
-    Coming Soon
-
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@domq-js/core@1.0.0/dist/bundled/domq.umd.min.js"></script>
 <script>
