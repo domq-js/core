@@ -14,13 +14,13 @@ on:
       - dist/**
       - test/**
       - '**.md'
-      - 'babel.config.js',
-      - 'package.json',
-      - 'rollup.config.js',
-      - '.npmignore',
-      - '.gitignore',
-      - '.gitattributes',
-      - '.editorconfig',
+      - 'babel.config.js'
+      - 'package.json'
+      - 'rollup.config.js'
+      - '.npmignore'
+      - '.gitignore'
+      - '.gitattributes'
+      - '.editorconfig'
       
   schedule:
     - cron: '0 11 * * 4'
