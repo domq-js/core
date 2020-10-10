@@ -1,0 +1,58 @@
+name: Gitbook Change Log Updater
+
+env:
+  VS_WORKFLOW_TYPE: "change-log-updater"
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - 'CHANGELOG.md'
+
+jobs:
+  change_log_updater:
+    name: "📝  Change Log Updater"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "📥  Fetching Repository Contents"
+        uses: actions/checkout@main
+
+      - name: "💾  Github Repository Metadata"
+        uses: varunsridharan/action-repository-meta@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "💫  VS Utility"
+        uses: varunsridharan/action-vs-utility@main
+
+      - name: "⚡  Repository - Before Hook"
+        run: |
+          echo " "
+          if [ -f $VS_BEFORE_HOOK_FILE_LOCATION ]; then
+            echo "✅ Before Hook File Found : $VS_BEFORE_HOOK_FILE_LOCATION"
+            sh $VS_BEFORE_HOOK_FILE_LOCATION
+          else
+            echo "⚠️ No Before Hook File Found : $VS_BEFORE_HOOK_FILE_LOCATION"
+          fi
+          echo " "
+
+      - name: "📝  Updating"
+        uses: varunsridharan/action-change-log-updater@main
+        with:
+          REPO_NAME: ${{ env.VS_CHANGE_LOG_ACCOUNT_NAME }}/${{ env.REPOSITORY_SLUG }}
+          REMOTE_FILE: ${{ env.REMOTE_CHANGE_LOG_FILE }}
+          LOCAL_FILE: ${{ env.LOCAL_CHANGE_LOG_FILE }}
+          GITHUB_TOKEN: ${{ secrets.GH_PUBLIC_REPO }}
+
+      - name: "⚡  Repository - After Hook"
+        run: |
+          echo " "
+          if [ -f $VS_AFTER_HOOK_FILE_LOCATION ]; then
+            echo "✅ After Hook File Found : $VS_AFTER_HOOK_FILE_LOCATION"
+            sh $VS_AFTER_HOOK_FILE_LOCATION
+          else
+            echo "⚠️ No After Hook File Found : $VS_AFTER_HOOK_FILE_LOCATION"
+          fi
+          echo " "
